@@ -1,0 +1,36 @@
+ .all_img_display {
+     display: flex;
+     justify-content: space-around;
+     margin-bottom: 50px;
+     margin-top: 50px;
+     flex-wrap: wrap;
+ }
+
+ .all_img_display div {
+     margin: 15px;
+ }
+
+ .all_img_display img:hover {
+     cursor: pointer;
+ }
+
+ .remove_img {
+     background-color: #c34d3a;
+ }
+
+ .select_img {
+     background-color: #51c33a;
+ }
+
+ .remove_img,
+ .select_img {
+     padding: 17px;
+     color: white;
+     box-shadow: 1px 1px 7px black;
+ }
+
+ .remove_img:hover,
+ .select_img:hover {
+     cursor: pointer;
+     box-shadow: 1px 1px 17px black;
+ }

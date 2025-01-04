@@ -1,0 +1,69 @@
+.black_element {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 75px;
+}
+
+.black_element div {
+    padding: 17px;
+}
+
+.black_element div:hover {
+    background-color: white;
+    color: black;
+}
+
+.all_doc {
+
+    margin-bottom: 135px;
+}
+
+.all_doc {
+
+    width: 80%;
+    margin: auto;
+
+}
+
+.all_doc textarea,
+.all_doc input {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.all_doc textarea {
+    height: 230px;
+}
+
+.cursor_pointer:hover {
+    cursor: pointer;
+}
+
+.div_img_projet_src img {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 1px 1px 7px black;
+    text-align: center;
+}
+
+.div_img_projet_src img:hover {
+    cursor: pointer;
+
+
+}
+
+.div_img_projet_src {
+
+    margin: auto;
+    width: 300px;
+
+}
+
+.deconexion {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+}
