@@ -3,8 +3,10 @@
 ajoute information pour parse_sjon
 */
 
+
+ 
 $databaseHandler = new DatabaseHandler($dbname, $username);
-$req_sql = "SELECT * FROM $dbname WHERE id_sha1_user ='$id_sha1_user_projet_model_blog2'   ";
+$req_sql = "SELECT * FROM $dbname WHERE id_sha1_user ='$id_sha1_user_projet_info'   ";
 
 $databaseHandler->getListOfTables_Child($dbname);
 $databaseHandler->getDataFromTable2X($req_sql);
@@ -26,8 +28,7 @@ $id_sha1_user_array = [
     "date_inscription_user" => $databaseHandler->tableList_info2[12]
 ];
 
-
-
+ 
  
 
  

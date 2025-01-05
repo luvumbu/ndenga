@@ -18,41 +18,36 @@ $id_sha1_projet = $url->get_basename() ;
 
 
 require 'view/ref.php' ;
-/*
-
-require 'view/model_blog1.php' ; 
-require 'view/model_blog2.php' ; 
-require 'view/model_blog3.php' ; 
-//for($a = 0 ; $a <$kount ; $a++)
-
-for($a = 0 ; $a <$kount ; $a++)
-{
-// require 'view/model_blog11.php' ; 
-$id_sha1_projet =  $id_sha1_projet__[$a] ;
-require 'view/model_blog11.php' ; 
-array_push($projet_2 ,$namex) ; 
-}
  
-//var_dump($projet_1) ; 
-//var_dump($projet_2) ;  
+
+
+ 
+
+
+/*
 
 $finalArray = [
 
-   "admin" =>$id_sha1_user_array ,
-   "projet_1" => $id_sha1_projet_name ,
-   "projet_2" => $projet_2,
-   "projet_3"=> $projet_1
+   "admin" =>     $id_sha1_user_array,
+   "projet_1" =>  $projet_1,
+   "projet_2" =>  $projet_2,
+   "projet_3" =>  $projet_3,
+   "projet_4" =>  $projet_4
+
 ];
 
 
- */
- 
+
+*/
 
 
-//echo json_encode($finalArray, JSON_PRETTY_PRINT);
-// 
- 
-// ok 
+
+
+
+
+
+
+
 
  
  

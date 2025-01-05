@@ -3,10 +3,11 @@
 
 
 
-  
-$id_sha1_projet =$projet_2['id_sha1_projet'][$b] ;
+ 
+$id_sha1_projet =$projet_3[0]['id_sha1_projet'][$b];
+               
 
-
+//var_dump($id_sha1_projet);
  
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $req_sql = "SELECT * FROM projet WHERE id_sha1_parent_projet ='$id_sha1_projet'   ";
@@ -53,7 +54,8 @@ if($databaseHandler->tableList_info2[0]!=null) {
     }
     
     
-    $projet_3_ =  [
+
+    $projet_4_ =  [
         "id_projet" => $databaseHandler->tableList_info2[0],
         "activation_projet" => $databaseHandler->tableList_info2[1],
         "id_general" => $databaseHandler->tableList_info2[2],
@@ -87,18 +89,18 @@ if($databaseHandler->tableList_info2[0]!=null) {
     ];
 
 
-
-
+ 
  
  
 }
  
  
+
  
  
  
  
-array_push($projet_3,$projet_3_) ;
+ array_push($projet_4,$projet_4_) ;
 
  
 

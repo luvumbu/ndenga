@@ -2,8 +2,10 @@
 
 require 'view/model_blog1.php';
 require 'view/model_blog2.php';
+require 'view/model_blog3.php';
 
 $projet_3 = [] ; 
+$projet_4 = [] ; 
 //for($a = 0 ; $a <$kount ; $a++)
 
 
@@ -31,21 +33,41 @@ array_push($projet_2 ,$namex) ;
 $count = count($projet_2['id_sha1_projet']);
 
 
-for ($b = 0; $b< $count; $b++) {
-
-   
+for ($b = 0; $b< $count; $b++) {   
    require 'view/model_blog4.php';
-
 }
 
 
  
  
-//var_dump(  $id_sha1_projet_name2 ) ; 
+
+
+
+
+ 
+
+
+$count = count($projet_3[0]["id_sha1_projet"]);
+ 
+
+ 
+for ($b = 0; $b< $count; $b++) {   
+   require 'view/model_blog5.php';
+}
+
+
+
+ 
+ 
 $finalArray = [
 
    "admin" =>     $id_sha1_user_array,
    "projet_1" =>  $projet_1,
    "projet_2" =>  $projet_2,
-   "projet_3" =>  $projet_3
+   "projet_3" =>  $projet_3,
+   "projet_4" =>  $projet_4
+
 ];
+
+
+ 

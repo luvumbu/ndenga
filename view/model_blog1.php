@@ -28,7 +28,13 @@ for($a = 0 ; $a <$kount ; $a++) {
  
  
  
+
+$id_sha1_user_projet_info = $databaseHandler->tableList_info2[4][0] ; 
  
+
+ 
+
+
  
 $projet_1 =  [
 
