@@ -13,17 +13,7 @@ $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('_');
 $id_sha1_projet = $url->get_basename() ; 
-  
-
-
-
 require 'view/ref.php' ;
- 
-
-
- 
-
-
 /*
 
 $finalArray = [
@@ -33,28 +23,8 @@ $finalArray = [
    "projet_2" =>  $projet_2,
    "projet_3" =>  $projet_3,
    "projet_4" =>  $projet_4
-
 ];
+*/ 
 
-
-
-*/
-
-
-
-
-
-
-
-
-
-
- 
- 
+var_dump($finalArray) ; 
 ?>
-
-
-
-
-
-
