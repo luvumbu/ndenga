@@ -6,6 +6,11 @@ require 'view/model_blog3.php';
 
 $projet_3 = [] ; 
 $projet_4 = [] ; 
+
+
+
+
+ 
 //for($a = 0 ; $a <$kount ; $a++)
 
 

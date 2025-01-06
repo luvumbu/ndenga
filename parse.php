@@ -126,6 +126,13 @@ date_inscription_user
 </style>
 <script>
 
+var el1 = "https://luvumbu.com/blog.php/173590596151";
+
+var en_ligne ="" ;
+var local ="" ; 
+var el2 = "../blog.php/173610581617" ; 
+
+
 
 function by_id(val1,val2) {
   document.getElementById(val1).innerHTML = val2 ; 
@@ -266,8 +273,9 @@ date_inscription_projet
 
 
 
+// https://luvumbu.com/parse.php/projet__id_sha1_projet__173590596151__id_sha1_parent_projet
 
-
+// http://localhost/ndenga/parse.php/projet__id_sha1_projet__173590596151__id_sha1_parent_projet
 
 
 
@@ -282,6 +290,7 @@ date_inscription_projet
    
  
  
+  
 
 
 
@@ -302,7 +311,6 @@ console.log(propertyNames); // Affiche : ['a', 'b', 'c']
 
 
 
-
 console.log(myObj) ; 
 
  
@@ -311,7 +319,9 @@ console.log(myObj) ;
  
   }
 };
-xmlhttp.open("GET", "../json.php/"+lastSegment, true);
+//xmlhttp.open("GET", "../json.php/"+lastSegment, true);
+xmlhttp.open("GET", el1, true);
+
 xmlhttp.send();
 
  

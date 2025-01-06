@@ -11,17 +11,14 @@ $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('__');
 $id_sha1_projet = $url->get_basename() ;  
-$projet_1 = [] ; 
-$projet_2 = [] ;  
-$tabe_name = $url->get_elements()[0];
-$tabe_name_info = $url->get_elements()[1];
-$id_sha1_projet= $url->get_elements()[2];
-$tabe_name_result_parent = $url->get_elements()[3];
+// $tabe_name = $url->get_elements()[0];
+require 'view/ref.php' ;
+//echo json_encode($finalArray, JSON_PRETTY_PRINT);
+
+
+ 
+   echo json_encode($finalArray, JSON_PRETTY_PRINT);
  
 
 
-require 'view/ref.php' ;
-
-
- echo json_encode($finalArray, JSON_PRETTY_PRINT);
 ?> 
