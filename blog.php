@@ -41,7 +41,14 @@ if($json){
    echo json_encode($finalArray, JSON_PRETTY_PRINT);
 }
 else {
+
+   ?>
+
+   <h1>Mon element test </h1>
+      <?php 
    var_dump($finalArray) ; 
+
+
 
 }
 

@@ -47,6 +47,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
   require_once 'Class/Delete_file.php';
   require_once 'Class/AsciiConverter.php';
   require_once 'Class/CheckFileExists.php';
+  require_once "Class/Give_url.php";
 
 
 
@@ -91,7 +92,33 @@ $name_projet = $databaseHandler->tableList_info;
       // require_once 'view/form_creation_table_bdd.php';
       //  require_once 'view/test.php';
       if (isset($_SESSION["index"])) {
-        require_once 'view/home.php';
+
+
+        $url = new Give_url();
+        // Afficher le nom du fichier actuel
+        // Utilisation de la méthode split_basename pour séparer par "_"
+
+        $separation_url = '__';
+        $url->split_basename($separation_url);
+        $id_sha1_projet = $url->get_basename();
+
+
+
+
+        if ($url->get_elements()[0] == "index.php") {
+          require_once 'view/home.php';
+        ?>
+          <a href="blog.php/1">
+            <h3 class="projet_all">
+              Voir tous les projet
+            </h3>
+          </a>
+        <?php
+        } else {
+          require_once 'blog0.php';
+        }
+
+
 
         if ($_SESSION["index"][0] == $dbname && $_SESSION["index"][1]  == $username) {
 
@@ -110,11 +137,7 @@ $name_projet = $databaseHandler->tableList_info;
     require_once 'view/login_bdd.php';
   }
   ?>
-  <a href="blog.php/1">
-    <h3 class="projet_all">
-      Voir tous les projet
-    </h3>
-  </a>
+
 
   <?php
   // require_once 'log/log.php';

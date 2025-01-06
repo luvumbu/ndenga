@@ -320,7 +320,7 @@ console.log(myObj) ;
   }
 };
 //xmlhttp.open("GET", "../json.php/"+lastSegment, true);
-xmlhttp.open("GET", el1, true);
+xmlhttp.open("GET", el2, true);
 
 xmlhttp.send();
 

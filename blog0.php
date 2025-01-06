@@ -6,13 +6,39 @@ require_once "Class/Give_url.php" ;
 require_once "Class/DatabaseHandler.php" ; 
 require_once "Class/dbCheck.php" ; 
 require_once 'Class/AsciiConverter.php';
-//require_once 'function/add_ip.php';
-// Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
+
+
+
+
+
+
 $url = new Give_url();
 // Afficher le nom du fichier actuel
 // Utilisation de la méthode split_basename pour séparer par "_"
-$url->split_basename('_');
+
+$separation_url = '__';
+$url->split_basename($separation_url);
 $id_sha1_projet = $url->get_basename() ; 
+
+
+
+$json=false ; 
+
+if (strpos($id_sha1_projet, $separation_url) !== false) {
+   
+   $id_sha1_projet = str_replace($separation_url,"",$id_sha1_projet);
+}
+else {
+   $json = true ; 
+}
+
+
+
+
+
+
+
+
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $req_sql = "SELECT * FROM projet WHERE id_sha1_projet ='$id_sha1_projet'   ";
 
@@ -83,6 +109,9 @@ if  ($count <1){
 else {
    require_once "view/blog_articles.php" ; 
 }
+ 
+
+
  
 ?>
 </body>
