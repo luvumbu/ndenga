@@ -80,7 +80,7 @@ $date_inscription_projet_dynamic_1 = $dynamicVariables['date_inscription_projet'
  
 $count = count($date_inscription_projet_dynamic_1) ; 
 
-
+ 
 
 ?>
 <!DOCTYPE html>

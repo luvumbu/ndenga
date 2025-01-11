@@ -130,7 +130,12 @@ var el1 = "https://luvumbu.com/blog.php/173590596151";
 
 var en_ligne ="" ;
 var local ="" ; 
-var el2 = "../blog.php/173610581617" ; 
+var el2 = "../blog.php/173624585186" ; 
+var el2 = "json.json" ;
+
+var el2 = "../blog.php/173624585186" ;
+
+
 
 
 

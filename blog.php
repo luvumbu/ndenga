@@ -1,6 +1,21 @@
 <?php 
 header("Access-Control-Allow-Origin: *");
 
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<?php 
 $grande_image__ = "https://i.pinimg.com/236x/46/51/27/465127dc4dad2655628bd36e0e3c088a.jpg" ; 
 require_once "Class/Give_url.php" ; 
 require_once "Class/DatabaseHandler.php" ; 
@@ -41,14 +56,18 @@ if($json){
    echo json_encode($finalArray, JSON_PRETTY_PRINT);
 }
 else {
-
+/*
    ?>
 
    <h1>Mon element test </h1>
       <?php 
    var_dump($finalArray) ; 
 
+*/ 
+//require_once 'root_.php' ; 
 
+
+require_once 'projet_1.php' ; 
 
 }
 
@@ -56,3 +75,5 @@ else {
 
 
 ?>
+
+</body>
