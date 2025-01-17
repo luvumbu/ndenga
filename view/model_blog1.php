@@ -1,7 +1,7 @@
 <?php 
 
 $databaseHandler = new DatabaseHandler($dbname, $username);
-$req_sql = "SELECT * FROM projet WHERE id_sha1_projet ='$id_sha1_projet'   ";
+$req_sql = "SELECT * FROM projet WHERE id_sha1_projet ='$id_sha1_projet' AND visibility_1_projet !='' AND  activation_projet ='' ";
 
 $databaseHandler->getListOfTables_Child("projet");
 $databaseHandler->getDataFromTable2X($req_sql);
