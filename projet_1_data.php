@@ -28,6 +28,8 @@ $colors_array = array(
 $name_r = $url->get_elements()[0];
 
 
+$ramdom_color = $colors_array[rand(0,4)] ; 
+
 
 
 
@@ -123,6 +125,7 @@ $databaseHandler->get_dynamicVariables();
 
 
 
+  $img_projet_src1 = $databaseHandler->tableList_info2[19];
   // Exemple : affichage d'une variable dynamique spécifique
   //var_dump($projet_1 );
   // `id_sha1_projet` est une clé générée dynamiquement qui correspond à une colonne ou une donnée récupérée dans la table.
@@ -144,7 +147,7 @@ $databaseHandler->get_dynamicVariables();
 echo '
 <style>
     :root {
-  --blue: rgb(' . rand(0, 60) . ',' . rand(0, 100) . ',' . rand(0, 255) . ');
+  --blue: '.$ramdom_color.';
  
 }
 </style>
@@ -175,15 +178,16 @@ echo '<style>
 
 
 <style>
-  .id_des_2{
-    border:2px solid  var(--blue);
-    color:white ; 
-    padding:25px ; 
-    width:80% ; 
-    margin:auto ; 
-    margin-top:100px ; 
-    border-radius:8px ; 
+  .id_des_2 {
+    border: 2px solid var(--blue);
+    color: white;
+    padding: 25px;
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 8px;
   }
+
   #id_des_ {
     display: none;
   }
@@ -264,8 +268,6 @@ echo '<style>
     border-top: 45px solid var(--blue);
     bottom: -45px;
   }
-
-
 </style>
 
 
@@ -334,6 +336,18 @@ $id_sha1_projet  = $dynamicVariables['id_sha1_projet'];
 
 
 
+$date_inscription_projet  = $dynamicVariables['date_inscription_projet'];
+
+
+
+
+
+
+echo '<div class="id_des_2 total">';
+
+echo '<b> Total element : '.count($date_inscription_projet).'</b>' ; 
+echo '</div>';
+ 
 
 ?>
 
@@ -345,16 +359,43 @@ $id_sha1_projet  = $dynamicVariables['id_sha1_projet'];
 for ($i = 0; $i < count($title_projet); $i++) {
 
   echo '<div class="id_des_2">';
-      echo '<div class="h1">';
-      echo AsciiConverter::asciiToString($title_projet[$i]); // Affiche "Hello"
-      echo '</div>';
+ 
+  echo '<div class="h1">';
+  echo AsciiConverter::asciiToString($title_projet[$i]); // Affiche "Hello"
+  echo '</div>';
 
-      echo '<div>';
-      echo AsciiConverter::asciiToString($description_projet[$i]); // Affiche "Hello"
-      echo '</div>';
+
+
+
 ?>
-<button type="button" id="<?= 'id_'.$id_sha1_projet[$i] ?>" class="<?= $id_sha1_projet[$i].' section_1 id_des_3' ?>" onclick="function_projet_2(this)">Voir: <?= AsciiConverter::asciiToString($title_projet[$i]); ?> </button>
+
+
+
+  <?php
+if($img_projet_src1[$i]!=""){
+?>
+  <div class="div_img">
+    <img src="<?= $img_projet_src1[$i] ?>" alt="" srcset="">
+  </div>
+<div>
+    <b><?= $date_inscription_projet[$i] ?></b>
+</div>
+
 <?php 
+}
+
+
+  ?>
+
+  <?php
+  echo '<div>';
+  echo AsciiConverter::asciiToString($description_projet[$i]); // Affiche "Hello"
+  echo '</div>';
+  ?>
+<br/>
+
+  <button type="button" id="<?= 'id_' . $id_sha1_projet[$i] ?>" class="<?= $id_sha1_projet[$i] . ' section_1 id_des_3' ?>" onclick="function_projet_2(this)">Voir: <?= AsciiConverter::asciiToString($title_projet[$i]); ?> </button>
+<?php
   echo '</div>';
 }
 
@@ -368,11 +409,11 @@ for ($i = 0; $i < count($title_projet); $i++) {
 ?>
 
 <style>
-    .id_des_2 {
-    
-    border: 2px solid  var(--blue);
-  
- 
+  .id_des_2 {
+
+    border: 2px solid var(--blue);
+
+
 
 
     width: 80%;
@@ -382,32 +423,51 @@ for ($i = 0; $i < count($title_projet); $i++) {
     border-radius: 7px;
     margin-bottom: 75px;
   }
-  .id_des_3{
-    background-color:  var(--blue);
+
+  .id_des_3 {
+    background-color: var(--blue);
     color: white;
     border-radius: 8px;
-padding: 15px;
+    padding: 15px;
   }
-  .id_des_2 .h1{
+
+  .id_des_2 .h1 {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+  }
+
+  .div_img {
+    width: 300px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
 
   }
+
+  .div_img img {
+    width: 100%;
+  }
+
 
 
   @media only screen and (max-width: 600px) {
     .id_des_2 {
-    
-   
-  
- 
 
 
-    width: 95%;
-    border: 2px solid  rgba(0, 0, 0, 0);
 
- 
+
+
+
+      width: 95%;
+      border: 2px solid rgba(0, 0, 0, 0);
+
+
+    }
   }
-}
+
+  .total {
+    width: 300px;
+    text-align: center;
+  }
 </style>
