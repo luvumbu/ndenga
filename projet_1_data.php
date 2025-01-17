@@ -15,7 +15,14 @@ $url->split_basename('__');
 
 
 
-
+# Tableau des couleurs
+$colors_array = array(
+  '#f24118',
+  '#65baa7',
+  '#935c7c',
+  '#c0ad2d',
+  '#373319'
+);
 
 
 $name_r = $url->get_elements()[0];
