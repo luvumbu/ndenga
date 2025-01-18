@@ -223,7 +223,22 @@ display: none;
 
 
 
-     // Fonction pour récupérer les classes d'un élément par son ID et les mettre dans un tableau
+     function val_comment_function(_this) {
+       
+
+        const classArray = _this.className.split(' ');
+         console.log(classArray); // Affiche ["class1", "class2", "class3"]
+
+
+var name_ = document.getElementById("name_"+classArray[0]).value ; 
+var comment_ = document.getElementById("comment_"+classArray[0]).value ;
+
+         
+         console.log( name_) ; 
+         console.log( comment_) ; 
+
+
+     }
  </script>
 
 

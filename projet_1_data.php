@@ -28,7 +28,7 @@ $colors_array = array(
 $name_r = $url->get_elements()[0];
 
 
-$ramdom_color = $colors_array[rand(0,4)] ; 
+$ramdom_color = $colors_array[rand(0, 4)];
 
 
 
@@ -147,7 +147,7 @@ $databaseHandler->get_dynamicVariables();
 echo '
 <style>
     :root {
-  --blue: '.$ramdom_color.';
+  --blue: ' . $ramdom_color . ';
  
 }
 </style>
@@ -345,9 +345,9 @@ $date_inscription_projet  = $dynamicVariables['date_inscription_projet'];
 
 echo '<div class="id_des_2 total">';
 
-echo '<b> Total element : '.count($date_inscription_projet).'</b>' ; 
+echo '<b> Total element : ' . count($date_inscription_projet) . '</b>';
 echo '</div>';
- 
+
 
 ?>
 
@@ -359,7 +359,7 @@ echo '</div>';
 for ($i = 0; $i < count($title_projet); $i++) {
 
   echo '<div class="id_des_2">';
- 
+
   echo '<div class="h1">';
   echo AsciiConverter::asciiToString($title_projet[$i]); // Affiche "Hello"
   echo '</div>';
@@ -372,17 +372,17 @@ for ($i = 0; $i < count($title_projet); $i++) {
 
 
   <?php
-if($img_projet_src1[$i]!=""){
-?>
-  <div class="div_img">
-    <img src="<?= $img_projet_src1[$i] ?>" alt="" srcset="">
-  </div>
-<div>
-    <b><?= $date_inscription_projet[$i] ?></b>
-</div>
+  if ($img_projet_src1[$i] != "") {
+  ?>
+    <div class="div_img">
+      <img src="<?= $img_projet_src1[$i] ?>" alt="" srcset="">
+    </div>
+    <div>
+      <b><?= $date_inscription_projet[$i] ?></b>
+    </div>
 
-<?php 
-}
+  <?php
+  }
 
 
   ?>
@@ -392,9 +392,24 @@ if($img_projet_src1[$i]!=""){
   echo AsciiConverter::asciiToString($description_projet[$i]); // Affiche "Hello"
   echo '</div>';
   ?>
-<br/>
+  <br />
 
   <button type="button" id="<?= 'id_' . $id_sha1_projet[$i] ?>" class="<?= $id_sha1_projet[$i] . ' section_1 id_des_3' ?>" onclick="function_projet_2(this)">Voir: <?= AsciiConverter::asciiToString($title_projet[$i]); ?> </button>
+
+  <div class="add_comment">
+    <div>
+      <input type="text" placeholder="Votre nom" id="<?= 'name_' . $id_sha1_projet[$i] ?>">
+    </div>
+    <div>
+      <textarea name="" id="<?= 'comment_' . $id_sha1_projet[$i] ?>"></textarea>
+    </div>
+
+    <div onclick="val_comment_function(this)" class="<?= $id_sha1_projet[$i].' val_comment'  ?>" placeholder="Votre commentaire">Valider commentaire</div>
+  </div>
+
+
+
+
 <?php
   echo '</div>';
 }
@@ -430,7 +445,37 @@ if($img_projet_src1[$i]!=""){
     border-radius: 8px;
     padding: 15px;
   }
+  .val_comment {
+    background-color: var(--blue);
+    width: 300px;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 7px;
 
+  }
+  .val_comment:hover{
+    cursor: pointer;
+  }
+.add_comment {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+.add_comment input {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 25px;
+  padding: 3px;
+  border-radius: 7px;
+}
+.add_comment textarea {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 25px;
+  padding: 7px;
+  border-radius: 7px;
+}
   .id_des_2 .h1 {
     text-align: center;
     margin-top: 50px;

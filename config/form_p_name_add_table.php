@@ -100,6 +100,14 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("projet_img");
+
+
+// 
+
+
+
+
+// 
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_visit_user");
 $databaseHandler->set_column_names("id_projet_visit_user");
@@ -134,6 +142,24 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("visit_user");
+
+
+
+
+// 
+
+
+
+//
+
+
+
+
+
+
+
+
+
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_option_projet");
 $databaseHandler->set_column_names("start_option_projet");
@@ -255,4 +281,62 @@ $databaseHandler->add_table('group_projet');
 $req_sqlxx = 'SELECT * FROM `'.$input_1.'` WHERE `nom_user`="'.$input_1.'"  AND `password_user` ="'.$input_2.'" ';
 $databaseHandlerxx = new DatabaseHandler($input_1, $input_2);
 $databaseHandlerxx->getDataFromTable($req_sqlxx, "nom_user");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$databaseHandler = new DatabaseHandler($input_1,$input_2); 
+$databaseHandler->set_column_names("id_comment_user");
+$databaseHandler->set_column_names("id_projet_comment_user");
+$databaseHandler->set_column_names("ip1_comment_user");
+$databaseHandler->set_column_names("ip2_comment_user");
+$databaseHandler->set_column_names("ip3_comment_user");
+$databaseHandler->set_column_names("ip4_comment_user");
+$databaseHandler->set_column_names("ip5_comment_user");
+$databaseHandler->set_column_names("ip6_comment_user");
+$databaseHandler->set_column_names("ip7_comment_user");
+$databaseHandler->set_column_names("ip8_comment_user");
+$databaseHandler->set_column_names("ip9_comment_user");
+$databaseHandler->set_column_names("x_comment_user");
+$databaseHandler->set_column_names("y_comment_user");
+$databaseHandler->set_column_names("click_comment_user");
+$databaseHandler->set_column_names("screen_shoot_comment_user");
+$databaseHandler->set_column_names("timestamp_comment_user");
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table("comment_projet");
 ?>
