@@ -396,6 +396,17 @@ for ($i = 0; $i < count($title_projet); $i++) {
 
   <button type="button" id="<?= 'id_' . $id_sha1_projet[$i] ?>" class="<?= $id_sha1_projet[$i] . ' section_1 id_des_3' ?>" onclick="function_projet_2(this)">Voir: <?= AsciiConverter::asciiToString($title_projet[$i]); ?> </button>
 
+
+
+
+  <div>
+  Commentaires
+</div>
+<?php 
+
+require 'comment.php' ; 
+?>
+
   <div class="add_comment">
     <div>
       <input type="text" placeholder="Votre nom" id="<?= 'name_' . $id_sha1_projet[$i] ?>">
@@ -411,6 +422,9 @@ for ($i = 0; $i < count($title_projet); $i++) {
 
 
 <?php
+
+
+echo $id_sha1_projet[$i] ; 
   echo '</div>';
 }
 
