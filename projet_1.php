@@ -15,6 +15,8 @@
     $title_projet_1 = $projet_1["title_projet"][0];
 
 
+
+
     /*
 
 
@@ -35,9 +37,19 @@ $finalArray = [
  <div class="title_projet_1">
      <div>
          <h1><?= $title_projet_1 ?></h1>
-
      </div>
  </div>
+ <?php
+
+    $img_projet_src1 = $projet_1["img_projet_src1"][0];
+
+
+    ?>
+
+ <div class="img_projet_src1">
+     <img src="<?= $img_projet_src1 ?>" alt="">
+ </div>
+
 
  <link rel="stylesheet" href="../css_hexagon.css">
  <?php
@@ -56,7 +68,6 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
     ?>
-
 
  <div class="projet_2">
 
@@ -96,9 +107,56 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
         }
         ?>
+
+
+
+
+
  </div>
 
  <div id="section_1"></div>
+ <?php
+
+    for ($i = 0; $i < count($projet_2["title_projet"]); $i++) {
+
+
+
+    ?>
+     <div class="liste_elements_">
+
+
+         <div>
+             <h3 style="text-align:center">
+                 <?php
+
+
+
+                    if ($description_projet_2[$i] != "") {
+                        echo  $title_projet_2[$i];
+                        $class_element= "" ;
+                    }
+                    else  {
+                        $class_element= "display_none" ;
+
+                    }
+                    ?>
+             </h3>
+         </div>
+    
+     <div>
+         <?= $description_projet_2[$i] ?>
+     </div>
+     <div class="<?= $class_element ?>">
+        Voir <?=    $title_projet_2[$i]; ?>
+     </div>
+     </div>
+ <?php
+
+    }
+    ?>
+
+
+
 
 
 
@@ -107,6 +165,16 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
  <style>
+     .liste_elements_ {
+         margin-top: 75px;
+         width: 80%;
+         margin: auto;
+         margin-top: 75px;
+         margin-bottom: 75px;
+
+         
+     }
+
      .title_projet_1 {
          background-color: #bd4a23;
          color: white;
@@ -223,29 +291,28 @@ var_dump($projet_2["id_sha1_projet"]) ;
      }
 
      class Information {
-    constructor(link) {
-        this.link = link;
-        this.identite = new FormData();
-        this.req = new XMLHttpRequest();
-        this.identite_tab = [
-        ];
-    }
-    info() {
-        return this.identite_tab; 
-    }
-    add(info, text){
-        this.identite_tab.push([info, text]); 
-    }
-    push(){
-        for(var i = 0 ; i < this.identite_tab.length ; i++){
-            console.log(this.identite_tab[i][1]);
-            this.identite.append(this.identite_tab[i][0], this.identite_tab[i][1]);		 
-        }		
-        this.req.open("POST",this.link);
-        this.req.send(this.identite);
-        console.log(this.req);	 
-    }
-}
+         constructor(link) {
+             this.link = link;
+             this.identite = new FormData();
+             this.req = new XMLHttpRequest();
+             this.identite_tab = [];
+         }
+         info() {
+             return this.identite_tab;
+         }
+         add(info, text) {
+             this.identite_tab.push([info, text]);
+         }
+         push() {
+             for (var i = 0; i < this.identite_tab.length; i++) {
+                 console.log(this.identite_tab[i][1]);
+                 this.identite.append(this.identite_tab[i][0], this.identite_tab[i][1]);
+             }
+             this.req.open("POST", this.link);
+             this.req.send(this.identite);
+             console.log(this.req);
+         }
+     }
 
 
 
@@ -270,16 +337,56 @@ var_dump($projet_2["id_sha1_projet"]) ;
          ok.add("text_comment_projet", comment_); // ajout d'une deuxieme information denvoi
          ok.add("id_sha1_comment_projet", classArray[0]); // ajout d'une deuxieme information denvoi 
 
-         
-         
-         
+
+
+
          console.log(ok.info()); // demande l'information dans le tableau
          ok.push(); // envoie l'information au code pkp 
 
 
-     //    _this.style.display ="none" ; 
+         //    _this.style.display ="none" ; 
 
 
 
      }
+
+
+     function val_comment_function2(_this) {
+         const classArray = _this.className.split(' ');
+         console.log(classArray); // Affiche ["class1", "class2", "class3"]
+
+
+         var name_ = document.getElementById("name_" + classArray[0]).value;
+         var comment_ = document.getElementById("comment_" + classArray[0]).value;
+
+
+         console.log(name_);
+         console.log(comment_);
+
+
+
+         var ok = new Information("../config/add_commet.php"); // création de la classe 
+         ok.add("name_comment_projet", name_); // ajout de l'information pour lenvoi 
+         ok.add("text_comment_projet", comment_); // ajout d'une deuxieme information denvoi
+         ok.add("id_sha1_comment_projet", classArray[0]); // ajout d'une deuxieme information denvoi 
+
+
+
+
+         console.log(ok.info()); // demande l'information dans le tableau
+         ok.push(); // envoie l'information au code pkp 
+     }
  </script>
+
+
+ <style>
+     .img_projet_src1 {
+         max-width: 600px;
+         margin: auto;
+         margin-top: 75px;
+     }
+
+     .img_projet_src1 img {
+         width: 100%;
+     }
+ </style>

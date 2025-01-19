@@ -307,6 +307,8 @@ $databaseHandlerxx->getDataFromTable($req_sqlxx, "nom_user");
 
 $databaseHandler = new DatabaseHandler($input_1,$input_2); 
 $databaseHandler->set_column_names("id_comment_user");
+$databaseHandler->set_column_names("id_parent_user");
+
 $databaseHandler->set_column_names("id_projet_comment_user");
 $databaseHandler->set_column_names("ip1_comment_user");
 $databaseHandler->set_column_names("ip2_comment_user");
@@ -325,6 +327,8 @@ $databaseHandler->set_column_names("timestamp_comment_user");
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

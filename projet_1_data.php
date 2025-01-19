@@ -30,7 +30,7 @@ $name_r = $url->get_elements()[0];
 
 $ramdom_color = $colors_array[rand(0, 4)];
 
-
+$count_colors_array = count($colors_array);
 
 
 
@@ -68,6 +68,17 @@ $databaseHandler->get_dynamicVariables();
 
 ?>
 
+
+<style>
+  .projet_1_data{
+  
+    flex-wrap: wrap;
+
+  }
+  .projet_1_data div {
+    margin: 50px;
+  }
+</style>
 <div class="projet_1_data">
 
 
@@ -76,7 +87,7 @@ $databaseHandler->get_dynamicVariables();
   for ($i = 0; $i < count($databaseHandler->tableList_info2[13]); $i++) {
 
 
-    echo "<div id='id_" . $sha1_[$i] . "' class='" . $sha1_[$i] . " section_1 hexagon' onclick='function_projet_2(this)'>";
+    echo "<div  style='background-color:".$colors_array[fmod( $i,$count_colors_array)]."' id='id_" . $sha1_[$i] . "' class='" . $sha1_[$i] . " section_1 hexagon' onclick='function_projet_2(this)'>";
     echo AsciiConverter::asciiToString($databaseHandler->tableList_info2[13][$i]); // Affiche "Hello"
     echo "</div>";
   }
@@ -374,6 +385,7 @@ for ($i = 0; $i < count($title_projet); $i++) {
   <?php
   if ($img_projet_src1[$i] != "") {
   ?>
+
     <div class="div_img">
       <img src="<?= $img_projet_src1[$i] ?>" alt="" srcset="">
     </div>
@@ -399,8 +411,11 @@ for ($i = 0; $i < count($title_projet); $i++) {
 
 
 
-  <div>
-  Commentaires
+  <div class="say_comm">
+  
+  <b>
+    Commentaires
+  </b>
 </div>
 <?php 
 
@@ -408,6 +423,7 @@ require 'comment.php' ;
 ?>
 
   <div class="add_comment">
+    
     <div>
       <input type="text" placeholder="Votre nom" id="<?= 'name_' . $id_sha1_projet[$i] ?>">
     </div>
@@ -424,7 +440,7 @@ require 'comment.php' ;
 <?php
 
 
-echo $id_sha1_projet[$i] ; 
+ 
   echo '</div>';
 }
 
@@ -438,6 +454,15 @@ echo $id_sha1_projet[$i] ;
 ?>
 
 <style>
+
+  .repondre{
+    background-color: black;
+    color: white;
+    padding: 7px;
+    margin-bottom: 15px;
+    width: 300px;
+    text-align: center;
+  }
   .id_des_2 {
 
     border: 2px solid var(--blue);
@@ -507,7 +532,11 @@ echo $id_sha1_projet[$i] ;
   .div_img img {
     width: 100%;
   }
+.say_comm{
+  margin-top: 25px;
+  margin-bottom: 25px;
 
+}
 
 
   @media only screen and (max-width: 600px) {
@@ -529,4 +558,24 @@ echo $id_sha1_projet[$i] ;
     width: 300px;
     text-align: center;
   }
+</style>
+
+<style>
+    .total_comment{
+        background-color:  var(--blue);
+        color: white;
+    }
+    .total_comment_1 {
+border-bottom : 1px solid black ;
+padding: 5px;
+
+    }
+    .total_comment_2{
+        background-color:  var(--blue);
+        margin-bottom: 25px;
+        padding: 25px;
+    }
+
+
+   
 </style>

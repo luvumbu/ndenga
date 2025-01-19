@@ -1,8 +1,5 @@
 <?php 
 header("Access-Control-Allow-Origin: *");
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +66,6 @@ else {
 
 */ 
 //require_once 'root_.php' ; 
-
 
 require_once 'projet_1.php' ; 
 
