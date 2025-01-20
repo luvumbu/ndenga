@@ -200,7 +200,11 @@ $mainTableName2 = $mainTableName  ;
 $databaseHandler = new DatabaseHandler($dbname,$username); 
 $databaseHandler->set_column_names("id_comment_projet");
 $databaseHandler->set_column_names("id_general");
+
+$databaseHandler->set_column_names("id_parent_general");
 $databaseHandler->set_column_names("id_sha1_comment_projet");
+$databaseHandler->set_column_names("id_user_sha1_comment_projet");
+
 $databaseHandler->set_column_names("start_comment_projet");
 $databaseHandler->set_column_names("text_comment_projet");
 $databaseHandler->set_column_names("name_comment_projet");
@@ -216,6 +220,9 @@ $databaseHandler->set_column_names("ip8_comment_projet");
 $databaseHandler->set_column_names("ip9_comment_projet");
 $databaseHandler->set_column_names("timestamp_comment_projet");
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

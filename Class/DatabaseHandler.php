@@ -1,8 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 class DatabaseHandler
-{
-    public $servername = "localhost";
+{    public $servername = "localhost";
     public $username;
     public $password;
     public $verif = true;
@@ -14,18 +13,11 @@ class DatabaseHandler
     public $tableList_info = array();
     public $tableList_info2 = [];
     public $table_name_and_child;
-
     public $table_name_general;
     public $sql_general;
-
     public $mysql_general;
     public $table_general;
-
-
-
-
     public $column_names = array();
-
     public $column_types = array();
     function __construct($username, $password)
     {
@@ -50,19 +42,12 @@ class DatabaseHandler
             } else {
                 //  echo "Error creating database: " . $conn->error;
             }
-
             $conn->close();
-        }
+                }
     }
-
     function function_affiche_all()
-    {
-      
-
- 
-   
+    {   
     }
-
     function set_mysql_general($mysql_general)
     {
 
@@ -73,7 +58,6 @@ class DatabaseHandler
     {
         $this->table_general = $table_general;
     }
-
     function set_table_name_general($table_name_general)
     {
         $this->table_name_general = $table_name_general;
@@ -87,12 +71,8 @@ class DatabaseHandler
 
     function set_sql_general($sql_general)
     {
-
         $this->sql_general  = $sql_general;
     }
-
-
-
     function existance_table($table_a_verifier)
     {
         // Connexion à la base de données
@@ -116,11 +96,9 @@ class DatabaseHandler
         } else {
             return "0";
         }
-
         // Fermeture de la connexion
         $connexion->close();
     }
-
     function getTables()
     {
         if ($this->verif) {
@@ -144,15 +122,11 @@ class DatabaseHandler
     }
     function getListOfTables()
     {
-
         // Donne la liste de tables dans la Bdd
         // ont peut faire aussi
         //var_dump($this->tableList) ;
-
         return $this->tableList;
     }
-
-
     function general_dynamique()
     {
         $this->getListOfTables_Child($this->table_general);
@@ -175,12 +149,8 @@ class DatabaseHandler
             }
             $this->connection_child->close();
         }
-
         return $this->tableList_child;
     }
-
- 
-
     function getListOfTables_Child2($tableName)
     {
         if ($this->verif) {
@@ -219,10 +189,7 @@ class DatabaseHandler
             $this->connection_child->close();
         }
         $this->tableList_info2[] = $this->tableList_info;
-    }
-
-
-    function getDataFromTable2X($sql)
+    }    function getDataFromTable2X($sql)
     {
         foreach ($this->tableList_child as $row) {
             $this->getDataFromTable($sql, $row);
@@ -327,7 +294,6 @@ class DatabaseHandler
     {
         return $this->tableList_info;
     }
-
     function get_dynamicVariables()
     {
         global $dynamicVariables; // Rend la variable accessible globalement
@@ -338,19 +304,13 @@ class DatabaseHandler
                 $dynamicVariables[strtolower($nom)] = $this->tableList_info2[$index];
             }
         }
-
         /*
        // exemple utilisation 
         $databaseHandler->get_dynamicVariables();
         // Utilisation des données dynamiques
        // global $dynamicVariables;
        // var_dump($dynamicVariables['id_sha1_user']);
-
         */
-
-
-
-
         /*
 
         // autre méthode 
@@ -360,16 +320,9 @@ foreach ($databaseHandler->tableList_child as $index => $nom) {
         ${strtolower($nom)} = $databaseHandler->tableList_info2[$index]; // Crée une variable avec le nom en minuscule
     }
 }
-
-
-
-
 var_dump($id_sha1_user );
-
 */
     }
-
-
     function get_dynamicVariables_general()
     {
         global $dynamicVariables; // Rend la variable accessible globalement
@@ -382,11 +335,6 @@ var_dump($id_sha1_user );
         }
     }
 }
-
-
-
-
-
  ?>
 
 <?php 
@@ -501,12 +449,7 @@ $databaseHandler->add_table($nom_table_ajout); // Nom de la table à créer : "u
  * - `add_table` crée la table avec les colonnes et types spécifiés.
  * - Vérifiez que la table n'existe pas déjà dans la base de données avant d'exécuter ce script.
  */
-
 ?>
-
-
-
-
 <?php 
 /*
  * Exemple d'utilisation des variables dynamiques
@@ -548,12 +491,7 @@ var_dump($dynamicVariables['id_sha1_projet']);
  * - Assurez-vous que les noms de colonnes dans `$dynamicVariables` existent dans la table cible.
  * - Cette approche peut être utilisée pour des tâches nécessitant une flexibilité dans le traitement des données.
  */
-
 ?>
-
-
-
-
 <?php 
 /*
  * Exemple de vérification de l'existence d'une table dans une base de données.
@@ -586,10 +524,7 @@ echo $existance_table_;
  * - Vous pouvez utiliser ce résultat pour décider si une table doit être créée, modifiée ou utilisée.
  * - En cas de connexion échouée ou d'erreur de base de données, assurez-vous que votre classe gère correctement les exceptions.
  */
-
 ?>
-
-
 <?php
 /*
 // Déclaration des identifiants de connexion à la base de données
@@ -617,9 +552,6 @@ var_dump($a);
 // Le code ici sert à rechercher et récupérer tous les noms des tables présentes dans la base de données
 */
 ?>
-
-
-
 <?php 
 
 /*
@@ -655,11 +587,7 @@ var_dump($a);
 
 // Le code sert à rechercher et récupérer tous les noms des tables dans la base de données 
 */
-
 ?>
-
-
-
 <?php 
 
 /*
@@ -692,10 +620,6 @@ var_dump($a);
 */
 
 ?>
-
- 
-
-
 <?php 
 /*
 
@@ -731,8 +655,6 @@ var_dump($a);
 
 */
 ?>
-
-
 <?php 
 // Ajouter une table différemment dans la base de données
 /*
@@ -779,12 +701,7 @@ foreach ($columns as $name => $type) {
 $databaseHandler->add_table($table_name);
 
 */ 
-
-?>
-
- 
- 
- 
+?> 
 <?php 
 /*
 // Mise à jour dans la base de données
@@ -808,9 +725,6 @@ $databaseHandler->action_sql('UPDATE `projet` SET `activation_projet` = "off" WH
 // Exemple de mise à jour d'un enregistrement dans une table spécifique
 */
 ?>
-
-
-
 <?php 
 /*
 
@@ -835,8 +749,6 @@ $databaseHandler->action_sql("DELETE FROM `projet` WHERE `id_projet` = '11'");
 // Exemple de suppression d'un élément dans une table spécifique
 */
 ?>
-
-
 <?php 
  /*
 

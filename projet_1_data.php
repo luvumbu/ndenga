@@ -1,4 +1,5 @@
 <?php
+session_start() ; 
 
 
 require_once "Class/Give_url.php";
@@ -30,7 +31,7 @@ $name_r = $url->get_elements()[0];
 
 $ramdom_color = $colors_array[rand(0, 4)];
 
-$count_colors_array = count($colors_array);
+
 
 
 
@@ -68,27 +69,16 @@ $databaseHandler->get_dynamicVariables();
 
 ?>
 
-
-<style>
-  .projet_1_data{
-  
-    flex-wrap: wrap;
-
-  }
-  .projet_1_data div {
-    margin: 50px;
-  }
-</style>
 <div class="projet_1_data">
 
 
   <?php
   $sha1_ =  $databaseHandler->tableList_info2[5];
-  for ($i = 0; $i < count($databaseHandler->tableList_info2[13]); $i++) {
+  for ($i_a = 0; $i_a < count($databaseHandler->tableList_info2[13]); $i_a++) {
 
 
-    echo "<div  style='background-color:".$colors_array[fmod( $i,$count_colors_array)]."' id='id_" . $sha1_[$i] . "' class='" . $sha1_[$i] . " section_1 hexagon' onclick='function_projet_2(this)'>";
-    echo AsciiConverter::asciiToString($databaseHandler->tableList_info2[13][$i]); // Affiche "Hello"
+    echo "<div id='id_" . $sha1_[$i_a] . "' class='" . $sha1_[$i_a] . " section_1 hexagon' onclick='function_projet_2(this)'>";
+    echo AsciiConverter::asciiToString($databaseHandler->tableList_info2[13][$i_a]); // Affiche "Hello"
     echo "</div>";
   }
 
@@ -342,6 +332,8 @@ echo '<style>
 
 $title_projet  = $dynamicVariables['title_projet'];
 $description_projet  = $dynamicVariables['description_projet'];
+$img_projet_src1  = $dynamicVariables['img_projet_src1'];
+
 $id_sha1_projet  = $dynamicVariables['id_sha1_projet'];
 
 
@@ -358,7 +350,7 @@ echo '<div class="id_des_2 total">';
 
 echo '<b> Total element : ' . count($date_inscription_projet) . '</b>';
 echo '</div>';
-
+echo '</div>';
 
 ?>
 
@@ -367,95 +359,103 @@ echo '</div>';
 
 <?php
 
-for ($i = 0; $i < count($title_projet); $i++) {
+for ($ii = 0; $ii < count($title_projet); $ii++) {
+  echo '<div class="id_des_2" >';
 
-  echo '<div class="id_des_2">';
+  echo '<b>' . $id_sha1_projet[$ii] . '</b>';
+
+
+
 
   echo '<div class="h1">';
-  echo AsciiConverter::asciiToString($title_projet[$i]); // Affiche "Hello"
+  echo AsciiConverter::asciiToString($title_projet[$ii]); // Affiche "Hello"
   echo '</div>';
-
-
-
 
 ?>
-
-
-
-  <?php
-  if ($img_projet_src1[$i] != "") {
-  ?>
-
-    <div class="div_img">
-      <img src="<?= $img_projet_src1[$i] ?>" alt="" srcset="">
-    </div>
-    <div>
-      <b><?= $date_inscription_projet[$i] ?></b>
-    </div>
+  <div class="taille_img">
+    <img src="<?= $img_projet_src1[$ii] ?>" alt="" srcset="">
+  </div>
 
   <?php
-  }
 
-
-  ?>
-
-  <?php
+  echo '<div  >';
   echo '<div>';
-  echo AsciiConverter::asciiToString($description_projet[$i]); // Affiche "Hello"
+
+  echo '<b class="grey_">' . $date_inscription_projet[$ii] . '</b>';
   echo '</div>';
+
+  echo AsciiConverter::asciiToString($description_projet[$ii]); // Affiche "Hello"
+  echo '</div>';
+
+
+
   ?>
-  <br />
-
-  <button type="button" id="<?= 'id_' . $id_sha1_projet[$i] ?>" class="<?= $id_sha1_projet[$i] . ' section_1 id_des_3' ?>" onclick="function_projet_2(this)">Voir: <?= AsciiConverter::asciiToString($title_projet[$i]); ?> </button>
 
 
 
 
-  <div class="say_comm">
-  
-  <b>
-    Commentaires
-  </b>
-</div>
 <?php 
 
-require 'comment.php' ; 
+ 
+ 
+ 
+
+ 
+ require 'comment.php' ; 
+
+
+
+if(isset($_SESSION["index"])){
+  
+
 ?>
+<h3 style='margin-top:75px'>Ajouter un commentaire</h3>
 
-  <div class="add_comment">
-    
+  <div class="div_comment">
     <div>
-      <input type="text" placeholder="Votre nom" id="<?= 'name_' . $id_sha1_projet[$i] ?>">
+      <textarea name="" id="<?= 'text_'.$id_sha1_projet[$ii] ?>" placeholder="votre text"></textarea>
     </div>
-    <div>
-      <textarea name="" id="<?= 'comment_' . $id_sha1_projet[$i] ?>"></textarea>
-    </div>
-
-    <div onclick="val_comment_function(this)" class="<?= $id_sha1_projet[$i].' val_comment'  ?>" placeholder="Votre commentaire">Valider commentaire</div>
+    <div onclick="envoie_comment(this)" class="<?= $id_sha1_projet[$ii].' val_comment_function' ?>"> ENVOYER</div>
   </div>
 
 
-
-
 <?php
 
-
- 
+}
   echo '</div>';
+
+
+
+
 }
 
 
 
 
 
-
-
-
+?>
+<?php 
 ?>
 
-<style>
 
-  .repondre{
+
+
+
+<style>
+  .div_comment {
+    margin-top: 75px;
+  }
+  .div_comment input ,.div_comment textarea {
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  .grey_ {
+    color: gray;
+
+  }
+
+  .repondre {
     background-color: black;
     color: white;
     padding: 7px;
@@ -463,6 +463,7 @@ require 'comment.php' ;
     width: 300px;
     text-align: center;
   }
+
   .id_des_2 {
 
     border: 2px solid var(--blue);
@@ -484,6 +485,7 @@ require 'comment.php' ;
     border-radius: 8px;
     padding: 15px;
   }
+
   .val_comment {
     background-color: var(--blue);
     width: 300px;
@@ -493,28 +495,33 @@ require 'comment.php' ;
     border-radius: 7px;
 
   }
-  .val_comment:hover{
+
+  .val_comment:hover {
     cursor: pointer;
   }
-.add_comment {
-  margin-top: 50px;
-  margin-bottom: 50px;
 
-}
-.add_comment input {
-  width: 100%;
-  margin: auto;
-  margin-bottom: 25px;
-  padding: 3px;
-  border-radius: 7px;
-}
-.add_comment textarea {
-  width: 100%;
-  margin: auto;
-  margin-bottom: 25px;
-  padding: 7px;
-  border-radius: 7px;
-}
+  .add_comment {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+  }
+
+  .add_comment input {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 25px;
+    padding: 3px;
+    border-radius: 7px;
+  }
+
+  .add_comment textarea {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 25px;
+    padding: 7px;
+    border-radius: 7px;
+  }
+
   .id_des_2 .h1 {
     text-align: center;
     margin-top: 50px;
@@ -532,11 +539,12 @@ require 'comment.php' ;
   .div_img img {
     width: 100%;
   }
-.say_comm{
-  margin-top: 25px;
-  margin-bottom: 25px;
 
-}
+  .say_comm {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+  }
 
 
   @media only screen and (max-width: 600px) {
@@ -561,21 +569,42 @@ require 'comment.php' ;
 </style>
 
 <style>
-    .total_comment{
-        background-color:  var(--blue);
-        color: white;
-    }
-    .total_comment_1 {
-border-bottom : 1px solid black ;
-padding: 5px;
+  .total_comment {
+    background-color: var(--blue);
+    color: white;
+  }
 
-    }
-    .total_comment_2{
-        background-color:  var(--blue);
-        margin-bottom: 25px;
-        padding: 25px;
-    }
+  .total_comment_1 {
+    border-bottom: 1px solid black;
+    padding: 5px;
 
+  }
 
-   
+  .total_comment_2 {
+    background-color: var(--blue);
+    margin-bottom: 25px;
+    padding: 25px;
+  }
+
+  .taille_img {
+    width: 300px;
+    margin: auto;
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+
+  .taille_img img {
+    width: 100%;
+  }
+  .val_comment_function{
+    background-color: var(--blue);
+    color: white;
+    padding: 10px;
+    width: 150px;
+    text-align: center
+
+  }
+  .val_comment_function:hover{
+    cursor: pointer;
+  }
 </style>

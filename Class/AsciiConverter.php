@@ -1,5 +1,4 @@
 <?php
-
 class AsciiConverter
 {
     // Méthode pour convertir une chaîne de valeurs ASCII en chaîne de caractères
@@ -17,7 +16,6 @@ class AsciiConverter
         }
         return $string;
     }
-
     // Méthode pour convertir une chaîne de caractères en valeurs ASCII
     public static function stringToAscii($string)
     {
@@ -28,25 +26,18 @@ class AsciiConverter
             // Convertir le caractère en valeur ASCII
             $asciiArray[] = ord($string[$i]);
         }
-
         // Joindre les valeurs ASCII avec des virgules
         return implode(',', $asciiArray);
     }
 }
-
-
-
-
 /*
 // Exemple d'utilisation
 $asciiString = "72, 101, 108, 108, 111";
 $string = "Hello";
-
 // Conversion de ASCII à chaîne de caractères
 echo AsciiConverter::asciiToString($asciiString); // Affiche "Hello"
 
 // Conversion de chaîne de caractères à ASCII
 echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"
-
-
 */
+?>

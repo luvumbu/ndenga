@@ -1,4 +1,24 @@
 <?php 
+
+require_once "Class/Give_url.php" ; 
+require_once "Class/DatabaseHandler.php" ; 
+require_once "Class/dbCheck.php" ; 
+require_once 'Class/AsciiConverter.php';
+
+
+
+ 
+
+
+// Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
+$url = new Give_url();
+// Afficher le nom du fichier actuel
+echo   $url->get_basename() . "\n";
+ 
+ 
+?>
+
+<?php 
  
  
 
@@ -8,7 +28,7 @@ $databaseHandler_comment = new DatabaseHandler($username, $dbname);
 // Requête SQL pour récupérer toutes les données de la table
 
 
-$id_sha1_comment_projet = $id_sha1_projet[$ii] ; 
+$id_sha1_comment_projet = $url->get_basename(); 
 $req_sql = "SELECT * FROM `comment_projet` WHERE `id_sha1_comment_projet`='$id_sha1_comment_projet' ";
 
 // Récupération des informations des tables enfant liées

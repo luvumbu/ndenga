@@ -1,5 +1,10 @@
 <?php 
+
+session_start() ; 
 header("Access-Control-Allow-Origin: *");
+
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -51,28 +56,28 @@ else {
 
 require 'view/ref.php' ;
 
-
+/*
 
 if($json){
    echo json_encode($finalArray, JSON_PRETTY_PRINT);
 }
 else {
-/*
+
    ?>
 
    <h1>Mon element test </h1>
       <?php 
    var_dump($finalArray) ; 
 
-*/ 
+
 //require_once 'root_.php' ; 
 
-require_once 'projet_1.php' ; 
+
 
 }
 
- 
-
+ */ 
+require_once 'projet_1.php' ; 
 
 ?>
 

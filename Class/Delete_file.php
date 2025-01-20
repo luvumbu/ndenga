@@ -16,7 +16,6 @@ function delete_file($file_path) {
         echo "The file '$file_path' does not exist.";
     }
 }
-
 /*
 // Exemple d'utilisation de la fonction delete_file
 // Spécifie le chemin du fichier à supprimer

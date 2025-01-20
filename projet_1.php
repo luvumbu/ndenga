@@ -15,6 +15,9 @@
     $title_projet_1 = $projet_1["title_projet"][0];
 
 
+    $description_projet_1 = $projet_1["description_projet"][0];
+
+
 
 
     /*
@@ -38,6 +41,7 @@ $finalArray = [
      <div>
          <h1><?= $title_projet_1 ?></h1>
      </div>
+
  </div>
  <?php
 
@@ -50,7 +54,22 @@ $finalArray = [
      <img src="<?= $img_projet_src1 ?>" alt="">
  </div>
 
+ <div class="description_projet_1">
 
+     <div>
+         <?= $description_projet_1  ?>
+     </div>
+ </div>
+
+ <style>
+     .description_projet_1 {
+
+         width: 80%;
+         margin: auto;
+         margin-top: 75px;
+         margin-bottom: 75px;
+     }
+ </style>
  <link rel="stylesheet" href="../css_hexagon.css">
  <?php
     /*
@@ -133,22 +152,20 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
                     if ($description_projet_2[$i] != "") {
                         echo  $title_projet_2[$i];
-                        $class_element= "" ;
-                    }
-                    else  {
-                        $class_element= "display_none" ;
-
+                        $class_element = "";
+                    } else {
+                        $class_element = "display_none";
                     }
                     ?>
              </h3>
          </div>
-    
-     <div>
-         <?= $description_projet_2[$i] ?>
-     </div>
-     <div class="<?= $class_element ?>">
-        Voir <?=    $title_projet_2[$i]; ?>
-     </div>
+
+         <div>
+             <?= $description_projet_2[$i] ?>
+         </div>
+         <div class="<?= $class_element ?>">
+             Voir <?= $title_projet_2[$i]; ?>
+         </div>
      </div>
  <?php
 
@@ -172,7 +189,7 @@ var_dump($projet_2["id_sha1_projet"]) ;
          margin-top: 75px;
          margin-bottom: 75px;
 
-         
+
      }
 
      .title_projet_1 {
@@ -316,37 +333,96 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
 
-     function val_comment_function(_this) {
+     function envoie_comment(_this) {
+
+
+
 
 
          const classArray = _this.className.split(' ');
          console.log(classArray); // Affiche ["class1", "class2", "class3"]
 
 
-         var name_ = document.getElementById("name_" + classArray[0]).value;
-         var comment_ = document.getElementById("comment_" + classArray[0]).value;
-
-
-         console.log(name_);
-         console.log(comment_);
-
+         var name_ = document.getElementById("text_" + classArray[0]).value;
 
 
          var ok = new Information("../config/add_commet.php"); // création de la classe 
-         ok.add("name_comment_projet", name_); // ajout de l'information pour lenvoi 
-         ok.add("text_comment_projet", comment_); // ajout d'une deuxieme information denvoi
          ok.add("id_sha1_comment_projet", classArray[0]); // ajout d'une deuxieme information denvoi 
+         ok.add("text_comment_projet", name_); // ajout d'une deuxieme information denvoi 
 
 
 
 
+ 
          console.log(ok.info()); // demande l'information dans le tableau
          ok.push(); // envoie l'information au code pkp 
 
 
-         //    _this.style.display ="none" ; 
 
 
+
+
+
+         const myTimeout = setTimeout(x, 1000);
+
+function x() {
+ 
+
+
+
+    const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("comment_"+classArray[0]).innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "../comment_ajax.php/"+classArray[0]);
+  xhttp.send();
+}
+
+
+
+
+
+
+ 
+
+     }
+
+     function val_comment_function(_this) {
+
+
+
+
+
+         /*
+                  const classArray = _this.className.split(' ');
+                  console.log(classArray); // Affiche ["class1", "class2", "class3"]
+
+
+                  var name_ = document.getElementById("name_" + classArray[0]).value;
+                  var comment_ = document.getElementById("comment_" + classArray[0]).value;
+
+
+                  console.log(name_);
+                  console.log(comment_);
+
+
+
+                  var ok = new Information("../config/add_commet.php"); // création de la classe 
+                  ok.add("name_comment_projet", name_); // ajout de l'information pour lenvoi 
+                  ok.add("text_comment_projet", comment_); // ajout d'une deuxieme information denvoi
+                  ok.add("id_sha1_comment_projet", classArray[0]); // ajout d'une deuxieme information denvoi 
+
+
+
+
+                  console.log(ok.info()); // demande l'information dans le tableau
+                  ok.push(); // envoie l'information au code pkp 
+
+
+                  //    _this.style.display ="none" ; 
+
+         */
 
      }
 
