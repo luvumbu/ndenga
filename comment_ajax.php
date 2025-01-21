@@ -5,6 +5,35 @@ require_once "Class/DatabaseHandler.php" ;
 require_once "Class/dbCheck.php" ; 
 require_once 'Class/AsciiConverter.php';
 
+// Création d'une instance de la classe `DatabaseHandler`
+$databaseHandler_user = new DatabaseHandler($username, $dbname);
+
+// Requête SQL pour récupérer toutes les données de la table
+
+
+$id_sha1_comment_projet = $id_sha1_projet[$ii] ; 
+$req_sql = "SELECT * FROM `$dbname` WHERE 1 ";
+
+// Récupération des informations des tables enfant liées
+$databaseHandler_user->getListOfTables_Child($dbname);
+// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
+
+// Récupération des données de la table via une méthode spécialisée
+$databaseHandler_user->getDataFromTable2X($req_sql);
+// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
+
+// Génération de variables dynamiques à partir des données récupérées
+$databaseHandler_user->get_dynamicVariables();
+// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
+
+// Exemple : affichage d'une variable dynamique spécifique
+
+ 
+
+
+
+
+
 
 
  
@@ -95,7 +124,35 @@ $comment_projet = [
 
 <div class="comment_class" >
     <div class="comment_class_1">
-        <?= $comment_projet["id_user_sha1_comment_projet"][$ix] ; ?>
+        <?php 
+        
+        
+        
+   
+        
+        
+        
+        
+        $key = array_search( $comment_projet["id_user_sha1_comment_projet"][$ix], $databaseHandler_user->tableList_info2[2]);
+
+        if ($key !== false) {
+         
+        
+        
+        
+            echo $databaseHandler_user->tableList_info2[5][$key] ;
+        }     
+           
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        ?>
     </div>
     <div class="comment_class_2">
         <?= $comment_projet["text_comment_projet"][$ix] ; ?>

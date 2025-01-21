@@ -363,7 +363,7 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
 
-         const myTimeout = setTimeout(x, 1000);
+         const myTimeout = setTimeout(x, 250);
 
 function x() {
  
