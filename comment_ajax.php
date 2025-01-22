@@ -5,13 +5,14 @@ require_once "Class/DatabaseHandler.php" ;
 require_once "Class/dbCheck.php" ; 
 require_once 'Class/AsciiConverter.php';
 
-// Création d'une instance de la classe `DatabaseHandler`
+$id_sha1_comment_projet = $id_sha1_projet[$ii] ;
+
 $databaseHandler_user = new DatabaseHandler($username, $dbname);
 
 // Requête SQL pour récupérer toutes les données de la table
 
 
-$id_sha1_comment_projet = $id_sha1_projet[$ii] ; 
+ 
 $req_sql = "SELECT * FROM `$dbname` WHERE 1 ";
 
 // Récupération des informations des tables enfant liées
@@ -119,7 +120,8 @@ echo '<div id="comment_'.$id_sha1_comment_projet.'">' ;
 
  
 
-for ($i = 0; $i < count($comment_projet); $i++) {
+
+for ($i = 0; $i < count( $dynamicVariables['id_comment_projet']); $i++) {
 
 
  
