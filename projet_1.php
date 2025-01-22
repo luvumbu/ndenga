@@ -338,13 +338,13 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
 
-
          const classArray = _this.className.split(' ');
          console.log(classArray); // Affiche ["class1", "class2", "class3"]
 
 
          var name_ = document.getElementById("text_" + classArray[0]).value;
 
+        
 
          var ok = new Information("../config/add_commet.php"); // création de la classe 
          ok.add("id_sha1_comment_projet", classArray[0]); // ajout d'une deuxieme information denvoi 
@@ -355,7 +355,7 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
  
          console.log(ok.info()); // demande l'information dans le tableau
-         ok.push(); // envoie l'information au code pkp 
+       ok.push(); // envoie l'information au code pkp 
 
 
 
