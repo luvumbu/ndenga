@@ -83,7 +83,10 @@
          </select>
          <div>
            <img class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" onclick="a(this)" title="<?php echo $id_sha1_projet_dynamic_1_ ?>" class="cursor_pointer" width="50" height="50" src="https://img.icons8.com/ios/50/image--v1.png" alt="image--v1" />
-
+         </div>
+         <div>
+            <input type="color" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="change_color(this)">
+         
          </div>
          <button class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" title="<?php echo $i ?>" onclick="b(this)" id="boldButton<?= $i ?>"><b>B</b></button>
          <button class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" title="<?php echo $i ?>" onclick="b(this)" id="italicButton<?= $i ?>"><i>I</i></button>
@@ -441,5 +444,23 @@ var  visivility ="" ;
    <script>
      function add_img2(_this) {
        document.getElementById("add_img").className = "";
+     }
+
+     function change_color(_this){
+
+
+      
+      var element = afficherValeursFormattees2(_this.className, " ");
+
+        var ok = new Information("config/change_color.php"); // création de la classe 
+    
+       
+       ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
+       ok.add("color_projet",_this.value); // ajout de l'information pour lenvoi 
+
+  
+ 
+       console.log(ok.info()); // demande l'information dans le tableau
+       ok.push(); // envoie l'information au code pkp 
      }
    </script>

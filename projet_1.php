@@ -178,7 +178,21 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
 
+<?php 
 
+
+ 
+
+
+ 
+
+
+$color_projet = $projet_1["color_projet"][0] ; 
+
+
+
+$_SESSION["color_projet"] = $color_projet ; 
+?>
 
 
  <style>
@@ -192,12 +206,7 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
      }
 
-     .title_projet_1 {
-         background-color: #bd4a23;
-         color: white;
-         text-align: center;
 
-     }
 
      .title_projet_1 div {
          padding: 15px;
@@ -254,8 +263,25 @@ var_dump($projet_2["id_sha1_projet"]) ;
          text-align: center;
          font-size: 1.2em;
      }
+
+ 
  </style>
 
+
+
+
+
+
+<?php 
+echo '<style>
+    .title_projet_1 {
+        background-color: '.$color_projet.';
+        text-align:center ; 
+        color:white ; 
+    }
+</style>';
+
+?>
  <script>
      function function_projet_2(_this) {
 

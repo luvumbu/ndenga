@@ -78,7 +78,7 @@ $databaseHandler->get_dynamicVariables();
 
 
     echo "<div id='id_" . $sha1_[$i_a] . "' class='" . $sha1_[$i_a] . " section_1 hexagon' onclick='function_projet_2(this)'>";
-    echo AsciiConverter::asciiToString($databaseHandler->tableList_info2[13][$i_a]); // Affiche "Hello"
+    echo AsciiConverter::asciiToString($databaseHandler->tableList_info2[14][$i_a]); // Affiche "Hello"
     echo "</div>";
   }
 
@@ -125,7 +125,7 @@ $databaseHandler->get_dynamicVariables();
 
 
 
-
+ 
   $img_projet_src1 = $databaseHandler->tableList_info2[19];
   // Exemple : affichage d'une variable dynamique spécifique
   //var_dump($projet_1 );
@@ -144,11 +144,12 @@ $databaseHandler->get_dynamicVariables();
 
 
 <?php
+ $color_projet=$_SESSION["color_projet"]  ; 
 
 echo '
 <style>
     :root {
-  --blue: ' . $ramdom_color . ';
+  --blue: ' .  $color_projet . ';
  
 }
 </style>
@@ -291,7 +292,7 @@ echo '<style>
 
 echo '<style>
     #id_' . $name_r . ' {
-        border: 1px solid #bd4a23;
+        border: 1px solid '.$color_projet.';
         border-radius:15px;
     border-bottom: 45px solid var(--blue);
 

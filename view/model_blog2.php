@@ -45,10 +45,10 @@ $id_sha1_user_projet_info = $databaseHandler->tableList_info2[4][0] ;
 $projet_2 =  [
 
 
-
     "id_projet" =>    $dynamicVariables['id_projet'],
     "activation_projet" =>    $dynamicVariables['activation_projet'],
     "id_general" =>    $dynamicVariables['id_general'],
+    "color_projet" =>    $dynamicVariables['color_projet'],
     "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
     "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
     "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],
@@ -82,7 +82,6 @@ $projet_2 =  [
 
 
 
- 
  
 }
  
