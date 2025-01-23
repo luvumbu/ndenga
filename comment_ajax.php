@@ -67,11 +67,6 @@ $databaseHandler_comment = new DatabaseHandler($username, $dbname);
 
 
  
-
-?>
-
-
-<?php 
  
  
 $databaseHandler_c = new DatabaseHandler($dbname, $username);
