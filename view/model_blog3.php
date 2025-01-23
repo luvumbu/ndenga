@@ -13,23 +13,22 @@ $databaseHandler->getDataFromTable2X($req_sql);
 $databaseHandler->get_dynamicVariables();
 
 $id_sha1_user_array = [
-    "id_user" => $databaseHandler->tableList_info2[0],
-    "date_user" => $databaseHandler->tableList_info2[1],
-    "id_sha1_user" => $databaseHandler->tableList_info2[2],
-    "id_parent_user" => $databaseHandler->tableList_info2[3],
-    "description_user" => $databaseHandler->tableList_info2[4],
-    "title_user" => $databaseHandler->tableList_info2[5],
-    "img_user" => $databaseHandler->tableList_info2[6],
-    "nom_user" => $databaseHandler->tableList_info2[7],
-    "prenom_user" => $databaseHandler->tableList_info2[8],
+    "id_user" =>    $dynamicVariables['id_user'] , 
+    "date_user" =>    $dynamicVariables['date_user'] , 
+    "id_sha1_user" =>    $dynamicVariables['id_sha1_user'] , 
+    "id_parent_user" =>    $dynamicVariables['id_parent_user'] , 
+    "description_user" =>    $dynamicVariables['description_user'] , 
+    "title_user" =>    $dynamicVariables['title_user'] , 
+    "img_user" =>    $dynamicVariables['img_user'] , 
+    "nom_user" =>    $dynamicVariables['nom_user'] , 
+    "prenom_user" =>    $dynamicVariables['prenom_user'] , 
  
-    "email_user" => $databaseHandler->tableList_info2[10],
-    "activation_user" => $databaseHandler->tableList_info2[11],
-    "date_inscription_user" => $databaseHandler->tableList_info2[12]
+    "email_user" =>    $dynamicVariables['email_user'] ,
+    "activation_user" =>    $dynamicVariables['activation_user'] ,
+    "date_inscription_user" =>    $dynamicVariables['date_inscription_user'] 
 ];
 
  
  
-
  
 ?>
