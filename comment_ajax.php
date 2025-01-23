@@ -32,9 +32,17 @@ $databaseHandler_user->get_dynamicVariables();
  
 
 
+ 
 
 
+$array_id_sha1_user =$dynamicVariables['id_sha1_user'] ;
+$array_title_user =$dynamicVariables['title_user'] ;
+$array_img_user =$dynamicVariables['img_user'] ;
+$array_nom_user =$dynamicVariables['nom_user'] ;
+$array_date_inscription_user =$dynamicVariables['date_inscription_user'] ;
 
+
+ 
 
 
  
@@ -90,6 +98,18 @@ $databaseHandler_c->get_dynamicVariables();
 
  
 
+/*
+
+$array_id_sha1_user =$dynamicVariables['id_sha1_user'] ;
+$array_title_user =$dynamicVariables['title_user'] ;
+$array_img_user =$dynamicVariables['img_user'] ;
+$array_nom_user =$dynamicVariables['nom_user'] ;
+$array_date_inscription_user =$dynamicVariables['date_inscription_user'] ;
+
+*/
+
+
+
 
 
 $comment_projet = [
@@ -121,15 +141,35 @@ echo '<div id="comment_'.$id_sha1_comment_projet.'">' ;
  
 
 
-for ($i = 0; $i < count( $dynamicVariables['id_comment_projet']); $i++) {
+for ($i = 0; $i < count( $dynamicVariables['id_user_sha1_comment_projet']); $i++) {
+
+ 
+
+
+
+
+
+// Recherche de la position de '$id_sha1_comment_projet'
+$position = array_search($dynamicVariables['id_user_sha1_comment_projet'][$i], $array_id_sha1_user);
+
+
+
+
+
+
+
+
+
 
 
  
-echo "<div class='comment_class_1'>" ; 
-echo $dynamicVariables['text_comment_projet'][$i] ++  ; 
-echo "</div>" ; 
+if ($position !== false) {
+ echo "<div class='comment_class_1'>" ;
+    echo $array_title_user[$position] ;
+    echo "</div>" ; 
+}  
 echo "<div class=''>" ; 
-echo $dynamicVariables['id_user_sha1_comment_projet'][$i] ++  ; 
+echo $dynamicVariables['text_comment_projet'][$i] ++  ; 
 echo "</div>" ; 
 
 }
@@ -145,5 +185,6 @@ echo '</div>' ;
     .comment_class_1{
         background-color: var(--blue);
         color: white;
+        padding: 15px;
     }
 </style>
