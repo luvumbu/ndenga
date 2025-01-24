@@ -111,7 +111,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
           </a>
         <?php
         } else {
-          require_once 'blog0.php';
+         // require_once 'blog0.php';
         }
 
         // Vérification des données de session pour afficher l'administration

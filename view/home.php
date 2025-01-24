@@ -117,6 +117,17 @@ if (isset($_SESSION["home"])) {
     $id_general_dynamic_1 = $dynamicVariables['id_general'];
     $id_user_projet_dynamic_1 = $dynamicVariables['id_user_projet'];
     $id_sha1_user_projet_dynamic_1 = $dynamicVariables['id_sha1_user_projet'];
+
+
+
+
+    $color_projet_dynamic_1 = $dynamicVariables['color_projet'];
+    $google_title_projet_dynamic_1 = $dynamicVariables['google_title_projet'];
+    $level_urgence_projet_dynamic_1 = $dynamicVariables['level_urgence_projet'];
+
+
+
+
     $id_sha1_projet_dynamic_1 = $dynamicVariables['id_sha1_projet'];
     $id_sha1_parent_projet_dynamic_1 = $dynamicVariables['id_sha1_parent_projet'];
     $id_sha1_parent_projet2_dynamic_1 = $dynamicVariables['id_sha1_parent_projet2'];

@@ -49,11 +49,7 @@
 
       ?>
      <div class="editor-container largeur_juste">
-       <?php
-
-
-
-        ?>
+ 
 
        <h2>Éditeur de texte <?= $id_sha1_projet_dynamic_1_  ?></h2>
        <div class="toolbar">
@@ -85,7 +81,7 @@
            <img class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" onclick="a(this)" title="<?php echo $id_sha1_projet_dynamic_1_ ?>" class="cursor_pointer" width="50" height="50" src="https://img.icons8.com/ios/50/image--v1.png" alt="image--v1" />
          </div>
          <div>
-            <input type="color" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="change_color(this)">
+            <input type="color" value="<?= $color_projet_dynamic_1[0] ?>"  class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="change_color(this)">
          </div>
 
 
@@ -107,6 +103,30 @@
 
 
        </div>
+       <div>
+  
+    <label for="numbers">Niveau d'urgence : ou de difficulte</label>
+    <select   name="numbers" class="<?= $id_sha1_projet_dynamic_1_ ?>"  onchange="level_urgence_projet(this)">
+        <!-- Les options de 1 à 10 -->
+        <option value="1" >1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" >5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        
+<?php 
+echo ' <option selected  value="'.$level_urgence_projet_dynamic_1[0].'">'.$level_urgence_projet_dynamic_1[0].'</option>' ;
+
+?>
+    </select>
+ 
+
+       </div>
 
        <?php
 
@@ -117,7 +137,7 @@
        <input id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
 
        <div class="change_google_title">
-            <input placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
+            <input value="<?= $google_title_projet_dynamic_1[0] ?>" placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
         </div>
 
 
@@ -486,6 +506,29 @@ var  visivility ="" ;
        console.log(ok.info()); // demande l'information dans le tableau
        ok.push(); // envoie l'information au code pkp 
 
+ 
+
+
+
+     }
+
+
+     function level_urgence_projet(_this) {
+   
+
+      var element = afficherValeursFormattees2(_this.className, " ");
+ 
+  
+ var ok = new Information("config/level_urgence_projet.php"); // création de la classe 
+
+  
+ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
+ok.add("level_urgence_projet",_this.value); // ajout de l'information pour lenvoi 
+
+ 
+
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp 
  
 
 
