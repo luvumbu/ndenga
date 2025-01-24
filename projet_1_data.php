@@ -7,7 +7,7 @@ require_once "Class/DatabaseHandler.php";
 require_once "Class/dbCheck.php";
 require_once 'Class/AsciiConverter.php';
 
-
+ 
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
 
@@ -29,13 +29,11 @@ $colors_array = array(
 $name_r = $url->get_elements()[0];
 
 
-$ramdom_color = $colors_array[rand(0, 4)];
+$ramdom_color = $_SESSION["color_projet"];
 
 
 
-
-
-
+ 
 /*
  * Exemple d'utilisation des variables dynamiques
  * Ce script montre comment utiliser la classe `DatabaseHandler` pour manipuler des données
@@ -299,7 +297,7 @@ echo '<style>
 
 echo '<style>
     #id_' . $name_r . ' {
-        border: 1px solid #bd4a23;
+        border: 1px solid '.$ramdom_color.';
         border-radius:15px;
     border-bottom: 45px solid var(--blue);
 

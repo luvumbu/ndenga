@@ -1,5 +1,7 @@
  <?php
 
+ 
+
     $element_array = array(
         'https://t3.ftcdn.net/jpg/05/35/47/38/360_F_535473874_OWCa2ohzXXNZgqnlzF9QETsnbrSO9pFS.jpg',
         'https://i.pinimg.com/originals/2f/75/be/2f75beb4f91360a68f9d4aa5e985ed85.gif',
@@ -242,12 +244,7 @@ $_SESSION["color_projet"] = $color_projet ;
      }
 
 
-     .projet_2_img {
-         width: 70%;
-         border-radius: 17px;
-         border: 1px solid rgba(0, 0, 0, 0.2);
 
-     }
 
 
      body {
@@ -272,16 +269,7 @@ $_SESSION["color_projet"] = $color_projet ;
 
 
 
-<?php 
-echo '<style>
-    .title_projet_1 {
-        background-color: '.$color_projet.';
-        text-align:center ; 
-        color:white ; 
-    }
-</style>';
 
-?>
  <script>
      function function_projet_2(_this) {
 
@@ -493,3 +481,33 @@ function x() {
      }
   
  </style>
+
+
+
+<?php 
+
+
+
+echo '<style>
+      .projet_2_img {
+         width: 70%;
+         border-radius: 17px;
+         border: 1px solid '.$projet_1["color_projet"][0].';
+
+     }
+</style>
+' ; 
+?>
+
+
+
+<?php 
+echo '<style>
+    .title_projet_1 {
+        background-color: '.$projet_1["color_projet"][0].';
+        text-align:center ; 
+        color:white ; 
+    }
+</style>';
+
+?>
