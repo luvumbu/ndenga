@@ -1,4 +1,5 @@
-
+<style>
+    
 :root {
     --background-color: #f9f9f9; /* Fond gris clair */
     --text-color: #333; /* Texte gris foncé */
@@ -9,19 +10,7 @@
 }
  
 
-.countdown-container {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.2em;
-    background-color: var(--container-background);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-    width: 100%;
-    max-width: 600px; /* Largeur augmentée */
-    color: var(--text-color);
-}
+
 
 .event-name {
     font-size: 1.5em;
@@ -36,7 +25,7 @@
     padding: 8px;
     background-color: var(--container-background);
     border-radius: 4px;
-    width: 60px;
+    width: 100px;
     border: 1px solid var(--border-color);
 }
 
@@ -53,3 +42,45 @@
     margin-top: 10px;
     font-weight: 500;
 }
+ 
+
+.countdown-container {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    background-color: var(--container-background);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 700px; /* Largeur augmentée */
+    color: var(--text-color);
+    margin: auto;
+  
+}
+</style>
+
+
+<?php 
+
+ 
+
+echo '<style>
+.countdown-container {
+ 
+    background-color: '.$_SESSION["color_projet"].';
+ 
+}</style>' ;
+
+
+
+?>
+
+
+
+
+
+
+
+ 

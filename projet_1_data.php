@@ -6,7 +6,7 @@ require_once "Class/Give_url.php";
 require_once "Class/DatabaseHandler.php";
 require_once "Class/dbCheck.php";
 require_once 'Class/AsciiConverter.php';
-
+require_once "Class/Give_url.php" ; 
  
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
@@ -128,7 +128,6 @@ $databaseHandler->get_dynamicVariables();
 
 
   ];
-
 
 
 
@@ -358,6 +357,10 @@ echo '<b> Total element : ' . count($date_inscription_projet) . '</b>';
 echo '</div>';
 echo '</div>';
 
+
+
+
+
 ?>
 
 
@@ -373,6 +376,59 @@ for ($ii = 0; $ii < count($title_projet); $ii++) {
 
 
 
+
+
+
+  $events = [
+    $dynamicVariables['date_debut_projet'][$ii]=> "" 
+  ];
+  require_once 'Class/Get_anne_html_html.php';
+  
+  
+  
+  $countdowns = [];
+  
+  // Calculer le temps restant pour chaque événement
+  foreach ($events as $date_future => $event_name) {
+  $Get_anne_html_html = new Get_anne_html_html($date_future);
+  $temps_restant = $Get_anne_html_html->get_temps_restant();
+  $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
+  $countdowns[] = $temps_restant;
+  }
+
+
+
+?>
+<?php foreach ($countdowns as $index => $temps_restant): ?>
+   <div id="countdown-<?php echo $index; ?>" class="countdown-container" class="count_style1">
+       <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
+       <div class="time">
+           <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
+           <span class="label">Années</span>
+       </div>
+       <div class="time">
+           <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
+           <span class="label">Jours</span>
+       </div>
+       <div class="time">
+           <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
+           <span class="label">Heures</span>
+       </div>
+       <div class="time">
+           <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
+           <span class="label">Minutes</span>
+       </div>
+       <div class="time">
+           <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
+           <span class="label">Secondes</span>
+       </div>
+ 
+   </div>
+<?php endforeach; ?>
+<?php
+
+ 
+ 
   echo '<div class="h1">';
   echo AsciiConverter::asciiToString($title_projet[$ii]); // Affiche "Hello"
   echo '</div>';
