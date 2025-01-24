@@ -16,6 +16,7 @@ header("Access-Control-Allow-Origin: *");
     <title>Document</title> 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../Get_anne_html_html.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -27,6 +28,11 @@ require_once "Class/Give_url.php" ;
 require_once "Class/DatabaseHandler.php" ; 
 require_once "Class/dbCheck.php" ; 
 require_once 'Class/AsciiConverter.php';
+
+
+
+
+
 //require_once 'function/add_ip.php';
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
@@ -78,7 +84,11 @@ else {
 
  */ 
 require_once 'projet_1.php' ; 
+require_once 'Get_anne_html_html_js.php' ; 
+
 
 ?>
+
+ 
 
 </body>
