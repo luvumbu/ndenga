@@ -45,6 +45,8 @@ $databaseHandler->set_column_names("id_user_projet");
 $databaseHandler->set_column_names("id_sha1_user_projet");
 $databaseHandler->set_column_names("id_sha1_projet");
 $databaseHandler->set_column_names("color_projet");
+$databaseHandler->set_column_names("google_title_projet");
+
 
 
 $databaseHandler->set_column_names("id_sha1_parent_projet");
@@ -76,6 +78,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

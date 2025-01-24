@@ -49,6 +49,9 @@ $projet_2 =  [
     "activation_projet" =>    $dynamicVariables['activation_projet'],
     "id_general" =>    $dynamicVariables['id_general'],
     "color_projet" =>    $dynamicVariables['color_projet'],
+    "google_title_projet" =>    $dynamicVariables['google_title_projet'],
+
+    
     "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
     "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
     "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],

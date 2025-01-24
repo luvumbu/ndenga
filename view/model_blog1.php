@@ -27,6 +27,8 @@ for($a = 0 ; $a <$kount ; $a++) {
 }
  
  
+
+
  
 
 $id_sha1_user_projet_info = $databaseHandler->tableList_info2[4][0] ; 
@@ -38,12 +40,15 @@ $id_sha1_user_projet_info = $databaseHandler->tableList_info2[4][0] ;
  
 $projet_1 =  [
 
-
+    
 
     "id_projet" =>    $dynamicVariables['id_projet'],
     "activation_projet" =>    $dynamicVariables['activation_projet'],
     "id_general" =>    $dynamicVariables['id_general'],
     "color_projet" =>    $dynamicVariables['color_projet'],
+    "google_title_projet" =>    $dynamicVariables['google_title_projet'],
+
+    
     "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
     "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
     "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],
@@ -71,7 +76,6 @@ $projet_1 =  [
     "publication_date_h_projet" =>    $dynamicVariables['publication_date_h_projet'],
     "shop_projet" =>    $dynamicVariables['shop_projet'],
     "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet']
-
 
 ];
 

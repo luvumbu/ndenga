@@ -73,12 +73,16 @@ $databaseHandler->get_dynamicVariables();
 
 
   <?php
-  $sha1_ =  $databaseHandler->tableList_info2[5];
-  for ($i_a = 0; $i_a < count($databaseHandler->tableList_info2[13]); $i_a++) {
+//  $sha1_ =  $dynamicVariables['title_projet'];
+
+  //$dynamicVariables['id_sha1_projet']
+  $sha1_ =$dynamicVariables['id_sha1_projet'] ;
+
+  for ($i_a = 0; $i_a < count($dynamicVariables['title_projet']); $i_a++) {
 
 
     echo "<div id='id_" . $sha1_[$i_a] . "' class='" . $sha1_[$i_a] . " section_1 hexagon' onclick='function_projet_2(this)'>";
-    echo AsciiConverter::asciiToString($databaseHandler->tableList_info2[14][$i_a]); // Affiche "Hello"
+    echo AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i_a]); // Affiche "Hello"
     echo "</div>";
   }
 
@@ -89,44 +93,48 @@ $databaseHandler->get_dynamicVariables();
 
 
 
-    "id_projet" => $databaseHandler->tableList_info2[0],
-    "activation_projet" => $databaseHandler->tableList_info2[1],
-    "id_general" => $databaseHandler->tableList_info2[2],
-    "id_user_projet" => $databaseHandler->tableList_info2[3],
-    "id_sha1_user_projet" => $databaseHandler->tableList_info2[4],
-    "id_sha1_projet" => $databaseHandler->tableList_info2[5],
-    "id_sha1_parent_projet" => $databaseHandler->tableList_info2[6],
-    "id_sha1_parent_projet2" => $databaseHandler->tableList_info2[7],
-    "cryptage_projet" => $databaseHandler->tableList_info2[8],
-    "input_cryptage_projet" => $databaseHandler->tableList_info2[9],
-    "name_projet" => $databaseHandler->tableList_info2[10],
-    "name_extention_projet" => $databaseHandler->tableList_info2[11],
-    "statue_projet" => $databaseHandler->tableList_info2[12],
+    "id_projet" =>    $dynamicVariables['id_projet'],
+    "activation_projet" =>    $dynamicVariables['activation_projet'],
+    "id_general" =>    $dynamicVariables['id_general'],
+    "color_projet" =>    $dynamicVariables['color_projet'],
+    "google_title_projet" =>    $dynamicVariables['google_title_projet'],
+
+    
+    "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
+    "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
+    "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],
+    "id_sha1_parent_projet" =>    $dynamicVariables['id_sha1_parent_projet'],
+    "id_sha1_parent_projet2" =>    $dynamicVariables['id_sha1_parent_projet2'],
+    "cryptage_projet" =>    $dynamicVariables['cryptage_projet'],
+    "input_cryptage_projet" =>    $dynamicVariables['input_cryptage_projet'],
+    "name_projet" =>    $dynamicVariables['name_projet'],
+    "name_extention_projet" =>    $dynamicVariables['name_extention_projet'],
+    "statue_projet" =>    $dynamicVariables['statue_projet'],
     "title_projet" => $title_projet,
-    "description_projet" => $description_projet,
-    "password_projet" => $databaseHandler->tableList_info2[15],
-    "visibility_1_projet" => $databaseHandler->tableList_info2[16],
-    "visibility_2_projet" => $databaseHandler->tableList_info2[17],
-    "screen_shoot_projet" => $databaseHandler->tableList_info2[18],
-    "img_projet_src1" => $databaseHandler->tableList_info2[19],
-    "img_projet_src2" => $databaseHandler->tableList_info2[20],
-    "img_projet_visibility" => $databaseHandler->tableList_info2[21],
-    "group_projet" => $databaseHandler->tableList_info2[22],
-    "heure_debut_projet" => $databaseHandler->tableList_info2[23],
-    "date_debut_projet" => $databaseHandler->tableList_info2[24],
-    "dure_projet" => $databaseHandler->tableList_info2[25],
-    "publication_date_j_projet" => $databaseHandler->tableList_info2[26],
-    "publication_date_h_projet" => $databaseHandler->tableList_info2[27],
-    "shop_projet" => $databaseHandler->tableList_info2[28],
-    "date_inscription_projet" => $databaseHandler->tableList_info2[29]
+    "description_projet" =>$description_projet,
+    "password_projet" =>    $dynamicVariables['password_projet'],
+    "visibility_1_projet" =>    $dynamicVariables['visibility_1_projet'],
+    "visibility_2_projet" =>    $dynamicVariables['visibility_2_projet'],
+    "screen_shoot_projet" =>    $dynamicVariables['screen_shoot_projet'],
+    "img_projet_src1" =>    $dynamicVariables['img_projet_src1'],
+    "img_projet_src2" =>    $dynamicVariables['img_projet_src2'],
+    "img_projet_visibility" =>    $dynamicVariables['img_projet_visibility'],
+    "group_projet" =>    $dynamicVariables['group_projet'],
+    "heure_debut_projet" =>    $dynamicVariables['heure_debut_projet'],
+    "date_debut_projet" =>    $dynamicVariables['date_debut_projet'],
+    "dure_projet" =>    $dynamicVariables['dure_projet'],
+    "publication_date_j_projet" =>    $dynamicVariables['publication_date_j_projet'],
+    "publication_date_h_projet" =>    $dynamicVariables['publication_date_h_projet'],
+    "shop_projet" =>    $dynamicVariables['shop_projet'],
+    "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet']
 
 
   ];
 
 
 
- 
-  $img_projet_src1 = $databaseHandler->tableList_info2[19];
+
+  $img_projet_src1 = $dynamicVariables['img_projet_src1'];
   // Exemple : affichage d'une variable dynamique spécifique
   //var_dump($projet_1 );
   // `id_sha1_projet` est une clé générée dynamiquement qui correspond à une colonne ou une donnée récupérée dans la table.
@@ -144,12 +152,11 @@ $databaseHandler->get_dynamicVariables();
 
 
 <?php
- $color_projet=$_SESSION["color_projet"]  ; 
 
 echo '
 <style>
     :root {
-  --blue: ' .  $color_projet . ';
+  --blue: ' . $ramdom_color . ';
  
 }
 </style>
@@ -292,7 +299,7 @@ echo '<style>
 
 echo '<style>
     #id_' . $name_r . ' {
-        border: 1px solid '.$color_projet.';
+        border: 1px solid #bd4a23;
         border-radius:15px;
     border-bottom: 45px solid var(--blue);
 

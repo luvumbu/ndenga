@@ -86,8 +86,10 @@
          </div>
          <div>
             <input type="color" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="change_color(this)">
-         
          </div>
+
+
+
          <button class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" title="<?php echo $i ?>" onclick="b(this)" id="boldButton<?= $i ?>"><b>B</b></button>
          <button class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" title="<?php echo $i ?>" onclick="b(this)" id="italicButton<?= $i ?>"><i>I</i></button>
          <button class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" title="<?php echo $i ?>" onclick="b(this)" id="underlineButton<?= $i ?>"><u>U</u></button>
@@ -114,7 +116,9 @@
         ?>
        <input id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
 
-
+       <div class="change_google_title">
+            <input placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
+        </div>
 
 
        <?php
@@ -463,4 +467,37 @@ var  visivility ="" ;
        console.log(ok.info()); // demande l'information dans le tableau
        ok.push(); // envoie l'information au code pkp 
      }
+
+     function change_google_title(_this) {
+
+
+            
+      var element = afficherValeursFormattees2(_this.className, " ");
+ 
+  
+        var ok = new Information("config/change_google_title.php"); // création de la classe 
+    
+       
+       ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
+       ok.add("google_title_projet",_this.value); // ajout de l'information pour lenvoi 
+
+  
+ 
+       console.log(ok.info()); // demande l'information dans le tableau
+       ok.push(); // envoie l'information au code pkp 
+
+ 
+
+
+
+     }
    </script>
+
+
+
+<style>
+
+  .change_google_title input {
+    opacity: 0.3;
+  }
+</style>

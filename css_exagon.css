@@ -21,6 +21,8 @@ body {
     font-size: 16px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
+  
+
   }
 
   .hexagon::before,
