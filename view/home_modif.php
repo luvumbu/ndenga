@@ -48,7 +48,7 @@
 
 
       ?>
-     <div class="editor-container largeur_juste">
+     <div id="parent_<?= $id_sha1_projet_dynamic_1_?>" class="editor-container largeur_juste" style="border:5px solid <?= $color_projet_dynamic_1[0]?>">
  
 
        <h2>Éditeur de texte <?= $id_sha1_projet_dynamic_1_  ?></h2>
@@ -103,30 +103,7 @@
 
 
        </div>
-       <div>
-  
-    <label for="numbers">Niveau d'urgence : ou de difficulte</label>
-    <select   name="numbers" class="<?= $id_sha1_projet_dynamic_1_ ?>"  onchange="level_urgence_projet(this)">
-        <!-- Les options de 1 à 10 -->
-        <option value="1" >1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5" >5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        
-<?php 
-echo ' <option selected  value="'.$level_urgence_projet_dynamic_1[0].'">'.$level_urgence_projet_dynamic_1[0].'</option>' ;
 
-?>
-    </select>
- 
-
-       </div>
 
        <?php
 
@@ -137,9 +114,42 @@ echo ' <option selected  value="'.$level_urgence_projet_dynamic_1[0].'">'.$level
        <input id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
 
        <div class="change_google_title">
+        <b>Title  SEO</b>
             <input value="<?= $google_title_projet_dynamic_1[0] ?>" placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
         </div>
 
+        <div>
+          <b>Meta name</b>
+          <input type="text">
+        </div>
+        <div>
+          <b>Meta content</b>
+          <input type="text">
+        </div>
+        <div>
+  
+  <label for="numbers">Niveau d'urgence : ou de difficulte</label>
+  <select   name="numbers" class="<?= $id_sha1_projet_dynamic_1_ ?>"  onchange="level_urgence_projet(this)">
+      <!-- Les options de 1 à 10 -->
+      <option value="1" >1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5" >5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      
+<?php 
+echo ' <option selected  value="'.$level_urgence_projet_dynamic_1[0].'">'.$level_urgence_projet_dynamic_1[0].'</option>' ;
+
+?>
+  </select>
+
+
+     </div>
 
        <?php
 
@@ -473,6 +483,8 @@ var  visivility ="" ;
      function change_color(_this){
 
 
+
+
       
       var element = afficherValeursFormattees2(_this.className, " ");
 
@@ -482,7 +494,10 @@ var  visivility ="" ;
        ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
        ok.add("color_projet",_this.value); // ajout de l'information pour lenvoi 
 
-  
+
+
+       document.getElementById("parent_"+element[0]).style ="border: 5px solid "+_this.value ; 
+     
  
        console.log(ok.info()); // demande l'information dans le tableau
        ok.push(); // envoie l'information au code pkp 
@@ -491,6 +506,8 @@ var  visivility ="" ;
      function change_google_title(_this) {
 
 
+
+      
             
       var element = afficherValeursFormattees2(_this.className, " ");
  

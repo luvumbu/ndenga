@@ -49,6 +49,11 @@ $databaseHandler->set_column_names("google_title_projet");
 $databaseHandler->set_column_names("level_urgence_projet");
 
 
+$databaseHandler->set_column_names("meta_name_projet");
+$databaseHandler->set_column_names("meta_description_projet");
+
+
+
 
 
 $databaseHandler->set_column_names("id_sha1_parent_projet");
@@ -79,6 +84,8 @@ $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY")
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
