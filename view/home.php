@@ -127,6 +127,11 @@ if (isset($_SESSION["home"])) {
 
 
 
+    $change_meta_name_projet_dynamic_1 = $dynamicVariables['change_meta_name_projet'];
+    $change_meta_content_projet_dynamic_1 = $dynamicVariables['change_meta_content_projet'];
+
+
+
 
     $id_sha1_projet_dynamic_1 = $dynamicVariables['id_sha1_projet'];
     $id_sha1_parent_projet_dynamic_1 = $dynamicVariables['id_sha1_parent_projet'];

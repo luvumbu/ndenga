@@ -21,6 +21,11 @@
 
 
      <?php
+
+
+
+ $change_meta_name_projet_dynamic_1_ =  $change_meta_name_projet_dynamic_1[$i];
+$change_meta_content_projet_dynamic_1_ = $change_meta_content_projet_dynamic_1[$i];
       $id_sha1_projet_dynamic_1_ = $id_sha1_projet_dynamic_1[$i];
 
 
@@ -120,11 +125,11 @@
 
         <div>
           <b>Meta name</b>
-          <input type="text">
+          <input value="<?=  $change_meta_name_projet_dynamic_1_?>" type="text" onkeyup="change_meta_name(this)" class="<?= $id_sha1_projet_dynamic_1_ .' meta_input'?>">
         </div>
         <div>
           <b>Meta content</b>
-          <input type="text">
+          <input value="<?= $change_meta_content_projet_dynamic_1_?>" type="text" onkeyup="change_meta_content(this)" class="<?= $id_sha1_projet_dynamic_1_ .' meta_input'?>">
         </div>
         <div>
   
@@ -541,9 +546,6 @@ var  visivility ="" ;
   
 ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
 ok.add("level_urgence_projet",_this.value); // ajout de l'information pour lenvoi 
-
- 
-
 console.log(ok.info()); // demande l'information dans le tableau
 ok.push(); // envoie l'information au code pkp 
  
@@ -551,13 +553,39 @@ ok.push(); // envoie l'information au code pkp
 
 
      }
+
+function change_meta_name(_this) {
+        var element = afficherValeursFormattees2(_this.className, " ");
+ 
+ 
+ var ok = new Information("config/change_meta_name.php"); // création de la classe 
+
+  
+ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
+ok.add("change_meta_content",_this.value); // ajout de l'information pour lenvoi 
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp 
+}
+function change_meta_content(_this) {
+       var element = afficherValeursFormattees2(_this.className, " ");
+ 
+  
+ var ok = new Information("config/change_meta_content.php"); // création de la classe 
+
+  
+ok.add("id_sha1_projet",element[0]); // ajout de l'information pour lenvoi 
+ok.add("change_meta_content",_this.value); // ajout de l'information pour lenvoi 
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp  
+}
+
    </script>
 
 
 
 <style>
 
-  .change_google_title input {
+  .change_google_title input,.meta_input {
     opacity: 0.3;
   }
 </style>

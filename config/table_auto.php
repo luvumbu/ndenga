@@ -49,8 +49,8 @@ $databaseHandler->set_column_names("google_title_projet");
 $databaseHandler->set_column_names("level_urgence_projet");
 
 
-$databaseHandler->set_column_names("meta_name_projet");
-$databaseHandler->set_column_names("meta_description_projet");
+$databaseHandler->set_column_names("change_meta_name_projet");
+$databaseHandler->set_column_names("change_meta_content_projet");
 
 
 
