@@ -17,6 +17,8 @@
     font-weight: 600;
     color: var(--highlight-color);
     margin-bottom: 10px;
+   text-shadow: 1px 1px black;
+
 }
 
 .time {
@@ -27,6 +29,7 @@
     border-radius: 4px;
     width: 100px;
     border: 1px solid var(--border-color);
+ 
 }
 
 .label {
@@ -34,6 +37,7 @@
     font-size: 0.8em;
     color: var(--label-color);
     margin-top: 4px;
+    
 }
 
 .status {
@@ -41,6 +45,7 @@
     font-size: 1em;
     margin-top: 10px;
     font-weight: 500;
+    
 }
  
 
@@ -57,6 +62,8 @@
     max-width: 700px; /* Largeur augmentée */
     color: var(--text-color);
     margin: auto;
+
+    
   
 }
 </style>

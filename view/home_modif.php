@@ -488,8 +488,7 @@ var  visivility ="" ;
      function change_color(_this){
 
 
-
-
+ 
       
       var element = afficherValeursFormattees2(_this.className, " ");
 
