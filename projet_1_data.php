@@ -1,5 +1,5 @@
 <?php
-session_start() ; 
+session_start();
 
 
 require_once "Class/Give_url.php";
@@ -11,7 +11,7 @@ require_once 'Get_anne_html_html_js.php';
 
 
 
- 
+
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
 
@@ -22,13 +22,46 @@ $url->split_basename('__');
 
 # Tableau des couleurs
 $colors_array = array(
-  '#f24118',
-  '#65baa7',
-  '#935c7c',
-  '#c0ad2d',
+  '#8f2704',
+  '#d35c54',
+  '#d99b97',
+  '#cdc24a',
+  '#c68a41',
+
+  '#a0b151',
+  '#489857',
+  '#5b6849',
   '#373319'
+
 );
 
+# Tableau des couleurs
+$margin_array = array(
+  'margin-top:0px',
+  'margin-top:35px',
+  'margin-top:0px',
+  'margin-top:35px',
+  'margin-top:75px',
+  'margin-top:175px',
+  'margin-top:75px',
+  'margin-top:10px',
+  'margin-top:0px'
+
+
+
+
+
+
+
+ 
+
+);
+
+
+ 
+
+ 
+ 
 
 $name_r = $url->get_elements()[0];
 
@@ -37,7 +70,7 @@ $ramdom_color = $_SESSION["color_projet"];
 
 
 
- 
+
 /*
  * Exemple d'utilisation des variables dynamiques
  * Ce script montre comment utiliser la classe `DatabaseHandler` pour manipuler des données
@@ -75,15 +108,21 @@ $databaseHandler->get_dynamicVariables();
 
 
   <?php
-//  $sha1_ =  $dynamicVariables['title_projet'];
+  //  $sha1_ =  $dynamicVariables['title_projet'];
 
   //$dynamicVariables['id_sha1_projet']
-  $sha1_ =$dynamicVariables['id_sha1_projet'] ;
+  $sha1_ = $dynamicVariables['id_sha1_projet'];
 
   for ($i_a = 0; $i_a < count($dynamicVariables['title_projet']); $i_a++) {
 
 
-    echo "<div id='id_" . $sha1_[$i_a] . "' class='" . $sha1_[$i_a] . " section_1 hexagon' onclick='function_projet_2(this)'>";
+      
+
+
+    $margin_ =  fmod($i_a, count($margin_array)) ;
+
+    $margin_info = $margin_array[$margin_];
+    echo "<div style='$margin_info'   id='id_" . $sha1_[$i_a] . "' class='" . $sha1_[$i_a] . " section_1 hexagon colors_array_" . fmod($i_a, count($colors_array)) . "' onclick='function_projet_2(this)'>";
     echo AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i_a]); // Affiche "Hello"
     echo "</div>";
   }
@@ -101,7 +140,7 @@ $databaseHandler->get_dynamicVariables();
     "color_projet" =>    $dynamicVariables['color_projet'],
     "google_title_projet" =>    $dynamicVariables['google_title_projet'],
 
-    
+
     "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
     "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
     "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],
@@ -113,7 +152,7 @@ $databaseHandler->get_dynamicVariables();
     "name_extention_projet" =>    $dynamicVariables['name_extention_projet'],
     "statue_projet" =>    $dynamicVariables['statue_projet'],
     "title_projet" => $title_projet,
-    "description_projet" =>$description_projet,
+    "description_projet" => $description_projet,
     "password_projet" =>    $dynamicVariables['password_projet'],
     "visibility_1_projet" =>    $dynamicVariables['visibility_1_projet'],
     "visibility_2_projet" =>    $dynamicVariables['visibility_2_projet'],
@@ -207,12 +246,16 @@ echo '<style>
     display: flex;
     justify-content: space-around;
     margin-top: 75px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: auto;
   }
 
   .projet_1_data div {
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 18px;
     border-radius: 15px;
+    margin: 2px;
   }
 
   .projet_1_data div:hover {
@@ -301,7 +344,7 @@ echo '<style>
 
 echo '<style>
     #id_' . $name_r . ' {
-        border: 1px solid '.$ramdom_color.';
+        border: 1px solid ' . $ramdom_color . ';
         border-radius:15px;
     border-bottom: 45px solid var(--blue);
 
@@ -353,9 +396,7 @@ $date_inscription_projet  = $dynamicVariables['date_inscription_projet'];
 
 
 
-$events = [
- 
-];
+$events = [];
 
 
 echo '<div class="id_des_2 total">';
@@ -371,54 +412,54 @@ echo '</div>';
 
 
 <?php
-for ($iy=0; $iy < count($dynamicVariables['date_debut_projet']); $iy++) { 
-  if($dynamicVariables['date_debut_projet'][$iy]!=""){
-   $events[$dynamicVariables['date_debut_projet'][$iy]] =  AsciiConverter::asciiToString($title_projet[$iy]);
+for ($iy = 0; $iy < count($dynamicVariables['date_debut_projet']); $iy++) {
+  if ($dynamicVariables['date_debut_projet'][$iy] != "") {
+    $events[$dynamicVariables['date_debut_projet'][$iy]] =  AsciiConverter::asciiToString($title_projet[$iy]);
   }
- }
- 
- 
-  
- $countdowns = [];
- 
- // Calculer le temps restant pour chaque événement
- foreach ($events as $date_future => $event_name) {
-    $get_anne = new Get_anne_html_html($date_future);
-    $temps_restant = $get_anne->get_temps_restant();
-    $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
-    $countdowns[] = $temps_restant;
- }
- 
- 
- 
- 
- 
- foreach ($countdowns as $index => $temps_restant): ?>
-   <div id="countdown-<?php echo $index; ?>" class="countdown-container" >
-       <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
-       <div class="time">
-           <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
-           <span class="label">Années</span>
-       </div>
-       <div class="time">
-           <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
-           <span class="label">Jours</span>
-       </div>
-       <div class="time">
-           <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
-           <span class="label">Heures</span>
-       </div>
-       <div class="time">
-           <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
-           <span class="label">Minutes</span>
-       </div>
-       <div class="time">
-           <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
-           <span class="label">Secondes</span>
-       </div>
- 
-   </div>
- <?php endforeach; 
+}
+
+
+
+$countdowns = [];
+
+// Calculer le temps restant pour chaque événement
+foreach ($events as $date_future => $event_name) {
+  $get_anne = new Get_anne_html_html($date_future);
+  $temps_restant = $get_anne->get_temps_restant();
+  $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
+  $countdowns[] = $temps_restant;
+}
+
+
+
+
+
+foreach ($countdowns as $index => $temps_restant): ?>
+  <div id="countdown-<?php echo $index; ?>" class="countdown-container">
+    <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
+    <div class="time">
+      <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
+      <span class="label">Années</span>
+    </div>
+    <div class="time">
+      <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
+      <span class="label">Jours</span>
+    </div>
+    <div class="time">
+      <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
+      <span class="label">Heures</span>
+    </div>
+    <div class="time">
+      <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="time">
+      <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
+      <span class="label">Secondes</span>
+    </div>
+
+  </div>
+<?php endforeach;
 for ($ii = 0; $ii < count($title_projet); $ii++) {
 
 
@@ -444,7 +485,7 @@ for ($ii = 0; $ii < count($title_projet); $ii++) {
 
 
 
-  
+
   echo '<div class="id_des_2" >';
 
   echo '<b>' . $id_sha1_projet[$ii] . '</b>';
@@ -469,20 +510,20 @@ for ($ii = 0; $ii < count($title_projet); $ii++) {
 
   echo '<b class="grey_">' . $date_inscription_projet[$ii] . '</b>';
   echo '</div>';
-  $string_description_projet = AsciiConverter::asciiToString($description_projet[$ii]) ;
+  $string_description_projet = AsciiConverter::asciiToString($description_projet[$ii]);
 
-  $string_description_projet = str_replace("&lt;","<",$string_description_projet);
-  $string_description_projet = str_replace("&gt;",">",$string_description_projet);
-
-
- 
-
-  
- echo  $string_description_projet ;   
- 
+  $string_description_projet = str_replace("&lt;", "<", $string_description_projet);
+  $string_description_projet = str_replace("&gt;", ">", $string_description_projet);
 
 
-echo "<br/>" ; 
+
+
+
+  echo  $string_description_projet;
+
+
+
+  echo "<br/>";
   echo '</div>';
 
 
@@ -492,39 +533,35 @@ echo "<br/>" ;
 
 
 
-<?php 
-
- 
- 
- 
-
- 
- require 'comment.php' ; 
+  <?php
 
 
 
-if(isset($_SESSION["index"])){
-  
 
-?>
-<h3 style='margin-top:75px'>Ajouter un commentaire</h3>
 
-  <div class="div_comment">
-    <div>
-      <textarea name="" id="<?= 'text_'.$id_sha1_projet[$ii] ?>" placeholder="votre text"></textarea>
+
+  require 'comment.php';
+
+
+
+  if (isset($_SESSION["index"])) {
+
+
+  ?>
+    <h3 style='margin-top:75px'>Ajouter un commentaire</h3>
+
+    <div class="div_comment">
+      <div>
+        <textarea name="" id="<?= 'text_' . $id_sha1_projet[$ii] ?>" placeholder="votre text"></textarea>
+      </div>
+      <div onclick="envoie_comment(this)" class="<?= $id_sha1_projet[$ii] . ' val_comment_function' ?>"> ENVOYER</div>
     </div>
-    <div onclick="envoie_comment(this)" class="<?= $id_sha1_projet[$ii].' val_comment_function' ?>"> ENVOYER</div>
-  </div>
 
 
 <?php
 
-}
+  }
   echo '</div>';
-
-
-
-
 }
 
 
@@ -532,7 +569,7 @@ if(isset($_SESSION["index"])){
 
 
 ?>
-<?php 
+<?php
 ?>
 
 
@@ -543,11 +580,14 @@ if(isset($_SESSION["index"])){
   .div_comment {
     margin-top: 75px;
   }
-  .div_comment input ,.div_comment textarea {
+
+  .div_comment input,
+  .div_comment textarea {
     width: 100%;
     border-radius: 3px;
     margin-bottom: 15px;
   }
+
   .grey_ {
     color: gray;
 
@@ -694,15 +734,73 @@ if(isset($_SESSION["index"])){
   .taille_img img {
     width: 100%;
   }
-  .val_comment_function{
+
+  .val_comment_function {
     background-color: var(--blue);
     color: white;
     padding: 10px;
     width: 150px;
     text-align: center
+  }
+
+  .val_comment_function:hover {
+    cursor: pointer;
+  }
+
+  .colors_array_1 {
+
+    background-color: #8f2704;
+  }
+
+  .colors_array_2 {
+
+    background-color: #d35c54;
+  }
+
+  .colors_array_3 {
+
+    background-color: #d99b97;
+  }
+
+  .colors_array_4 {
+
+    background-color: #cdc24a;
+  }
+
+
+  .colors_array_5 {
+    background-color: #c68a41;
 
   }
-  .val_comment_function:hover{
-    cursor: pointer;
+
+
+
+  .colors_array_6 {
+
+    background-color: #a0b151;
+  }
+
+  .colors_array_7 {
+
+    background-color: #489857;
+  }
+
+  .colors_array_8 {
+
+    background-color: #5b6849;
+  }
+
+  .colors_array_0 {
+
+    background-color: #373319;
+  }
+
+
+
+
+
+
+  .colors_array_0{
+    padding-top: 1256px;
   }
 </style>
