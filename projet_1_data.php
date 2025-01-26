@@ -444,11 +444,11 @@ for ($ii = 0; $ii < count($title_projet); $ii++) {
 
 
 
-
   
   echo '<div class="id_des_2" >';
 
   echo '<b>' . $id_sha1_projet[$ii] . '</b>';
+
 
 
 
@@ -469,8 +469,20 @@ for ($ii = 0; $ii < count($title_projet); $ii++) {
 
   echo '<b class="grey_">' . $date_inscription_projet[$ii] . '</b>';
   echo '</div>';
+  $string_description_projet = AsciiConverter::asciiToString($description_projet[$ii]) ;
 
-  echo AsciiConverter::asciiToString($description_projet[$ii]); // Affiche "Hello"
+  $string_description_projet = str_replace("&lt;","<",$string_description_projet);
+  $string_description_projet = str_replace("&gt;",">",$string_description_projet);
+
+
+ 
+
+  
+ echo  $string_description_projet ;   
+ 
+
+
+echo "<br/>" ; 
   echo '</div>';
 
 

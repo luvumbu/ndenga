@@ -1,6 +1,6 @@
  <?php
 
- 
+
 
     $element_array = array(
         'https://t3.ftcdn.net/jpg/05/35/47/38/360_F_535473874_OWCa2ohzXXNZgqnlzF9QETsnbrSO9pFS.jpg',
@@ -37,7 +37,7 @@ $finalArray = [
 */
 
 
- 
+
     ?>
 
 
@@ -48,18 +48,18 @@ $finalArray = [
      </div>
 
  </div>
-<?php
+ <?php
 
-if($projet_1['id_sha1_parent_projet'][0] !=""){
-?>
- <div class="parent_class">
-    <p>Source principal</p>
-    <a href="<?= $projet_1['id_sha1_parent_projet'][0] ?>"><img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1"/></a>
- </div>
-<?php
-}
+    if ($projet_1['id_sha1_parent_projet'][0] != "") {
+    ?>
+     <div class="parent_class">
+         <p>Source principal</p>
+         <a href="<?= $projet_1['id_sha1_parent_projet'][0] ?>"><img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1" /></a>
+     </div>
+ <?php
+    }
 
-?>
+    ?>
 
  <?php
 
@@ -75,10 +75,25 @@ if($projet_1['id_sha1_parent_projet'][0] !=""){
  <div class="description_projet_1">
 
      <div>
-         <?= $description_projet_1  ?>
+         <?php
+
+
+
+
+            $description_projet_1 = str_replace("&lt;", "<", $description_projet_1);
+            $description_projet_1 = str_replace("&gt;", ">", $description_projet_1);
+
+
+
+            for ($ifram = 0; $ifram < strlen($description_projet_1); $ifram++) {
+                echo $description_projet_1[$ifram];
+            }
+
+
+
+            ?>
      </div>
  </div>
-
  <style>
      .description_projet_1 {
 
@@ -86,6 +101,16 @@ if($projet_1['id_sha1_parent_projet'][0] !=""){
          margin: auto;
          margin-top: 75px;
          margin-bottom: 75px;
+         
+     }
+
+       iframe{
+text-align: center;
+   width: 100%;
+   margin-top: 25px;
+   margin-bottom: 25px;
+
+         
      }
  </style>
  <link rel="stylesheet" href="../css_hexagon.css">
@@ -105,18 +130,18 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
 
- 
-
-
-?>
 
 
 
+    ?>
 
 
 
 
- 
+
+
+
+
 
  <div class="projet_2">
 
@@ -139,15 +164,15 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
                 ?>
 
-<div>
-    <b>
-    <a href="<?= $id_sha1_projet[$i] ?>">
-    <img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1"/>
-    </a>
-</b>
-</div>
+             <div>
+                 <b>
+                     <a href="<?= $id_sha1_projet[$i] ?>">
+                         <img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1" />
+                     </a>
+                 </b>
+             </div>
 
-                <?php 
+             <?php
 
 
                 echo    '<i class="title_projet_2"> ' . $title_projet_2[$i] . ' </i>';
@@ -202,7 +227,22 @@ var_dump($projet_2["id_sha1_projet"]) ;
          </div>
 
          <div>
-             <?= $description_projet_2[$i] ?>
+             <?php
+
+                $string_description_projet_2 = AsciiConverter::asciiToString($description_projet_2[$i]);
+
+                $string_description_projet_2 = str_replace("&lt;", "<", $string_description_projet_2);
+                $string_description_projet_2 = str_replace("&gt;", ">", $string_description_projet_2);
+
+
+
+
+
+
+
+
+
+                ?>
          </div>
          <div class="<?= $class_element ?>">
              Voir <?= $title_projet_2[$i]; ?>
@@ -219,27 +259,27 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
 
 
-<?php 
-
-
- 
-
-
- 
-
-
-$color_projet = $projet_1["color_projet"][0] ; 
-
-
-
-$_SESSION["color_projet"] = $color_projet ;
+ <?php
 
 
 
 
 
 
-?>
+
+
+    $color_projet = $projet_1["color_projet"][0];
+
+
+
+    $_SESSION["color_projet"] = $color_projet;
+
+
+
+
+
+
+    ?>
 
 
  <style>
@@ -306,13 +346,12 @@ $_SESSION["color_projet"] = $color_projet ;
          font-size: 1.2em;
      }
 
-     .parent_class{
-        width: 100%;
-    
-        text-align: center;
-        margin-top: 75px;
+     .parent_class {
+         width: 100%;
+
+         text-align: center;
+         margin-top: 75px;
      }
- 
  </style>
 
 
@@ -409,7 +448,7 @@ $_SESSION["color_projet"] = $color_projet ;
 
          var name_ = document.getElementById("text_" + classArray[0]).value;
 
-        
+
 
          var ok = new Information("../config/add_commet.php"); // création de la classe 
          ok.add("id_sha1_comment_projet", classArray[0]); // ajout d'une deuxieme information denvoi 
@@ -418,9 +457,9 @@ $_SESSION["color_projet"] = $color_projet ;
 
 
 
- 
+
          console.log(ok.info()); // demande l'information dans le tableau
-       ok.push(); // envoie l'information au code pkp 
+         ok.push(); // envoie l'information au code pkp 
 
 
 
@@ -430,26 +469,26 @@ $_SESSION["color_projet"] = $color_projet ;
 
          const myTimeout = setTimeout(x, 250);
 
-function x() {
- 
-
-
-
-    const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("comment_"+classArray[0]).innerHTML =
-    this.responseText;
-  }
-  xhttp.open("GET", "../comment_ajax.php/"+classArray[0]);
-  xhttp.send();
-}
+         function x() {
 
 
 
 
+             const xhttp = new XMLHttpRequest();
+             xhttp.onload = function() {
+                 document.getElementById("comment_" + classArray[0]).innerHTML =
+                     this.responseText;
+             }
+             xhttp.open("GET", "../comment_ajax.php/" + classArray[0]);
+             xhttp.send();
+         }
 
 
- 
+
+
+
+
+
 
      }
 
@@ -530,77 +569,75 @@ function x() {
      .img_projet_src1 img {
          width: 100%;
      }
-  
  </style>
 
 
 
-<?php 
+ <?php
 
 
 
-echo '<style>
+    echo '<style>
       .projet_2_img {
          width: 70%;
          border-radius: 17px;
-         border: 1px solid '.$projet_1["color_projet"][0].';
+         border: 1px solid ' . $projet_1["color_projet"][0] . ';
 
      }
 </style>
-' ; 
-?>
+';
+    ?>
 
 
 
-<?php 
+ <?php
 
 
-if($projet_1["color_projet"][0]==''){
-    echo '<style>
+    if ($projet_1["color_projet"][0] == '') {
+        echo '<style>
     .title_projet_1 {
-        background-color: '.$projet_1["color_projet"][0].';
+        background-color: ' . $projet_1["color_projet"][0] . ';
         text-align:center ; 
 
         
         color:black ; 
     }
 </style>';
-}
-else{
-    echo '<style>
+    } else {
+        echo '<style>
     .title_projet_1 {
-        background-color: '.$projet_1["color_projet"][0].';
+        background-color: ' . $projet_1["color_projet"][0] . ';
         text-align:center ; 
 
         
         color:white ; 
     }
-</style>';  
-}
-
-
-
-
-?>
-
-
- 
-
-<style>
-
-
-    body{
-
-        background-repeat: no-repeat;
-        background-size: 100% 32.5%;
- 
+</style>';
     }
-    .projet_2_img{
-        box-shadow: 2px 2px black;
-    }
-    .img_projet_src1 img {
-        box-shadow: 2px 2px black;
-        border-radius: 17px;
 
-    }
-</style>
+
+
+
+    ?>
+
+
+
+
+ <style>
+     body {
+
+         background-repeat: no-repeat;
+         background-size: 100% 32.5%;
+
+     }
+
+     .projet_2_img {
+         box-shadow: 2px 2px black;
+     }
+
+     .img_projet_src1 img {
+         box-shadow: 2px 2px black;
+         border-radius: 17px;
+
+     }
+ </style>
