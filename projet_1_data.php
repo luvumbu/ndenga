@@ -371,7 +371,54 @@ echo '</div>';
 
 
 <?php
-
+for ($iy=0; $iy < count($dynamicVariables['date_debut_projet']); $iy++) { 
+  if($dynamicVariables['date_debut_projet'][$iy]!=""){
+   $events[$dynamicVariables['date_debut_projet'][$iy]] =  AsciiConverter::asciiToString($title_projet[$iy]);
+  }
+ }
+ 
+ 
+  
+ $countdowns = [];
+ 
+ // Calculer le temps restant pour chaque événement
+ foreach ($events as $date_future => $event_name) {
+    $get_anne = new Get_anne_html_html($date_future);
+    $temps_restant = $get_anne->get_temps_restant();
+    $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
+    $countdowns[] = $temps_restant;
+ }
+ 
+ 
+ 
+ 
+ 
+ foreach ($countdowns as $index => $temps_restant): ?>
+   <div id="countdown-<?php echo $index; ?>" class="countdown-container" >
+       <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
+       <div class="time">
+           <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
+           <span class="label">Années</span>
+       </div>
+       <div class="time">
+           <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
+           <span class="label">Jours</span>
+       </div>
+       <div class="time">
+           <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
+           <span class="label">Heures</span>
+       </div>
+       <div class="time">
+           <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
+           <span class="label">Minutes</span>
+       </div>
+       <div class="time">
+           <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
+           <span class="label">Secondes</span>
+       </div>
+ 
+   </div>
+ <?php endforeach; 
 for ($ii = 0; $ii < count($title_projet); $ii++) {
 
 
@@ -381,54 +428,7 @@ for ($ii = 0; $ii < count($title_projet); $ii++) {
 
 
 
-for ($iy=0; $iy < count($dynamicVariables['date_debut_projet']); $iy++) { 
- if($dynamicVariables['date_debut_projet'][$iy]!=""){
-  $events[$dynamicVariables['date_debut_projet'][$iy]] =  AsciiConverter::asciiToString($title_projet[$iy]);
- }
-}
 
-
- 
-$countdowns = [];
-
-// Calculer le temps restant pour chaque événement
-foreach ($events as $date_future => $event_name) {
-   $get_anne = new Get_anne_html_html($date_future);
-   $temps_restant = $get_anne->get_temps_restant();
-   $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
-   $countdowns[] = $temps_restant;
-}
-
-
-
-
-
-foreach ($countdowns as $index => $temps_restant): ?>
-  <div id="countdown-<?php echo $index; ?>" class="countdown-container" >
-      <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
-      <div class="time">
-          <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
-          <span class="label">Années</span>
-      </div>
-      <div class="time">
-          <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
-          <span class="label">Jours</span>
-      </div>
-      <div class="time">
-          <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
-          <span class="label">Heures</span>
-      </div>
-      <div class="time">
-          <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
-          <span class="label">Minutes</span>
-      </div>
-      <div class="time">
-          <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
-          <span class="label">Secondes</span>
-      </div>
-
-  </div>
-<?php endforeach; 
 
 
 

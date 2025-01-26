@@ -35,6 +35,9 @@ $finalArray = [
 
 
 */
+
+
+ 
     ?>
 
 
@@ -45,6 +48,19 @@ $finalArray = [
      </div>
 
  </div>
+<?php
+
+if($projet_1['id_sha1_parent_projet'][0] !=""){
+?>
+ <div class="parent_class">
+    <p>Source principal</p>
+    <a href="<?= $projet_1['id_sha1_parent_projet'][0] ?>"><img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1"/></a>
+ </div>
+<?php
+}
+
+?>
+
  <?php
 
     $img_projet_src1 = $projet_1["img_projet_src1"][0];
@@ -120,6 +136,18 @@ var_dump($projet_2["id_sha1_projet"]) ;
                 echo '<br/>';
 
                 echo   $img_projet_src2_2[$i];
+
+                ?>
+
+<div>
+    <b>
+    <a href="<?= $id_sha1_projet[$i] ?>">
+    <img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1"/>
+    </a>
+</b>
+</div>
+
+                <?php 
 
 
                 echo    '<i class="title_projet_2"> ' . $title_projet_2[$i] . ' </i>';
@@ -204,7 +232,13 @@ $color_projet = $projet_1["color_projet"][0] ;
 
 
 
-$_SESSION["color_projet"] = $color_projet ; 
+$_SESSION["color_projet"] = $color_projet ;
+
+
+
+
+
+
 ?>
 
 
@@ -272,6 +306,12 @@ $_SESSION["color_projet"] = $color_projet ;
          font-size: 1.2em;
      }
 
+     .parent_class{
+        width: 100%;
+    
+        text-align: center;
+        margin-top: 75px;
+     }
  
  </style>
 
@@ -513,15 +553,54 @@ echo '<style>
 
 
 <?php 
-echo '<style>
+
+
+if($projet_1["color_projet"][0]==''){
+    echo '<style>
     .title_projet_1 {
         background-color: '.$projet_1["color_projet"][0].';
         text-align:center ; 
-        color:white ; 
+
+        
+        color:black ; 
     }
 </style>';
+}
+else{
+    echo '<style>
+    .title_projet_1 {
+        background-color: '.$projet_1["color_projet"][0].';
+        text-align:center ; 
+
+        
+        color:white ; 
+    }
+</style>';  
+}
+
+
+
 
 ?>
 
 
  
+
+<style>
+
+
+    body{
+
+        background-repeat: no-repeat;
+        background-size: 100% 32.5%;
+ 
+    }
+    .projet_2_img{
+        box-shadow: 2px 2px black;
+    }
+    .img_projet_src1 img {
+        box-shadow: 2px 2px black;
+        border-radius: 17px;
+
+    }
+</style>

@@ -113,7 +113,7 @@ function redimensionnerImageLargeurMax($source, $destination, $largeurMax) {
 
 // Exemple d'utilisation avec largeur max de 280px
 try {
-    redimensionnerImageLargeurMax($img_projet_src1, $img_projet_src1, 280);
+    redimensionnerImageLargeurMax($img_projet_src1, "image_redimensionnee.jpg", 280);
     echo "L'image a été redimensionnée avec succès !";
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();

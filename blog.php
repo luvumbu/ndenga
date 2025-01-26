@@ -7,19 +7,6 @@ header("Access-Control-Allow-Origin: *");
  
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../Get_anne_html_html.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
 
 <body>
 <?php 
@@ -45,6 +32,8 @@ $id_sha1_projet = $url->get_basename() ;
 
 
 
+
+
 $json=false ; 
 
 if (strpos($id_sha1_projet, $separation_url) !== false) {
@@ -62,6 +51,32 @@ else {
 
 require 'view/ref.php' ;
 
+//$favicon = $projet_1["img_projet_src1"][0] ; 
+$favicon = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVypNA9sxdyjykQOhtG5JYU0QkspkIyDO0MOmMecN707vZvwjGFm96Py2SMFAK2TyJgRnxgRh4K_xa3JD8dMzWV4Du55qNj5h3qxFn' ; 
+
+
+?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $projet_1["google_title_projet"][0] ?></title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../Get_anne_html_html.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <meta name="<?= $projet_1["change_meta_name_projet"][0] ?>" content="<?= $projet_1["change_meta_content_projet"][0] ?>">
+ 
+ 
+</head>
+
+
+
+<?php
 /*
 
 if($json){

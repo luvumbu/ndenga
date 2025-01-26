@@ -48,6 +48,13 @@ $projet_1 =  [
     "color_projet" =>    $dynamicVariables['color_projet'],
     "google_title_projet" =>    $dynamicVariables['google_title_projet'],
 
+
+
+
+    "change_meta_name_projet" =>    $dynamicVariables['change_meta_name_projet'],
+    "change_meta_content_projet" =>    $dynamicVariables['change_meta_content_projet'],
+  
+
     
     "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
     "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
@@ -76,6 +83,7 @@ $projet_1 =  [
     "publication_date_h_projet" =>    $dynamicVariables['publication_date_h_projet'],
     "shop_projet" =>    $dynamicVariables['shop_projet'],
     "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet']
+
 
 ];
 
