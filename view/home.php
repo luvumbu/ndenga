@@ -128,6 +128,10 @@ if (isset($_SESSION["home"])) {
 
 
     $change_meta_name_projet_dynamic_1 = $dynamicVariables['change_meta_name_projet'];
+    $html_mode_projet_dynamic_1 = $dynamicVariables['html_mode_projet'];
+
+
+
     $change_meta_content_projet_dynamic_1 = $dynamicVariables['change_meta_content_projet'];
 
 

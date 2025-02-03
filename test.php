@@ -1,24 +1,32 @@
+<?php
+// Création d'un tableau avec deux chaînes de caractères
+$monTableau = array("Bonjour", "Monde");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste déroulante</title>
+    <title>Tableau et Boutons avec Lecture Vocale</title>
 </head>
 <body>
-    <label for="numbers">Sélectionnez un nombre :</label>
-    <select id="numbers" name="numbers">
-        <!-- Les options de 1 à 10 -->
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
+
+<?php
+// Création d'un bouton pour chaque élément du tableau
+foreach ($monTableau as $index => $valeur) {
+    echo '<button onclick="lireVocal(\'' . $valeur . '\')">Lire: ' . $valeur . '</button><br>';
+}
+?>
+
+<script>
+// Fonction pour lire vocalement la valeur passée en argument
+function lireVocal(texte) {
+    const syntheseVocale = new SpeechSynthesisUtterance(texte);
+    syntheseVocale.lang = 'fr-FR'; // Langue française
+    speechSynthesis.speak(syntheseVocale);
+}
+</script>
+
 </body>
 </html>

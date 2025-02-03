@@ -51,8 +51,10 @@ $finalArray = [
  <?php
 
     if ($projet_1['id_sha1_parent_projet'][0] != "") {
+
+       
     ?>
-     <div class="parent_class">
+     <div class="parent_class" >
          <p>Source principal</p>
          <a href="<?= $projet_1['id_sha1_parent_projet'][0] ?>"><img width="50" height="50" src="https://img.icons8.com/flat-round/50/link--v1.png" alt="link--v1" /></a>
      </div>
@@ -75,6 +77,9 @@ $finalArray = [
  <div class="description_projet_1">
 
      <div>
+
+
+
          <?php
 
 
@@ -86,6 +91,8 @@ $finalArray = [
 
 
             for ($ifram = 0; $ifram < strlen($description_projet_1); $ifram++) {
+             
+         
                 echo $description_projet_1[$ifram];
             }
 
@@ -99,8 +106,9 @@ $finalArray = [
 
          width: 80%;
          margin: auto;
-         margin-top: 75px;
+         margin-top: 175px;
          margin-bottom: 75px;
+         
          
      }
 
@@ -149,9 +157,12 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
         for ($i = 0; $i < count($projet_2["title_projet"]); $i++) {
 
+
+
+        
         ?>
 
-         <div class='<?= $id_sha1_projet[$i] ?> section_1' id="<?= 'id_' . $id_sha1_projet[$i]  ?>" onclick='function_projet_2(this)'>
+         <div  style="text-align:center" class='<?= $id_sha1_projet[$i] ?> section_1' id="<?= 'id_' . $id_sha1_projet[$i]  ?>" onclick='function_projet_2(this)'>
              <?php
 
 
@@ -200,7 +211,7 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
  </div>
 
- <div id="section_1"></div>
+ <div id="section_1" style="margin-top:75px"></div>
  <?php
     for ($i = 0; $i < count($projet_2["title_projet"]); $i++) {
 
@@ -314,14 +325,21 @@ var_dump($projet_2["id_sha1_projet"]) ;
      .projet_2 {
          display: flex;
          justify-content: space-around;
+         flex-wrap: wrap;
+         width: 80%;
+         margin: auto;
+        
      }
 
      .projet_2 div {
          padding: 15px;
-         margin-top: 75px;
+         
          width: 250px;
          text-align: center;
          font-size: 1.5em;
+         margin: 25px;
+         margin-top: 75px;
+         text-align: center;
      }
 
      .projet_2 div:hover {
@@ -334,6 +352,7 @@ var_dump($projet_2["id_sha1_projet"]) ;
 
      body {
          margin: 0;
+         background-color: url("");
      }
 
 
@@ -395,18 +414,22 @@ var_dump($projet_2["id_sha1_projet"]) ;
                 */
 
 
+ 
 
-
-
+ 
          const xhttp = new XMLHttpRequest();
          xhttp.onload = function() {
              document.getElementById(classArray[1]).innerHTML =
                  this.responseText;
          }
-         xhttp.open("GET", "../projet_1_data.php/" + classArray[0]);
+        xhttp.open("GET", "../projet_1_data.php/" + classArray[0]);
+
+
+    
+
          xhttp.send();
 
-
+ 
 
 
      }
@@ -610,7 +633,8 @@ var_dump($projet_2["id_sha1_projet"]) ;
         text-align:center ; 
 
         
-        color:white ; 
+  
+        
     }
 </style>';
     }
@@ -640,4 +664,13 @@ var_dump($projet_2["id_sha1_projet"]) ;
          border-radius: 17px;
 
      }
+     body {
+    background-image: url("https://img.freepik.com/vecteurs-libre/fond-particules-technologie-style-realiste_23-2148426704.jpg?t=st=1738397647~exp=1738401247~hmac=35c9463d6ab0c1275a62571325d3297abf8886ed1dce717c36116ff7cc8fb5be&w=740");
+  
+  background-size: 100% 600px;
+  }
+  .title_projet_1 {
+    color: white;
+    text-shadow: 1px 1px 4px black;
+  }
  </style>

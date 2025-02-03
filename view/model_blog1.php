@@ -56,7 +56,9 @@ $projet_1 =  [
   
 
     
-    "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
+    "id_user_projet" =>    $dynamicVariables['id_user_projet'],
+    "html_mode_projet" =>    $dynamicVariables['html_mode_projet'],
+
     "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
     "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],
     "id_sha1_parent_projet" =>    $dynamicVariables['id_sha1_parent_projet'],

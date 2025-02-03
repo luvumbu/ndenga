@@ -34,11 +34,11 @@ $array_date_inscription_user =$dynamicVariables['date_inscription_user'] ;
 
 
  
+var_dump($array_date_inscription_user) ; 
 
 
 
-
-
+/*
 
 
 
@@ -82,7 +82,12 @@ $comment_projet = [
     "ip9_comment_projet" =>   $dynamicVariables['ip9_comment_projet'],
     "timestamp_comment_projet" =>   $dynamicVariables['timestamp_comment_projet']
 ];
-echo '<div id="comment_'.$id_sha1_comment_projet.'">' ; 
+
+
+
+
+    $div .='<div id="comment_'.$id_sha1_comment_projet.'">'  ; 
+ 
 
  
 
@@ -106,29 +111,40 @@ $position = array_search($dynamicVariables['id_user_sha1_comment_projet'][$i], $
 
  
 if ($position !== false) {
- echo "<div class='comment_class_1'>" ;
-    echo $array_title_user[$position] ;
-    echo "</div>" ; 
+
+
+ 
+
+
+
+
+    $div .= "<div class='comment_class_1'>" . $array_title_user[$position] . "</div>";
+
 }  
-echo "<div class=''>" ; 
-echo $dynamicVariables['text_comment_projet'][$i] ++  ; 
-echo "</div>" ; 
+$div .= "<div class=''>" . $dynamicVariables['text_comment_projet'][$i]++ . "</div>";
+
 
 
 
 }
 
-echo '</div>' ; 
+
+$div .= "</div>";
+
+$style .= '
+<style>
+    .comment_class_1 {
+        background-color: var(--blue);
+        color: white;
+        padding: 15px;
+    }
+</style>';
+
+
+*/
 ?>
 
  
 
 
-<style>
  
-    .comment_class_1{
-        background-color: var(--blue);
-        color: white;
-        padding: 15px;
-    }
-</style>
