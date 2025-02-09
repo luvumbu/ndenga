@@ -212,6 +212,8 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
       box-shadow: 1px 1px 8px black;
       float: left;
     }
+
+   
   </style>
 </body>
 

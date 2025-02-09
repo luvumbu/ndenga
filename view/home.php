@@ -50,6 +50,63 @@ $header_text_2 ="MES PROJET";
 $header_text_3 ="MON PROFIL";
 $header_text_4 ="Liste style";
 
+
+
+
+
+$databaseHandler__ = new DatabaseHandler($dbname, $username);
+
+
+// Requête SQL pour récupérer toutes les données de la table
+$req_sql = "SELECT * FROM `style_pages` WHERE 1";
+
+// Récupération des informations des tables enfant liées
+$databaseHandler__->getListOfTables_Child("style_pages");
+// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
+
+// Récupération des données de la table via une méthode spécialisée
+$databaseHandler__->getDataFromTable2X($req_sql);
+// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
+
+// Génération de variables dynamiques à partir des données récupérées
+$databaseHandler__->get_dynamicVariables();
+// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
+
+// Exemple : affichage d'une variable dynamique spécifique
+ 
+
+$id_style_page_auto__ = $dynamicVariables['id_style_page_auto'] ; 
+$id_general__ = $dynamicVariables['id_general'] ; 
+
+$name_style_pages__ = $dynamicVariables['name_style_pages'] ; 
+$header_style_pages__ = $dynamicVariables['header_style_pages'] ; 
+$total_style_pages__ = $dynamicVariables['total_style_pages'] ; 
+$id_sha1_style_page__ = $dynamicVariables['id_sha1_style_page'] ; 
+
+
+
+$id_style_page__ = $dynamicVariables['id_style_page'] ; 
+$id_user_style_page__ = $dynamicVariables['id_user_style_page'] ; 
+$date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'] ; 
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 <script>
@@ -136,6 +193,12 @@ if (isset($_SESSION["home"])) {
 
 
     $change_meta_name_projet_dynamic_1 = $dynamicVariables['change_meta_name_projet'];
+
+    $style_pages_projet_dynamic_1 = $dynamicVariables['style_pages_projet'];
+    $name_pages_projet_dynamic_1 = $dynamicVariables['name_pages_projet'];
+
+
+
     $html_mode_projet_dynamic_1 = $dynamicVariables['html_mode_projet'];
 
 
@@ -373,4 +436,6 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
         color: white;
         text-decoration: none;
     }
+
+   
 </style>

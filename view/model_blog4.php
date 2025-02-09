@@ -57,7 +57,20 @@ if($databaseHandler->tableList_info2[0]!=null) {
         "id_projet" =>    $dynamicVariables['id_projet'],
         "activation_projet" =>    $dynamicVariables['activation_projet'],
         "id_general" =>    $dynamicVariables['id_general'],
-        "id_user_projet" =>    $dynamicVariables['id_sha1_projet'],
+        "color_projet" =>    $dynamicVariables['color_projet'],
+        "google_title_projet" =>    $dynamicVariables['google_title_projet'],
+    
+    
+    
+    
+        "change_meta_name_projet" =>    $dynamicVariables['change_meta_name_projet'],
+        "change_meta_content_projet" =>    $dynamicVariables['change_meta_content_projet'],
+      
+    
+        
+        "id_user_projet" =>    $dynamicVariables['id_user_projet'],
+        "html_mode_projet" =>    $dynamicVariables['html_mode_projet'],
+    
         "id_sha1_user_projet" =>    $dynamicVariables['id_sha1_user_projet'],
         "id_sha1_projet" =>    $dynamicVariables['id_sha1_projet'],
         "id_sha1_parent_projet" =>    $dynamicVariables['id_sha1_parent_projet'],
@@ -83,7 +96,8 @@ if($databaseHandler->tableList_info2[0]!=null) {
         "publication_date_j_projet" =>    $dynamicVariables['publication_date_j_projet'],
         "publication_date_h_projet" =>    $dynamicVariables['publication_date_h_projet'],
         "shop_projet" =>    $dynamicVariables['shop_projet'],
-        "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet']
+        "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet'],
+        "style_pages_projet" =>    $dynamicVariables['style_pages_projet']
     ];
 
 

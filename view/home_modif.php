@@ -90,7 +90,7 @@
           <img class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" onclick="a(this)" title="<?php echo $id_sha1_projet_dynamic_1_ ?>" class="cursor_pointer" width="50" height="50" src="https://img.icons8.com/ios/50/image--v1.png" alt="image--v1" />
         </div>
         <div>
-          <input type="color" value="<?= $color_projet_dynamic_1[0] ?>" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="change_color(this)">
+          <input type="color" value="<?= $color_projet_dynamic_1[$i] ?>" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="change_color(this)">
         </div>
 
 
@@ -120,7 +120,7 @@
       $description_projet = AsciiConverter::asciiToString($dynamicVariables['description_projet'][$i]);
 
       ?>
-      <input  placeholder="Titre de la page " style="border:2px solid <?= $color_projet_dynamic_1[0]?>" id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
+      <input placeholder="Titre de la page " style="border:2px solid <?= $color_projet_dynamic_1[0] ?>" id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
 
       <div class="change_google_title">
         <b>Title SEO</b>
@@ -156,6 +156,79 @@
 
           ?>
         </select>
+
+
+<?php 
+ 
+
+
+
+
+
+
+ 
+
+
+
+?>
+
+
+        <label for="numbers">Style de la page</label>
+        <select name="numbers" class="<?= $id_sha1_projet_dynamic_1_  ?>" onchange="change_styles(this)">
+          <!-- Les options de 1 à 10 -->
+ 
+<?php 
+
+for ($i_style=0; $i_style <count($name_style_pages__) ; $i_style++) { 
+
+ 
+
+ ?>
+
+<option  value="<?= $id_sha1_style_page__[$i_style] ?>"><?= $name_style_pages__[$i_style] ?></option>
+
+
+
+
+
+<?php 
+}
+
+?>
+
+
+<?php 
+?>
+          
+
+        
+        </select>
+        <?php
+
+
+
+
+/* 
+
+
+$id_style_page_auto__ = $dynamicVariables['id_style_page_auto'] ; 
+$id_general__ = $dynamicVariables['id_general'] ; 
+
+$name_style_pages__ = $dynamicVariables['name_style_pages'] ; 
+$header_style_pages__ = $dynamicVariables['header_style_pages'] ; 
+$total_style_pages__ = $dynamicVariables['total_style_pages'] ; 
+$id_sha1_style_page__ = $dynamicVariables['id_sha1_style_page'] ; 
+
+
+
+$id_style_page__ = $dynamicVariables['id_style_page'] ; 
+$id_user_style_page__ = $dynamicVariables['id_user_style_page'] ; 
+$date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'] ; 
+
+
+
+*/
+        ?>
 
 
       </div>
@@ -645,28 +718,59 @@
 
 
       if (opacite == 0.2) {
-        
-        html_mode_projet = "on" ; 
+
+        html_mode_projet = "on";
         document.getElementById("html_1_" + element[0]).style.opacity = 1;
         document.getElementById("html_2_" + element[0]).style.opacity = 0.2;
 
       } else {
         document.getElementById("html_1_" + element[0]).style.opacity = 0.2;
         document.getElementById("html_2_" + element[0]).style.opacity = 1;
-        html_mode_projet = "" ; 
+        html_mode_projet = "";
 
       }
 
 
 
- 
+
       var ok = new Information("config/html_mode_projet.php"); // création de la classe 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
       ok.add("html_mode_projet", html_mode_projet); // ajout de l'information pour lenvoi 
       console.log(ok.info()); // demande l'information dans le tableau
       ok.push(); // envoie l'information au code pkp  
+
+
+
+
+
+    }
+
+
+    function change_styles(_this) {
+    
+
  
+ 
+
+
+        var element = afficherValeursFormattees2(_this.className, __);
+        console.log(element);
+
+
+       
+
+        var ok = new Information("config/change_styles.php"); // création de la classe 
+
+        ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
+        ok.add("style_pages_projet", _this.value); // ajout de l'information pour lenvoi 
+    
+
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
+
+
+
 
 
 

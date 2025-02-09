@@ -6,10 +6,10 @@
 
 <?php
 
+require_once 'divHierarchy_array.php';
 
 
-
-
+/*
  
 $divHierarchy_array = [
     // 🏆 Niveau Zéro - L'élément ultime englobant tout
@@ -118,20 +118,9 @@ $divHierarchy_40 = $divHierarchy_array[40]; // Niveau 40 - Div (blockquote)
 $divHierarchy_41 = $divHierarchy_array[41]; // Niveau 41 - Div (code)
 $divHierarchy_42 = $divHierarchy_array[42]; // Niveau 42 - Div (pre)
  
- 
-
-$liste_css = array();
- 
+ */
 
 
-for ($i_div=0; $i_div < count($divHierarchy_array); $i_div++) { 
-
-
-
-   
-
-    array_push($liste_css,"");
-}
 
 
 
@@ -381,28 +370,7 @@ height: 300px;
 <?php
 
 
-$css_page = "";
 
-
-$css_page .= "<style>";
-
-
-
-
-for ($i__ = 0; $i__ < count($liste_css); $i__++) {
-
-    $css_page .= "." . $divHierarchy_array[$i__];
-    $css_page .= "{";
-    $css_page .= $liste_css[$i__];
-    $css_page .= "}";
-}
-
-
-
-
-
-
-$css_page .= "</style>";
 
 
 echo $css_page;

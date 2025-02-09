@@ -84,7 +84,8 @@ $projet_1 =  [
     "publication_date_j_projet" =>    $dynamicVariables['publication_date_j_projet'],
     "publication_date_h_projet" =>    $dynamicVariables['publication_date_h_projet'],
     "shop_projet" =>    $dynamicVariables['shop_projet'],
-    "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet']
+    "date_inscription_projet" =>    $dynamicVariables['date_inscription_projet'],
+    "style_pages_projet" =>    $dynamicVariables['style_pages_projet']
 
 
 ];
