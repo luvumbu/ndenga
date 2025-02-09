@@ -33,9 +33,6 @@ $array_date_inscription_user =$dynamicVariables['date_inscription_user'] ;
 
 
 
- 
-var_dump($array_date_inscription_user) ; 
-
 
 
 /*

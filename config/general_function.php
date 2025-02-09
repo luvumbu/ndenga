@@ -94,6 +94,11 @@ switch ($general_function) {
       $_SESSION["home"] = "profil";
   
       break;
+
+      case "style":
+        $_SESSION["home"] = "style";
+    
+        break;
  
 
 

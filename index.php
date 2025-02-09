@@ -106,12 +106,10 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
         if ($url->get_elements()[0] == "index.php") {
           require_once 'view/home.php';
         ?>
-          <a href="blog.php/1">
-            <h3 class="projet_all">Voir tous les projet</h3>
-          </a>
+
         <?php
         } else {
-         // require_once 'blog0.php';
+          // require_once 'blog0.php';
         }
 
         // Vérification des données de session pour afficher l'administration
@@ -132,7 +130,80 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
   }
   ?>
 
+
+
+
+
+
+
+
+
+  <?php
+
+
+  $nom_table = "projet"; // Nom de la table cible
+
+  // Création d'une instance de la classe `DatabaseHandler`
+  $databaseHandler = new DatabaseHandler($username, $dbname);
+
+  // Requête SQL pour récupérer toutes les données de la table
+  $req_sql = "SELECT * FROM `$nom_table` WHERE `activation_projet` ='' AND visibility_1_projet !='' AND id_sha1_parent_projet='' ";
+
+  // Récupération des informations des tables enfant liées
+  $databaseHandler->getListOfTables_Child($nom_table);
+  // La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
+
+  // Récupération des données de la table via une méthode spécialisée
+  $databaseHandler->getDataFromTable2X($req_sql);
+  // La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
+
+  // Génération de variables dynamiques à partir des données récupérées
+  $databaseHandler->get_dynamicVariables();
+  // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
+
+
+
+
+
+
+
+
+
+
+  ?>
+
+
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <div>
+
+  </div>
+
+
+  <?php
+
+ 
+
+  ?>
   <style>
+    .total_elements {
+
+
+      border: 1px solid black;
+
+      margin: auto;
+
+      width: 300px;
+
+    }
+
+    .total_elements img {
+      width: 100%;
+    }
+
     /* Style personnalisé pour le bouton "Voir tous les projets" */
     .projet_all {
       background-color: #5264a9;

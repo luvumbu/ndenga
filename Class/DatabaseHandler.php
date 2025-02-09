@@ -500,6 +500,9 @@ var_dump($dynamicVariables['id_sha1_projet']);
  */
 /*
 $username = "root";  // Nom d'utilisateur de la base de données
+
+
+
 $password = "root"; // Mot de passe de la base de données
 // Création d'une instance de la classe `DatabaseHandler`
 $databaseHandler = new DatabaseHandler($username, $password);

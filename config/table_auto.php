@@ -146,6 +146,35 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("projet_img");
 $mainTableName = "projet_img" ; 
+
+
+$databaseHandler = new DatabaseHandler($dbname,$username); 
+$databaseHandler->set_column_names("id_style_page_auto");
+$databaseHandler->set_column_names("id_general");
+$databaseHandler->set_column_names("name_style_pages");
+$databaseHandler->set_column_names("header_style_pages");
+$databaseHandler->set_column_names("total_style_pages");
+
+
+
+$databaseHandler->set_column_names("id_sha1_style_page");
+$databaseHandler->set_column_names("id_style_page");
+$databaseHandler->set_column_names("id_user_style_page");
+$databaseHandler->set_column_names("date_inscription_style_page");
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table("style_pages");
+$mainTableName = "style_pages" ; 
 $mainTableName2 = $mainTableName  ;
 //require 'auto_exe.php' ; 
 $databaseHandler = new DatabaseHandler($dbname,$username); 

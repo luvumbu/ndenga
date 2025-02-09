@@ -36,6 +36,9 @@ $index_visivility = $index . $__ . "visivility" . $__;
 $index_profil = $index . $__ . "profil" . $__;
 
 
+$index_style = $index . $__ . "style" . $__;
+
+
 
 $index_img_user = $index . $__ . "img_2" . $__;
 $databaseHandler = new DatabaseHandler($dbname, $username);
@@ -45,6 +48,8 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 $header_text_1 ="Option insert";
 $header_text_2 ="MES PROJET";
 $header_text_3 ="MON PROFIL";
+$header_text_4 ="Liste style";
+
 ?>
 
 <script>
@@ -52,6 +57,8 @@ $header_text_3 ="MON PROFIL";
 const header_text_1= '<?=$header_text_1 ?>';
 const header_text_2= '<?=$header_text_2 ?>';
 const header_text_3= '<?=$header_text_3 ?>';
+const header_text_4= '<?=$header_text_4 ?>';
+
 
 </script>
 
@@ -62,6 +69,7 @@ const header_text_3= '<?=$header_text_3 ?>';
     <div class="<?php echo  $index_insert ?>" onclick="a(this)"><?= $header_text_1 ?></div>
     <div class="<?php echo  $index_all ?>" onclick="a(this)"><?= $header_text_2 ?></div>
     <div class="<?php echo  $index_profil ?>" onclick="a(this)"><?= $header_text_3 ?></div>
+    <div class="<?php echo  $index_style ?>" onclick="a(this)"><?= $header_text_4 ?></div>
 
  
    
@@ -73,7 +81,7 @@ const header_text_3= '<?=$header_text_3 ?>';
     
 
    
-
+ 
     if($_SESSION["home"]=="profil") {
          require_once 'view/mon_profil.php' ; 
     }
@@ -176,7 +184,15 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
  var_dump($dynamicVariables['date_inscription_projet']) ; 
  */
 
+
+ if($_SESSION["home"]=="style") {
+    require_once 'view/style.php';
+
+ }
+ else {
     require_once 'home_modif.php';
+ }
+    
 }
  
 
@@ -257,6 +273,8 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
                 case header_text_1:
                 case header_text_2:
                 case header_text_3:
+                case header_text_4:
+
                     location.reload();
                     break;
  

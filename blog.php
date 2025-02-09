@@ -15,6 +15,11 @@ header("Access-Control-Allow-Origin: *");
   require_once "Class/DatabaseHandler.php";
   require_once "Class/dbCheck.php";
   require_once 'Class/AsciiConverter.php';
+ 
+
+
+
+  
 
 
   function escapeHtml($code) {
@@ -94,7 +99,7 @@ function removeHtmlTags($code) {
         <title><?= $projet_1["google_title_projet"][0] ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../Get_anne_html_html.css">
+ 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -304,7 +309,7 @@ else {
   for ($i_b_a = 0; $i_b_a < count($projet_2["id_projet"]); $i_b_a++) {
 
 
-
+ 
     if($projet_2["html_mode_projet"][$i_b_a]==""){
       $html_mode_projet = $projet_2["description_projet"][$i_b_a] ; 
 
@@ -326,18 +331,18 @@ else {
     }
     
 
-
+ 
 
 
     $id_= $projet_2["id_sha1_projet"][$i_b_a]  ;
 
     $div_ .= "<div>";
-    $div_ .= "<h1>";
+   /* $div_ .= "<h1>";
     $div_ .= $projet_2["title_projet"][$i_b_a]; // Sécurisation
     $div_ .= "</h1>";
-
+*/
     $div_ .= "<p>";
-    $div_ .= $html_mode_projet; // Sécurisation
+  
     $div_ .= "</p>";
 
     $div_ .= "<div class='link_a'>";
@@ -362,6 +367,60 @@ else {
 
 
 
+
+
+
+
+
+
+
+
+  $div_ .= "<div class='menu_04'>";
+  for ($i_b_a = 0; $i_b_a < count($projet_2["id_projet"]); $i_b_a++) {
+
+
+ 
+    if($projet_2["html_mode_projet"][$i_b_a]==""){
+      $html_mode_projet = $projet_2["description_projet"][$i_b_a] ; 
+
+
+      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
+      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
+ 
+
+
+      
+      
+    }
+    else {
+
+      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
+      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
+ 
+      $html_mode_projet = removeHtmlTags($html_mode_projet = $projet_2["description_projet"][0]);
+    }
+    
+
+ 
+
+ 
+    $div_ .= '<div class="title_projet_">'.$projet_2["title_projet"][$i_b_a].'</div>' ; 
+    $div_ .= $html_mode_projet ;
+ 
+ 
+  
+  }
+
+  $div_ .= "</div>";
+
+
+
+
+
+
+
+  
+
 ?>
 
 
@@ -385,6 +444,28 @@ else {
 
 </body>
 <style>
+
+
+.title_projet_ {
+  border: 1px solid var(--color_projet);
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding: 15px;
+  
+
+
+}
+.title_projet_:hover{
+  cursor: pointer;
+  background-color: var(--color_projet);
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px white;
+}
+  .menu_04 {
+   width: 80%;
+   margin: auto;
+  }
 .img_projet_src1_ img {
     width: 100px;
     height: 100px;
@@ -403,18 +484,21 @@ else {
     width: 100%;
 
 }
-
+.menu_03{
+  display: flex ; 
+justify-content: space-around;
+}
 .link_a {
 
-    width: 80%;
-    margin: auto;
+ 
+  
 
 
 }
 
 .text_href {
     background-color: var(--color_projet);
-    ;
+  
 }
 
 .link_a a {
@@ -433,10 +517,14 @@ else {
 
 .link_a img {
     border: 1px solid var(--color_projet);
+    border-radius: 17px;
+    padding: 17px;
 }
 
 .link_a img:hover {
     opacity: 0.8;
+    background-color: var(--color_projet);
+    opacity: 0.5;
 }
 
 .link_a a:hover {
@@ -459,6 +547,8 @@ else {
 .menu_01 {
     background-color: var(--color_projet);
     flex-wrap: wrap;
+ 
+
 }
 
 .menu_01 div {
@@ -469,9 +559,11 @@ else {
     text-align: center;
 }
 
+
 .menu_01 b {
     background-color: var(--color_projet);
     width: 100%;
+
 }
 
 .menu_02 b {
@@ -493,8 +585,7 @@ else {
 
 .menu_03 p {
     text-align: justify;
-    width: 80%;
-    margin: auto;
+    
     margin-top: 40px;
     margin-bottom: 40px;
 
@@ -565,8 +656,8 @@ else {
 
 .style_1 h5 {
     font-size: 1.5em;
-    width: 80%;
-    margin: auto;
+ 
+    
     margin-top: 45px;
     text-align: justify;
 
@@ -682,53 +773,43 @@ class Get_anne
 </head>
 
 
-<script>
-class CountdownTimer {
-    constructor(dateString, index) {
-        this.targetDate = new Date(dateString).getTime();
-        this.index = index;
-        this.containerElement = document.getElementById(`countdown-${index}`);
-        this.updateCountdown();
-        setInterval(() => this.updateCountdown(), 1000);
-    }
+ 
 
-    updateCountdown() {
-        const now = new Date().getTime();
-        let distance = this.targetDate - now;
 
-        if (distance < 0) {
-            // Temps écoulé : appliquez la couleur de fond rgba(200, 0, 0, 0.3)
-            this.containerElement.style.backgroundColor = 'rgba(200, 0, 0, 0.2)';
-            distance = Math.abs(distance); // Pour afficher les valeurs positives
-        }
 
-        const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
-        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+ 
+</a>
 
-        document.getElementById(`years-${this.index}`).innerText = years;
-        document.getElementById(`days-${this.index}`).innerText = days;
-        document.getElementById(`hours-${this.index}`).innerText = hours;
-        document.getElementById(`minutes-${this.index}`).innerText = minutes;
-        document.getElementById(`seconds-${this.index}`).innerText = seconds;
-    }
+<?php 
+
+if($projet_1["id_sha1_parent_projet"][0]=="") {
+ $id_sha1_parent_projet = "../index.php" ;  
+}
+else {
+ $id_sha1_parent_projet = $projet_1["id_sha1_parent_projet"][0];  
+
 }
 
-const events = <?php echo json_encode(array_keys($events)); ?>;
+?>
+<div class="return">
+  <a href="<?= $id_sha1_parent_projet ?>">
+  <img width="50" height="50" src="https://img.icons8.com/ios/50/return.png" alt="return"/>
 
-function startCountdowns() {
-    events.forEach((dateStr, index) => {
-        new CountdownTimer(dateStr, index);
-    });
-}
-
-startCountdowns();
-</script>
-
+</a>
+</div>
 
 
 </body>
 
 </html>
+
+<style>
+  .return{
+text-align: center;
+background-color: var(--color_projet);
+  }
+  .return img{
+    background-color: white;
+    padding: 15px;
+  }
+</style>

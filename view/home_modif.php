@@ -120,7 +120,7 @@
       $description_projet = AsciiConverter::asciiToString($dynamicVariables['description_projet'][$i]);
 
       ?>
-      <input id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
+      <input  placeholder="Titre de la page " style="border:2px solid <?= $color_projet_dynamic_1[0]?>" id="textInput2<?= $i ?>" value="<?php echo $title_projet ?>" type="text" onkeyup="a(this)" contenteditable="true" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>">
 
       <div class="change_google_title">
         <b>Title SEO</b>
