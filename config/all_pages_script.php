@@ -137,7 +137,7 @@ $txt .= "\n";
 
 
 
-$txt .= '$row_projet_' . $id_sha1_projet . " = \narray(\n";
+$txt .= '$row_projet'." = \narray(\n";
 
 for ($i = 0; $i < count($dynamicVariables['id_sha1_projet']); $i++) {
     $txt .= "    array(\n"; // Début d'un sous-tableau
@@ -265,7 +265,7 @@ $txt .= "\n";
 
 
 
-$txt .= '$row_projet_' . $id_sha1_projet . "_c = \narray(\n";
+$txt .= '$row_projet'."_c = \narray(\n";
 
 for ($i = 0; $i < count($dynamicVariables['id_sha1_projet']); $i++) {
     $txt .= "    array(\n"; // Début d'un sous-tableau

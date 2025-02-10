@@ -17,20 +17,6 @@ header("Access-Control-Allow-Origin: *");
   require_once 'Class/AsciiConverter.php';
  
 
-
-
-  
-
-
-
-
-
-  ?>
-
-
-
-    <?php
-
   //require_once 'function/add_ip.php';
   // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
   $url = new Give_url();
@@ -40,46 +26,23 @@ header("Access-Control-Allow-Origin: *");
   $separation_url = '__';
   $url->split_basename($separation_url);
   $id_sha1_projet = $url->get_basename();
+ 
+
+  $name_file_1 = $id_sha1_projet.".php" ; 
+  $name_file_2 = $id_sha1_projet."_c.php" ; 
 
 
-var_dump(  $id_sha1_projet);
+  $row_file = "row_projet_173912757656" ; 
 
+ 
 
-  $json = false;
-
-  if (strpos($id_sha1_projet, $separation_url) !== false) {
-
-    $id_sha1_projet = str_replace($separation_url, "", $id_sha1_projet);
-  } else {
-    $json = true;
-  }
-
-
-
-
-
-require_once 'view/divHierarchy_array.php';
-  require 'view/ref.php';
-
-  //$favicon = $projet_1["img_projet_src1"][0] ; 
-  $favicon = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVypNA9sxdyjykQOhtG5JYU0QkspkIyDO0MOmMecN707vZvwjGFm96Py2SMFAK2TyJgRnxgRh4K_xa3JD8dMzWV4Du55qNj5h3qxFn';
+  require_once 'all_pages/'.$name_file_1  ; 
+  require_once 'all_pages/'.$name_file_2.''  ; 
 
 
 
  
-
-  
-
-
+  var_dump($row_projet)  ;
+  var_dump($row_projet_c)  ;
 
   ?>
-
-
-
-
-
-
-
-
-
-
