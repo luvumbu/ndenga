@@ -14,4 +14,6 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 $databaseHandler->action_sql( "UPDATE  `projet` SET `color_projet` = '".$color_projet."' WHERE  `id_sha1_projet` ='".$id_sha1_projet."'  ");
 
 
+//$id_sha1_projet
+require_once 'all_pages_script.php' ; 
 ?>

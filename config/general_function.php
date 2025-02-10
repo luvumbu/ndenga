@@ -7,7 +7,7 @@ require_once "../Class/AsciiConverter.php";
 
 date_default_timezone_set('Europe/Paris');
 $date_inscription_projet = date("Y-m-d H:i:s");
-    // Chemin du dossier à créer
+// Chemin du dossier à créer
 
 $general_function =  $_POST["general_function"]; // const
 $id_sha1_projet_time = time() . rand(10, 99);
@@ -19,7 +19,7 @@ $cheminDossier = '../src/img/' . $id_sha1_user_projet;
 
 $_SESSION["img"] = time();
 
- 
+
 
 
 // Vérification si le dossier existe
@@ -71,16 +71,20 @@ switch ($general_function) {
 
     if ($tagName == "INPUT") {
       $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "' . $value . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
+      //$id_sha1_projet
+      require_once 'all_pages_script.php';
     } else {
       $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet` = "' . $value . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
+      //$id_sha1_projet
+      require_once 'all_pages_script.php';
     }
 
 
 
 
     break;
-      case "img_2":
-        $_SESSION["img_2"] = "img_2";
+  case "img_2":
+    $_SESSION["img_2"] = "img_2";
     break;
   case "all":
     $_SESSION["home"] = "all";
@@ -90,16 +94,16 @@ switch ($general_function) {
 
     break;
 
-    case "profil":
-      $_SESSION["home"] = "profil";
-  
-      break;
+  case "profil":
+    $_SESSION["home"] = "profil";
 
-      case "style":
-        $_SESSION["home"] = "style";
-    
-        break;
- 
+    break;
+
+  case "style":
+    $_SESSION["home"] = "style";
+
+    break;
+
 
 
 

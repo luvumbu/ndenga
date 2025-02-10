@@ -19,5 +19,5 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 
 $databaseHandler->action_sql('UPDATE  `'.$dbname.'` SET `date_user` = "'.$date_user.'" , `title_user` = "'.$title_user.'" ,`description_user` = "'.$description_user.'"   WHERE  `id_sha1_user` ="' . $id_sha1_user . '" ');
 
-
+ 
 ?>

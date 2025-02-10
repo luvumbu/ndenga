@@ -30,7 +30,8 @@ else {
 
 
  
-
+//$id_sha1_projet
+require_once 'all_pages_script.php' ; 
 
 
 ?>
