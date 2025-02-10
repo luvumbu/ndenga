@@ -66,8 +66,7 @@ require_once 'view/divHierarchy_array.php';
 
 
 
-  var_dump( $divHierarchy_array);
-  var_dump( $liste_css);
+ 
 
   
 
