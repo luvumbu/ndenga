@@ -435,7 +435,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
         console.log(element);
 
 
-        var ok = new Information("config/general_function_update.php"); // création de la classe 
+        var ok = new Information("config/update/general_function_update.php"); // création de la classe 
 
         ok.add("nom_user", element[0]); // ajout de l'information pour lenvoi 
         ok.add("password_user", element[1]); // ajout de l'information pour lenvoi 
@@ -457,7 +457,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
     function remove_all(_this) {
 
 
-      var ok = new Information("config/remove_all.php"); // création de la classe 
+      var ok = new Information("config/update/remove_all.php"); // création de la classe 
       var element = afficherValeursFormattees2(_this.className, __);
       console.log(element);
       ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
@@ -470,7 +470,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
     function add_child(_this) {
 
 
-      var ok = new Information("config/add_child.php"); // création de la classe 
+      var ok = new Information("config/insert/add_child.php"); // création de la classe 
       var element = afficherValeursFormattees2(_this.className, __);
       console.log(element);
       ok.add("nom_user", element[0]); // ajout de l'information pour lenvoi 
@@ -496,7 +496,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
     function add_calendar(_this) {
-      var ok = new Information("config/add_calendar.php"); // création de la classe 
+      var ok = new Information("config/update/add_calendar.php"); // création de la classe 
       var element = afficherValeursFormattees2(_this.className, __);
       console.log(element);
       ok.add("nom_user", element[0]); // ajout de l'information pour lenvoi 
@@ -518,7 +518,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
       console.log(_this.value);
 
-      var ok = new Information("config/my_date.php"); // création de la classe 
+      var ok = new Information("config/update/my_date.php"); // création de la classe 
       var element = afficherValeursFormattees2(_this.className, __);
 
       ok.add("heure_debut_projet", _this.value); // ajout de l'information pour lenvoi 
@@ -538,7 +538,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
 
-      var ok = new Information("config/add_child.php"); // création de la classe 
+      var ok = new Information("config/update/add_child.php"); // création de la classe 
       var element = afficherValeursFormattees2(_this.className, __);
 
 
@@ -562,7 +562,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       }
 
 
-      var ok = new Information("config/visivility.php"); // création de la classe 
+      var ok = new Information("config/update/visivility.php"); // création de la classe 
 
 
       ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
@@ -599,7 +599,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
       var element = afficherValeursFormattees2(_this.className, " ");
 
-      var ok = new Information("config/change_color.php"); // création de la classe 
+      var ok = new Information("config/update/change_color.php"); // création de la classe 
 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
@@ -623,7 +623,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       var element = afficherValeursFormattees2(_this.className, " ");
 
 
-      var ok = new Information("config/change_google_title.php"); // création de la classe 
+      var ok = new Information("config/update/change_google_title.php"); // création de la classe 
 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
@@ -647,7 +647,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       var element = afficherValeursFormattees2(_this.className, " ");
 
 
-      var ok = new Information("config/level_urgence_projet.php"); // création de la classe 
+      var ok = new Information("config/update/level_urgence_projet.php"); // création de la classe 
 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
@@ -664,7 +664,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       var element = afficherValeursFormattees2(_this.className, " ");
 
 
-      var ok = new Information("config/change_meta_name.php"); // création de la classe 
+      var ok = new Information("config/update/change_meta_name.php"); // création de la classe 
 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
@@ -677,7 +677,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       var element = afficherValeursFormattees2(_this.className, " ");
 
 
-      var ok = new Information("config/change_meta_content.php"); // création de la classe 
+      var ok = new Information("config/update/change_meta_content.php"); // création de la classe 
 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
@@ -733,7 +733,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
 
-      var ok = new Information("config/html_mode_projet.php"); // création de la classe 
+      var ok = new Information("config/update/html_mode_projet.php"); // création de la classe 
 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
       ok.add("html_mode_projet", html_mode_projet); // ajout de l'information pour lenvoi 
@@ -760,7 +760,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
        
 
-        var ok = new Information("config/change_styles.php"); // création de la classe 
+        var ok = new Information("config/update/change_styles.php"); // création de la classe 
 
         ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
         ok.add("style_pages_projet", _this.value); // ajout de l'information pour lenvoi 
