@@ -9,13 +9,17 @@ header("Access-Control-Allow-Origin: *");
 
 
 <body>
-    <?php
+  <?php
   $grande_image__ = "https://i.pinimg.com/236x/46/51/27/465127dc4dad2655628bd36e0e3c088a.jpg";
   require_once "Class/Give_url.php";
   require_once "Class/DatabaseHandler.php";
   require_once "Class/dbCheck.php";
   require_once 'Class/AsciiConverter.php';
- 
+  
+
+
+
+
 
   //require_once 'function/add_ip.php';
   // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
@@ -26,86 +30,173 @@ header("Access-Control-Allow-Origin: *");
   $separation_url = '__';
   $url->split_basename($separation_url);
   $id_sha1_projet = $url->get_basename();
- 
-
-  $name_file_1 = $id_sha1_projet.".php" ; 
-  $name_file_2 = $id_sha1_projet."_c.php" ; 
-
-
-  $row_file = "row_projet_173912757656" ; 
-
- 
-
-  require_once 'all_pages/'.$name_file_1  ; 
-  require_once 'all_pages/'.$name_file_2.''  ; 
-
-  require_once 'view/divHierarchy_array.php' ; 
 
 
 
 
-  /*
+
+
+
+  require_once "all_pages/" . $id_sha1_projet . ".php";
+
+
+
+
+
+
+
+
+
+  $title_projet_0 =AsciiConverter::asciiToString($row_projet[0]["title_projet"]);
+
   
-  var_dump($divHierarchy_array) ; 
-  var_dump($row_projet)  ;
-  var_dump($row_projet_c)  ;
 
-*/
+  $description_projet_0 =AsciiConverter::asciiToString($row_projet[0]["description_projet"]);
 
+  $img_projet_src1_0 =$row_projet[0]["img_projet_src1"];
 
+  ?>
 
+  <!DOCTYPE html>
+  <html lang="en">
 
-var_dump($row_projet)  ;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
 
-
-
-$nom_provisoir_1 = "v01z"; // Nom de la nom_provisoir cible
-$nom_provisoir_2 = "v02z"; // Nom de la nom_provisoir cible
-
-
-
-// Créer la nom_provisoir dynamique avec le nom de $nom_provisoir et lui affecter la valeur de $nom_provisoir2
-$$nom_provisoir_1 = $row_projet; 
-$$nom_provisoir_2 = $row_projet_c; 
+  <body>
 
 
-// Afficher la valeur de la variable dynamique
+  
+    <?php
 
+
+
+
+
+
+
+function removeHtmlTags($texte) {
+  return strip_tags($texte);
+}
 
  
- 
-$row_style_array=array();
 
+
+
+
+
+    ?>
+
+
+<?php 
+
+
+
+
+$a=array();
 for ($i=0; $i < count($row_projet); $i++) { 
  
-  require 'all_style/'.$row_projet[$i]["style_pages_projet"].'.php';
+
 
   
- 
-array_push($row_style_array,$row_style);
+  if (in_array($row_projet[$i]["style_pages_projet"], $a)) {
+   
+  }
+  else{
+  
+    if(  $row_projet[$i]["style_pages_projet"]!=""){
+      array_push($a,$row_projet[$i]["style_pages_projet"]);
+    }
+    
   }
 
 
 
+  if($i>0){
 
-  var_dump($row_projet_c);
-
-  for ($i=0; $i < count($row_projet_c); $i++) { 
- 
-     
- 
-  echo "<br/>" ;
-echo $i ; 
-   
- 
-    }
   
 
 
 
+$title_projet_=AsciiConverter::asciiToString($row_projet[$i]["title_projet"]);
+
+  
+
+$description_projet_ =AsciiConverter::asciiToString($row_projet[$i]["description_projet"]);
+
+
+
+
+
+
+
+
+
+ 
+$description_projet_ = removeHtmlTags($description_projet_);
+
+ 
+
+$description_projet_  = str_replace("&lt;","<",$description_projet_) ;
+$description_projet_ =  str_replace("&gt;",">",$description_projet_) ;
+
+
+echo $title_projet_ ; 
+
+
+echo $description_projet_ ; 
+}
+
+
+}
+
+
+  
+
+ 
+
+
+
+for ($i_a=0; $i_a < count($a); $i_a++) { 
+ 
+
+ 
+
  
  
 
+  require_once "all_style/1739682976_696.php" ;
 
 
-  ?>
+
+
+
+
+   
+
+
+ 
+ 
+ 
+
+ 
+
+ 
+$row_projet_style_ =AsciiConverter::asciiToString($row_projet_style["header_style_pages"]);
+ 
+
+  echo $row_projet_style_ ; 
+
+}
+
+
+echo "ON2" ; 
+?>
+
+    <img src="<?= $img_projet_src1_0 ?>" alt="" srcset="">
+  </body>
+
+  </html>

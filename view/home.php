@@ -273,7 +273,7 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
 
 
        
-        var ok = new Information("config/update/general_function.php"); // création de la classe 
+        var ok = new Information("config/general_function.php"); // création de la classe 
 
         // valeur si update       
         if (_this.value == undefined) {

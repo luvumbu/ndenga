@@ -219,11 +219,11 @@ for ($i_total = 0; $i_total < count($dynamicVariables['id_style_page_auto']); $i
 
 
         $total_ .= "<div class='$divHierarchy_4'>";
-        $total_ .= '<textarea class="'.$dynamicVariables['id_sha1_style_page'][$i_total].'" name="" onkeyup="textarea_up(this)" id="textInput1_'.$dynamicVariables['id_sha1_style_page'][$i_total].'">'.$dynamicVariables['header_style_pages'][$i_total].'</textarea>';
+        $total_ .= '<textarea class="'.$dynamicVariables['id_sha1_style_page'][$i_total].'" name="" onkeyup="textarea_up(this)" id="textInput1_'.$dynamicVariables['id_sha1_style_page'][$i_total].'">'.AsciiConverter::asciiToString($dynamicVariables['header_style_pages'][$i_total]).'</textarea>';
         $total_ .= "</div>";
 
         $total_ .= "<div class='$divHierarchy_4'>";
-        $total_ .= '<textarea class="'.$dynamicVariables['id_sha1_style_page'][$i_total].'" name="" onkeyup="textarea_up(this)" id="textInput2_'.$dynamicVariables['id_sha1_style_page'][$i_total].'">'.$dynamicVariables['total_style_pages'][$i_total].'</textarea>';
+        $total_ .= '<textarea class="'.$dynamicVariables['id_sha1_style_page'][$i_total].'" name="" onkeyup="textarea_up(this)" id="textInput2_'.$dynamicVariables['id_sha1_style_page'][$i_total].'">'.AsciiConverter::asciiToString($dynamicVariables['total_style_pages'][$i_total]).'</textarea>';
         $total_ .= "</div>";
 
        
