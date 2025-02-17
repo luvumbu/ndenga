@@ -199,7 +199,8 @@ if (isset($_SESSION["home"])) {
 
 
 
-    $html_mode_projet_dynamic_1 = $dynamicVariables['html_mode_projet'];
+    $html_mode_projet_1_dynamic_1 = $dynamicVariables['html_mode_projet_1'];
+    $html_mode_projet_2_dynamic_1 = $dynamicVariables['html_mode_projet_2'];
 
 
 

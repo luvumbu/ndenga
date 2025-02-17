@@ -59,7 +59,8 @@ $databaseHandler->set_column_names("change_meta_content_projet");
 $databaseHandler->set_column_names("id_sha1_parent_projet");
 $databaseHandler->set_column_names("id_sha1_parent_projet2");
 $databaseHandler->set_column_names("cryptage_projet");
-$databaseHandler->set_column_names("html_mode_projet");
+$databaseHandler->set_column_names("html_mode_projet_1");
+$databaseHandler->set_column_names("html_mode_projet_2");
 $databaseHandler->set_column_names("style_pages_projet");
 $databaseHandler->set_column_names("name_pages_projet");
 
@@ -91,6 +92,8 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

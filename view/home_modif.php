@@ -28,9 +28,15 @@
     $change_meta_content_projet_dynamic_1_ = $change_meta_content_projet_dynamic_1[$i];
     $id_sha1_projet_dynamic_1_ = $id_sha1_projet_dynamic_1[$i];
 
+    $description_projet_dynamic_1_ = $description_projet_dynamic_1[$i];
 
-    $html_mode_projet_dynamic_1_  = $html_mode_projet_dynamic_1[$i];
+    $title_projet_dynamic_1_ =     $title_projet_dynamic_1[$i];
+    $html_mode_projet_1_dynamic_1_ = $html_mode_projet_dynamic_1[$i];
 
+
+
+    $html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
+    $html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
 
 
 
@@ -66,13 +72,12 @@
 
       <?php
 
-      require_once "div_form.php" ; 
+      require "div_form.php" ; 
 
       $title_projet = AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i]);
       $description_projet = AsciiConverter::asciiToString($dynamicVariables['description_projet'][$i]);
 
       ?>
-
 
       <div class="change_google_title">
         <b>Title SEO</b>
@@ -239,34 +244,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
         </div>
 
 
-        <?php
 
-        if ($html_mode_projet_dynamic_1_ != "on") {
-        ?>
-
-          <div onclick="html_mode_projet_dynamic_1(this)" class="<?php echo $id_sha1_projet_dynamic_1_ ?>">
-            <img width="50" height="50" src="https://img.icons8.com/ios/50/html.png" alt="delete-forever--v1" />
-            <br />
-            <img id="<?php echo 'html_1_' . $id_sha1_projet_dynamic_1_ ?>" style="opacity: 0.2;" width="20" height="20" src="https://img.icons8.com/material-sharp/20/switch-on.png" alt="switch-on" />
-            <img id="<?php echo 'html_2_' . $id_sha1_projet_dynamic_1_ ?>" width="20" height="20" src="https://img.icons8.com/ios/20/switch-off--v1.png" alt="switch-off--v1" />
-
-          </div>
-        <?php
-        } else {
-        ?>
-
-          <div onclick="html_mode_projet_dynamic_1(this)" class="<?php echo $id_sha1_projet_dynamic_1_ ?>">
-            <img width="50" height="50" src="https://img.icons8.com/ios/50/html.png" alt="delete-forever--v1" />
-            <br />
-            <img id="<?php echo 'html_1_' . $id_sha1_projet_dynamic_1_ ?>" width="20" height="20" src="https://img.icons8.com/material-sharp/20/switch-on.png" alt="switch-on" />
-            <img id="<?php echo 'html_2_' . $id_sha1_projet_dynamic_1_ ?>" style="opacity: 0.2;" width="20" height="20" src="https://img.icons8.com/ios/20/switch-off--v1.png" alt="switch-off--v1" />
-
-          </div>
-        <?php
-        }
-
-
-        ?>
 
 
 
@@ -290,7 +268,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
               <option value="1nuit">1 nuit</option>
               <option value="2nuits">2 nuits</option>
               <option value="3nuits">3 nuits</option>
-              <option value="3nuits"><?= $id_sha1_projet_dynamic_1_ ?></option>
+            
 
             </select>
 
@@ -689,8 +667,10 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
       var ok = new Information("config/html_mode_projet.php"); // création de la classe 
 
+
+ 
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("html_mode_projet", html_mode_projet); // ajout de l'information pour lenvoi 
+      ok.add("html_mode_projet_1", html_mode_projet); // ajout de l'information pour lenvoi 
       console.log(ok.info()); // demande l'information dans le tableau
       ok.push(); // envoie l'information au code pkp  
 
