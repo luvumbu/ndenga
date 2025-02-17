@@ -19,7 +19,7 @@ $description_projet =  AsciiConverter::stringToAscii($description_projet); // Af
 $databaseHandler = new DatabaseHandler($dbname, $username);
  
 
-$databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "'.$title_projet.'" , `description_projet` = "'.$description_projet.'"  WHERE  `id_sha1_projet` ="173974546497" ');
+$databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "'.$title_projet.'" , `description_projet` = "'.$description_projet.'"  WHERE  `id_sha1_projet` ="'.$id_sha1_projet.'" ');
 
  
 ?>

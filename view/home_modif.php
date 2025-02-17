@@ -81,7 +81,7 @@
 
       <div class="change_google_title">
         <b>Title SEO</b>
-        <input value="<?= $google_title_projet_dynamic_1[0] ?>" placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
+        <input value="<?= $google_title_projet_dynamic_1[$i] ?>" placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
       </div>
 
       <div>

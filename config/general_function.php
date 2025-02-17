@@ -65,11 +65,11 @@ switch ($general_function) {
 
 
     if ($tagName == "INPUT") {
-      $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "' . $value . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
+    //  $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "' . $value . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
       //$id_sha1_projet
       require_once 'all_pages_script.php';
     } else {
-      $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet` = "' . $value . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
+     // $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet` = "' . $value . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
       //$id_sha1_projet
       require_once 'all_pages_script.php';
     }

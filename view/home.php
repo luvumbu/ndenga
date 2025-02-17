@@ -95,7 +95,8 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
 
-
+$html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
+$html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
 
 
 
@@ -136,8 +137,7 @@ const header_text_4= '<?=$header_text_4 ?>';
 </div>
 <?php 
     
-
-   
+ 
  
     if($_SESSION["home"]=="profil") {
          require_once 'view/mon_profil.php' ; 
