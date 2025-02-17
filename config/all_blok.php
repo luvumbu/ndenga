@@ -21,6 +21,13 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 
 $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "'.$title_projet.'" , `description_projet` = "'.$description_projet.'"  WHERE  `id_sha1_projet` ="'.$id_sha1_projet.'" ');
 
+
+
+
+$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
+
+
+$_SESSION["home"] = "";
  
 ?>
  

@@ -17,7 +17,10 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 $databaseHandler->action_sql( "UPDATE  `projet` SET  `style_pages_projet` = '".$style_pages_projet."' WHERE  `id_sha1_projet` ='".$id_sha1_projet."'  ");
  
 
-//$id_sha1_projet
+$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
+
+
+$_SESSION["home"] = "";
 require_once 'all_pages_script.php' ; 
 
 ?>

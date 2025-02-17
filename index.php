@@ -108,6 +108,8 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
 
         // Chargement de la page d'accueil ou du blog selon l'URL
         if ($url->get_elements()[0] == "index.php") {
+
+  
           require_once 'view/home.php';
         ?>
 

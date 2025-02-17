@@ -17,7 +17,10 @@ $textInput0 = AsciiConverter::stringToAscii($_POST['textInput0']);
 $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "' . $textInput2 . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
 $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet` = "' . $textInput0 . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
 
+$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
 
+
+$_SESSION["home"] = "";
 require_once 'all_pages_script.php' ; 
 
 ?>

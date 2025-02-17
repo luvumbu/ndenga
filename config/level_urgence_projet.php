@@ -10,6 +10,9 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 
 $databaseHandler->action_sql( "UPDATE  `projet` SET `level_urgence_projet` = '".$level_urgence_projet."' WHERE  `id_sha1_projet` ='".$id_sha1_projet."'  ");
 
-//$id_sha1_projet
+$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
+
+
+$_SESSION["home"] = "";
 require_once 'all_pages_script.php' ; 
 ?>
