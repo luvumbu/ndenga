@@ -31,14 +31,14 @@
     $description_projet_dynamic_1_ = $description_projet_dynamic_1[$i];
 
     $title_projet_dynamic_1_ =     $title_projet_dynamic_1[$i];
-  
+
 
 
 
     $html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
     $html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
 
- 
+
 
 
 
@@ -63,7 +63,7 @@
 
 
     ?>
-    
+
     <div id="parent_<?= $id_sha1_projet_dynamic_1_ ?>" class="editor-container largeur_juste" style="border:5px solid <?= $color_projet_dynamic_1[0] ?>">
 
 
@@ -72,7 +72,7 @@
 
       <?php
 
-      require "div_form.php" ; 
+      require "div_form.php";
 
       $title_projet = AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i]);
       $description_projet = AsciiConverter::asciiToString($dynamicVariables['description_projet'][$i]);
@@ -115,57 +115,57 @@
         </select>
 
 
-<?php 
- 
+        <?php
 
 
 
 
 
 
- 
 
 
 
-?>
+
+
+        ?>
 
 
         <label for="numbers">Style de la page</label>
         <select name="numbers" class="<?= $id_sha1_projet_dynamic_1_  ?>" onchange="change_styles(this)">
           <!-- Les options de 1 à 10 -->
- 
-<?php 
 
-for ($i_style=0; $i_style <count($name_style_pages__) ; $i_style++) { 
+          <?php
 
- 
-
- ?>
-
-<option  value="<?= $id_sha1_style_page__[$i_style] ?>"><?= $name_style_pages__[$i_style] ?></option>
+          for ($i_style = 0; $i_style < count($name_style_pages__); $i_style++) {
 
 
 
+          ?>
+
+            <option value="<?= $id_sha1_style_page__[$i_style] ?>"><?= $name_style_pages__[$i_style] ?></option>
 
 
-<?php 
-}
-
-?>
 
 
-<?php 
-?>
-          
 
-        
+          <?php
+          }
+
+          ?>
+
+
+          <?php
+          ?>
+
+
+
         </select>
         <?php
 
 
 
 
-/* 
+        /* 
 
 
 $id_style_page_auto__ = $dynamicVariables['id_style_page_auto'] ; 
@@ -268,7 +268,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
               <option value="1nuit">1 nuit</option>
               <option value="2nuits">2 nuits</option>
               <option value="3nuits">3 nuits</option>
-            
+
 
             </select>
 
@@ -630,8 +630,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
   <script>
-
-function html_mode_projet_dynamic_1(_this) {
+    function html_mode_projet_dynamic_1(_this) {
       var element = afficherValeursFormattees2(_this.className, " ");
 
 
@@ -640,7 +639,7 @@ function html_mode_projet_dynamic_1(_this) {
 
 
 
-     var opacite = document.getElementById("html_1_" + element[0]).style.opacity;
+      var opacite = document.getElementById("html_1_" + element[0]).style.opacity;
 
       console.log(opacite);
 
@@ -666,13 +665,17 @@ function html_mode_projet_dynamic_1(_this) {
       var ok = new Information("config/html_mode_projet.php"); // création de la classe 
 
 
- 
+
       ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
       ok.add("html_mode_projet_1", html_mode_projet); // ajout de l'information pour lenvoi 
       console.log(ok.info()); // demande l'information dans le tableau
       ok.push(); // envoie l'information au code pkp  
 
+      const myTimeout = setTimeout(time_out, 250);
 
+      function time_out() {
+        location.reload();
+      }
 
 
 
@@ -684,26 +687,26 @@ function html_mode_projet_dynamic_1(_this) {
 
 
     function change_styles(_this) {
-    
-
- 
- 
 
 
-        var element = afficherValeursFormattees2(_this.className, __);
-        console.log(element);
 
 
-       
 
-        var ok = new Information("config/change_styles.php"); // création de la classe 
 
-        ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
-        ok.add("style_pages_projet", _this.value); // ajout de l'information pour lenvoi 
-    
+      var element = afficherValeursFormattees2(_this.className, __);
+      console.log(element);
 
-        console.log(ok.info()); // demande l'information dans le tableau
-        ok.push(); // envoie l'information au code pkp 
+
+
+
+      var ok = new Information("config/change_styles.php"); // création de la classe 
+
+      ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
+      ok.add("style_pages_projet", _this.value); // ajout de l'information pour lenvoi 
+
+
+      console.log(ok.info()); // demande l'information dans le tableau
+      ok.push(); // envoie l'information au code pkp 
 
 
 
@@ -713,4 +716,3 @@ function html_mode_projet_dynamic_1(_this) {
 
     }
   </script>
- 

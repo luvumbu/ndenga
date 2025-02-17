@@ -348,6 +348,15 @@
 
 
 
+
+         const myTimeout = setTimeout(time_out, 250);
+
+         function time_out() {
+             location.reload();
+         }
+
+
+
      }
  </script>
 
