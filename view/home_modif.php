@@ -31,14 +31,14 @@
     $description_projet_dynamic_1_ = $description_projet_dynamic_1[$i];
 
     $title_projet_dynamic_1_ =     $title_projet_dynamic_1[$i];
-    $html_mode_projet_1_dynamic_1_ = $html_mode_projet_dynamic_1[$i];
+  
 
 
 
     $html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
     $html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
 
-
+ 
 
 
 
@@ -630,7 +630,8 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
   <script>
-    function html_mode_projet_dynamic_1(_this) {
+
+function html_mode_projet_dynamic_1(_this) {
       var element = afficherValeursFormattees2(_this.className, " ");
 
 
@@ -639,10 +640,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
 
-
-
-
-      var opacite = document.getElementById("html_1_" + element[0]).style.opacity;
+     var opacite = document.getElementById("html_1_" + element[0]).style.opacity;
 
       console.log(opacite);
 
@@ -679,6 +677,10 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
     }
+
+
+
+
 
 
     function change_styles(_this) {
