@@ -28,6 +28,9 @@ $_SESSION["id_sha1_projet"] = $id_sha1_projet ;
 
 
 $_SESSION["home"] = "";
+
+
+require_once 'all_pages_script.php' ; 
  
 ?>
  

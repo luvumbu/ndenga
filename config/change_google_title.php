@@ -3,6 +3,14 @@ require_once "require_once.php" ;
 
 $id_sha1_projet = $_POST["id_sha1_projet"] ; 
 $google_title_projet = $_POST["google_title_projet"] ; 
+
+
+ 
+$google_title_projet = extraireAlphabetique($google_title_projet);
+
+ 
+
+
  
 $databaseHandler = new DatabaseHandler($dbname, $username);
  

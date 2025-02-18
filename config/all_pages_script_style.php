@@ -42,22 +42,25 @@ $id_sha1_style_page_dyn = $dynamicVariables['id_sha1_style_page'];
 $id_style_page_dyn = $dynamicVariables['id_style_page'];
 $id_user_style_page_dyn = $dynamicVariables['id_user_style_page'];
 $date_inscription_style_page_dyn = $dynamicVariables['date_inscription_style_page'];
+
+
+$total_style_parent_pages_dyn = $dynamicVariables['total_style_parent_pages'];
  
 
 
 
 $liste_array_dyn = array(
+ 
     "id_style_page_auto", 
     "id_general", 
     "name_style_pages", 
     "header_style_pages", 
-    "total_style_pages", 
-
+    "total_style_pages",
+    "total_style_parent_pages", 
     "id_sha1_style_page", 
     "id_style_page", 
     "id_user_style_page", 
     "date_inscription_style_page"
-   
  
 
    

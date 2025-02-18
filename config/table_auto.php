@@ -167,6 +167,8 @@ $databaseHandler->set_column_names("id_general");
 $databaseHandler->set_column_names("name_style_pages");
 $databaseHandler->set_column_names("header_style_pages");
 $databaseHandler->set_column_names("total_style_pages");
+$databaseHandler->set_column_names("total_style_parent_pages");
+
 
 
 
@@ -177,6 +179,8 @@ $databaseHandler->set_column_names("date_inscription_style_page");
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

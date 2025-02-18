@@ -1,15 +1,15 @@
-<?php
-$afficher_html = false; // Change à true si tu veux l'afficher
-
-if ($afficher_html) {
-?>
-    <div class="display_flex_1">
-        <div onclick="html_mode_projet_dynamic_1(this)" class="<?php echo $id_sha1_projet_dynamic_1_ ?>">
-            <img width="50" height="50" src="https://img.icons8.com/ios/50/html.png" alt="delete-forever--v1" />
-            <br />
-            <img id="<?php echo 'html_1_' . $id_sha1_projet_dynamic_1_ ?>" style="opacity: 0.2;" width="20" height="20" src="https://img.icons8.com/material-sharp/20/switch-on.png" alt="switch-on" />
-        </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expression Mathématique</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+    <p>Voici l'expression mathématique :</p>
+    <div>
+        \( 2x + 1 = 10 \)
     </div>
-<?php
-}
-?>
+</body>
+</html>

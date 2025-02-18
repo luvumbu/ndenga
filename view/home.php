@@ -81,9 +81,12 @@ $id_general__ = $dynamicVariables['id_general'] ;
 $name_style_pages__ = $dynamicVariables['name_style_pages'] ; 
 $header_style_pages__ = $dynamicVariables['header_style_pages'] ; 
 $total_style_pages__ = $dynamicVariables['total_style_pages'] ; 
-$id_sha1_style_page__ = $dynamicVariables['id_sha1_style_page'] ; 
+$total_style_parent_pages__ = $dynamicVariables['total_style_parent_pages'] ; 
+$id_sha1_style_page__ = $dynamicVariables['id_sha1_style_page'] ;
+ 
 
 
+ 
 
 $id_style_page__ = $dynamicVariables['id_style_page'] ; 
 $id_user_style_page__ = $dynamicVariables['id_user_style_page'] ; 
@@ -98,13 +101,11 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 $html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
 $html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
 
+$total_style_parent_pages__x = $dynamicVariables['total_style_parent_pages'][$i] ; 
 
 
 
-
-
-
-
+ 
 
 
 

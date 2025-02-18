@@ -27,9 +27,5 @@ $databaseHandler->action_sql("INSERT INTO `projet` (id_user_projet,id_sha1_user_
 
 
 
-
-$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
-
-
-$_SESSION["home"] = "";
+ 
 ?>

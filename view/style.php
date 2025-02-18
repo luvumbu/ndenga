@@ -144,6 +144,10 @@ $divHierarchy_42 = $divHierarchy_array[42]; // Niveau 42 - Div (pre)
     <div class="<?= $divHierarchy_1 ?>">
         <textarea placeholder="HEADER"  class="<?= $divHierarchy_14?>" id="header_style_pages"></textarea>
     </div>
+
+    <div class="<?= $divHierarchy_1 ?>">
+        <textarea placeholder="header_style_pages"  class="<?= $divHierarchy_14?>" id="total_style_parent_pages"></textarea>
+    </div>
     <div class="<?= $divHierarchy_1 ?>">
 
         <div class="<?= $divHierarchy_12 ?>" onclick="style_pages()">Envoyer</div>
@@ -197,6 +201,9 @@ $total_ = "";
 
 $total_ .= "<div class='$divHierarchy_0'>";
 
+
+ 
+
 for ($i_total = 0; $i_total < count($dynamicVariables['id_style_page_auto']); $i_total++) {
 
 
@@ -226,6 +233,13 @@ for ($i_total = 0; $i_total < count($dynamicVariables['id_style_page_auto']); $i
         $total_ .= '<textarea class="'.$dynamicVariables['id_sha1_style_page'][$i_total].'" name="" onkeyup="textarea_up(this)" id="textInput2_'.$dynamicVariables['id_sha1_style_page'][$i_total].'">'.AsciiConverter::asciiToString($dynamicVariables['total_style_pages'][$i_total]).'</textarea>';
         $total_ .= "</div>";
 
+
+        $total_ .= "<div class='$divHierarchy_4'>";
+        $total_ .= '<textarea class="'.$dynamicVariables['id_sha1_style_page'][$i_total].'" name="" onkeyup="textarea_up(this)" id="textInput3_'.$dynamicVariables['id_sha1_style_page'][$i_total].'">'.AsciiConverter::asciiToString($dynamicVariables['total_style_parent_pages'][$i_total]).'</textarea>';
+        $total_ .= "</div>";
+
+
+   
        
         $total_ .= "<div class='$divHierarchy_3'>";
         $total_ .= $dynamicVariables['id_sha1_style_page'][$i_total];
@@ -406,6 +420,8 @@ function textarea_up(_this){
 ok.add("name_style_pages",textInput0 ); // ajout de l'information pour lenvoi 
  
 ok.add("total_style_pages",textInput2 ); // ajout de l'information pour lenvoi 
+ok.add("total_style_parent_pages",textInput2 ); // ajout de l'information pour lenvoi 
+
 ok.add("header_style_pages",textInput1 ); // ajout de l'information pour lenvoi 
 
  
@@ -423,7 +439,7 @@ ok.push(); // envoie l'information au code pkp
     function style_pages() {
 
 
-        const myTimeout = setTimeout(xx, 250);
+   const myTimeout = setTimeout(xx, 250);
 
         function xx() {
             location.reload();
@@ -438,23 +454,25 @@ ok.push(); // envoie l'information au code pkp
         var total_style_pages = document.getElementById("total_style_pages").value;
         var header_style_pages = document.getElementById("header_style_pages").value;
 
+        var total_style_parent_pages = document.getElementById("total_style_parent_pages").value;
 
 
 
+ 
 
 
-
+ 
 
         var ok = new Information("config/style_pages.php"); // création de la classe 
 
         ok.add("name_style_pages", name_style_pages); // ajout de l'information pour lenvoi 
         ok.add("total_style_pages", total_style_pages); // ajout de l'information pour lenvoi 
-        ok.add("header_style_pages", header_style_pages); // ajout de l'information pour lenvoi 
+        ok.add("total_style_parent_pages", total_style_parent_pages); // ajout de l'information pour lenvoi 
 
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
 
-
+ 
 
 
 
