@@ -57,10 +57,13 @@ $liste_array_dyn = array(
     "header_style_pages", 
     "total_style_pages",
     "total_style_parent_pages", 
+    "total_style_text_pages", 
+
     "id_sha1_style_page", 
     "id_style_page", 
     "id_user_style_page", 
     "date_inscription_style_page"
+
  
 
    

@@ -19,7 +19,7 @@ $databaseHandler->getDataFromTable2X($req_sql);
 $databaseHandler->get_dynamicVariables();
 
 
-var_dump($dynamicVariables['id_style_page_auto']);
+
 
 
 
@@ -60,7 +60,7 @@ var_dump($dynamicVariables['id_style_page_auto']);
     <textarea class="textarea_info_3 textarea_info" id="total_style_text_pages" placeholder="total_style_text_pages"></textarea>
     <label for="">total_style_parent_pages</label>
     <textarea class="textarea_info_4 textarea_info" id="total_style_parent_pages" placeholder="total_style_parent_pages"></textarea>
-    <div class="btn_input" onclick="btn_input()">ENVOYER</div>
+    <div class="btn_input" onclick="btn_input(this)">ENVOYER</div>
 
 </div>
 
@@ -73,22 +73,37 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
 
 
     $id_sha1_style_page_  = $dynamicVariables['id_sha1_style_page'][$i];
+    $name_style_pages_  = $dynamicVariables['name_style_pages'][$i];
+    $total_style_pages_  = $dynamicVariables['total_style_pages'][$i];
+    $header_style_pages_  = $dynamicVariables['header_style_pages'][$i];
+    $total_style_parent_pages_  = $dynamicVariables['total_style_parent_pages'][$i];
+    $total_style_text_pages_  = $dynamicVariables['total_style_text_pages'][$i];
+
+
+    $total_style_pages_ =  AsciiConverter::asciiToString($total_style_pages_); // Affiche "Hello"
+    $header_style_pages_ =  AsciiConverter::asciiToString($header_style_pages_); // Affiche "Hello"
+    $total_style_parent_pages_ =  AsciiConverter::asciiToString($total_style_parent_pages_); // Affiche "Hello"
+    $total_style_text_pages_ =  AsciiConverter::asciiToString($total_style_text_pages_); // Affiche "Hello"
+
+
+
+
+
 ?>
 
 
     <div class="parent_input">
         <label for="">name_style_pages</label>
-        <input title="<?= $id_sha1_style_page_ ?>" type="text" class="input_info_1 input_info" id="name_style_pages_<?= $id_sha1_style_page_ ?>" placeholder="name_style_pages">
+        <input title="<?= $id_sha1_style_page_ ?>" value="<?= $name_style_pages_  ?>" type="text" class="input_info_1 input_info" id="name_style_pages_<?= $id_sha1_style_page_ ?>" placeholder="name_style_pages">
         <label for="">header_style_pages</label>
-        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_1 textarea_info" id="header_style_pages_<?= $id_sha1_style_page_ ?>" placeholder="header_style_pages"></textarea>
+        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_1 textarea_info" id="header_style_pages_<?= $id_sha1_style_page_ ?>" placeholder="header_style_pages"><?= $header_style_pages_  ?></textarea>
         <label for="">total_style_pages</label>
-        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_2 textarea_info" id="total_style_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_pages"></textarea>
+        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_2 textarea_info" id="total_style_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_pages"><?= $total_style_pages_  ?></textarea>
         <label for="">total_style_text_pages</label>
-        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_3 textarea_info" id="total_style_text_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_text_pages"></textarea>
+        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_3 textarea_info" id="total_style_text_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_text_pages"><?= $total_style_text_pages_  ?></textarea>
         <label for="">total_style_parent_pages</label>
-        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_4 textarea_info" id="total_style_parent_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_parent_pages"></textarea>
+        <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_4 textarea_info" id="total_style_parent_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_parent_pages"><?= $total_style_parent_pages_  ?></textarea>
 
-        _<?= $id_sha1_style_page_ ?>
         <div class="btn_input" onclick="btn_update(this)" title="<?= $id_sha1_style_page_ ?>">UPDATE</div>
 
     </div>
@@ -96,7 +111,9 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
 }
 ?>
 <script>
-    function btn_input() {
+    function btn_input(_this) {
+        _this.style.display ="none";
+       
 
         var name_style_pages = document.getElementById("name_style_pages").value;
         var header_style_pages = document.getElementById("header_style_pages").value;
@@ -117,11 +134,21 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
         ok.push(); // envoie l'information au code pkp 
 
 
+
+        const myTimeout = setTimeout(reload_, 250);
+
+        function reload_() {
+            location.reload();
+       
+
+
+        }
+
     }
 
 
     function btn_update(_this) {
-
+        _this.style.display ="none";
         var name_style_pages = document.getElementById("name_style_pages_" + _this.title).value;
         var header_style_pages = document.getElementById("header_style_pages_" + _this.title).value;
         var total_style_pages = document.getElementById("total_style_pages_" + _this.title).value;
@@ -140,9 +167,21 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
         ok.add("id_sha1_style_page", _this.title); // ajout de l'information pour lenvoi 
 
 
-        
+
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 
+
+
+
+        const myTimeout = setTimeout(reload_, 250);
+
+function reload_() {
+   
+    _this.style.display ="block";
+
+
+
+}
 
     }
 </script>
