@@ -88,14 +88,23 @@ $style_pages_projet = array();
         //    var_dump($row_projet_style ) ; 
 
 
-        $total_style_pages_ =  AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
+        $total_style_pages_1 =  AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
+
+        $total_style_pages_3 =  AsciiConverter::asciiToString($row_projet_style["total_style_parent_pages"]); // Affiche "Hello"
+        $total_style_pages_2 =  AsciiConverter::asciiToString($row_projet_style["total_style_text_pages"]); // Affiche "Hello"
 
 
 
         echo '
             <style>
-  .' . $row_projet_style["name_style_pages"] . '{
-    ' . $total_style_pages_ . '
+  .' . $row_projet_style["name_style_pages"] . '_1{
+    ' . $total_style_pages_1 . '
+  }
+      .' . $row_projet_style["name_style_pages"] . '_2{
+    ' . $total_style_pages_2 . '
+  }
+      .' . $row_projet_style["name_style_pages"] . '_3{
+    ' . $total_style_pages_3 . '
   }
 </style>';
       }
@@ -142,11 +151,13 @@ for ($i = 0; $i < count($row_projet); $i++) {
  
 
 
-$class_name = $row_projet_style_array_name[$key] ; 
+$class_name_1 = $row_projet_style_array_name[$key].'_1' ; 
+$class_name_2 = $row_projet_style_array_name[$key].'_2' ; 
+$class_name_3 = $row_projet_style_array_name[$key].'_3' ; 
 
 ?>
 
-  <div class="<?= $class_name ?>" ><?= $title_projet_ ?></div>
+  <div class="<?= $class_name_2 ?>" ><?= $title_projet_ ?></div>
 <?php
 
 }
