@@ -76,7 +76,23 @@ $databaseHandler->set_column_names("password_projet");
 $databaseHandler->set_column_names("visibility_1_projet");
 $databaseHandler->set_column_names("visibility_2_projet");
 $databaseHandler->set_column_names("screen_shoot_projet");
+
 $databaseHandler->set_column_names("img_projet_src1");
+
+
+
+$databaseHandler->set_column_names("total_style_pages");
+$databaseHandler->set_column_names("total_style_parent_pages");
+$databaseHandler->set_column_names("total_style_text_pages");
+
+
+
+
+
+
+
+
+
 $databaseHandler->set_column_names("img_projet_src2");
 $databaseHandler->set_column_names("img_projet_visibility");
 $databaseHandler->set_column_names("group_projet");
@@ -120,6 +136,20 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+
+
+
+
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");

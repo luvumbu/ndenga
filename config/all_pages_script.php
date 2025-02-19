@@ -551,6 +551,13 @@ $liste_array_dyn = array(
     "screen_shoot_projet", 
     "img_projet_src1", 
     "img_projet_src2", 
+
+    "total_style_pages",
+    "total_style_parent_pages",
+    "total_style_text_pages",
+
+
+  
     "img_projet_visibility", 
     "groupe_projet", 
     "heure_debut_projet", 
