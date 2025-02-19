@@ -53,67 +53,113 @@ $style_pages_projet = array();
 
   var_dump($row_projet) ; 
 */
+
+
+  $row_projet_style_array =    array();
+
+
   $style_pages_projet = array();
 
-  for ($i = 0; $i < count($row_projet); $i++) {
-
-    if (!in_array($row_projet[$i]["style_pages_projet"], $style_pages_projet)) {
-
-
-      $filename = "all_style/" . $row_projet[$i]["style_pages_projet"] . '.php';
-      if (file_exists($filename)) {
-        array_push($style_pages_projet, $row_projet[$i]["style_pages_projet"]);
-
-        require $filename;
-        $row_projet[$i]["style_pages_projet"] = $row_projet_style["name_style_pages"];
+  $row_projet_style_array_number = array();
+  $row_projet_style_array_name = array();
 
 
-     
-        
-        $row_projet[$i]["total_style_pages"] =        $row_projet_style["total_style_pages"];
-        $row_projet[$i]["total_style_parent_pages"] = $row_projet_style["total_style_parent_pages"];
-        $row_projet[$i]["total_style_text_pages"] =   $row_projet_style["total_style_text_pages"];
 
 
-        $total_style_pages_1 = AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
-        $total_style_pages_2 = AsciiConverter::asciiToString($row_projet_style["total_style_text_pages"]); // Affiche "Hello"
-        $total_style_pages_3 = AsciiConverter::asciiToString($row_projet_style["total_style_parent_pages"]); // Affiche "Hello"
 
-        echo '<style>
-  .' . $row_projet_style["name_style_pages"] . '_1 {
-    ' . $total_style_pages_1 . '
+
+  $folder = __DIR__ . '/all_style'; // Chemin du dossier
+
+  if (is_dir($folder)) {
+    $files = array_diff(scandir($folder), array('.', '..'));
+
+
+    foreach ($files as $file) {
+      $path = $folder . '/' . $file;
+      if (is_file($path)) {
+
+
+
+        require_once "all_style/" . $file;
+
+        array_push($row_projet_style_array_number, str_replace(".php","",$file));;
+        array_push($row_projet_style_array_name, $row_projet_style["name_style_pages"]);
+
+        //    var_dump($row_projet_style ) ; 
+
+
+        $total_style_pages_ =  AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
+
+
+
+        echo '
+            <style>
+  .' . $row_projet_style["name_style_pages"] . '{
+    ' . $total_style_pages_ . '
   }
-
-    .' . $row_projet_style["name_style_pages"] . '_2 {
-    ' . $total_style_pages_2 . '
-  }
-        .' . $row_projet_style["name_style_pages"] . '_3 {
-    ' . $total_style_pages_3 . '
-  }
-
-   
-
-
 </style>';
       }
     }
   }
- 
 
-  $style_pages_projet_ = $row_projet[0]["style_pages_projet"];
+
+
   ?>
+
+
+
+
+
 </head>
 
 
 
-<div class="<?= $style_pages_projet_ . '_1'  ?>"><?= $title_projet_  ?></div>
-<div class="<?= $style_pages_projet_  .'_3'?>"><?= $description_projet_  ?></div>
+
+ 
+
+
+<?php
 
 
 
+ 
+
+
+for ($i = 0; $i < count($row_projet); $i++) {
+
+
+  $title_projet_ =  AsciiConverter::asciiToString($row_projet[$i]["title_projet"]); // Affiche "Hello"
 
 
 
+ 
+
+  $key = array_search($row_projet[$i]["style_pages_projet"], $row_projet_style_array_number); // $key = 2;
+ 
+
+ 
+
+ 
+
+
+$class_name = $row_projet_style_array_name[$key] ; 
+
+?>
+
+  <div class="<?= $class_name ?>" ><?= $title_projet_ ?></div>
+<?php
+
+}
+
+?>
+
+
+
+<style>
+  body {
+    margin: 0;
+  }
+</style>
 
 </body>
 
