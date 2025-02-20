@@ -70,45 +70,52 @@ $style_pages_projet = array();
 
   $folder = __DIR__ . '/all_style'; // Chemin du dossier
 
+
+  $div_ ="" ;
   if (is_dir($folder)) {
     $files = array_diff(scandir($folder), array('.', '..'));
 
+    $div_ .="<style>"; 
 
     foreach ($files as $file) {
       $path = $folder . '/' . $file;
       if (is_file($path)) {
 
+require_once "all_style/" . $file;
 
+array_push($row_projet_style_array_number, str_replace(".php","",$file));;
+array_push($row_projet_style_array_name, $row_projet_style["name_style_pages"]);
+//    var_dump($row_projet_style ) ; 
 
-        require_once "all_style/" . $file;
+$total_style_pages_1 =  AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
+$total_style_pages_3 =  AsciiConverter::asciiToString($row_projet_style["total_style_parent_pages"]); // Affiche "Hello"
+$total_style_pages_2 =  AsciiConverter::asciiToString($row_projet_style["total_style_text_pages"]); // Affiche "Hello"
 
-        array_push($row_projet_style_array_number, str_replace(".php","",$file));;
-        array_push($row_projet_style_array_name, $row_projet_style["name_style_pages"]);
+$div_ .="\n"; 
+$div_ .=".".$row_projet_style["name_style_pages"] ."_1 \n{"; 
+$div_ .="\n"; 
+$div_ .=$total_style_pages_1 ; 
+$div_ .="\n"; 
+$div_ .="}"; 
+$div_ .="\n"; 
+$div_ .=".".$row_projet_style["name_style_pages"] ."_2\n{"; 
+$div_ .="\n"; 
+$div_ .=$total_style_pages_1 ; 
+$div_ .="\n"; 
+$div_ .="}"; 
 
-        //    var_dump($row_projet_style ) ; 
+$div_ .="\n"; 
+$div_ .=".".$row_projet_style["name_style_pages"] ."_3\n{"; 
+$div_ .="\n"; 
+$div_ .=$total_style_pages_1 ; 
+$div_ .="\n"; 
+$div_ .="}"; 
+$div_ .="\n";
 
-
-        $total_style_pages_1 =  AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
-
-        $total_style_pages_3 =  AsciiConverter::asciiToString($row_projet_style["total_style_parent_pages"]); // Affiche "Hello"
-        $total_style_pages_2 =  AsciiConverter::asciiToString($row_projet_style["total_style_text_pages"]); // Affiche "Hello"
-
-
-
-        echo '
-            <style>
-  .' . $row_projet_style["name_style_pages"] . '_1{
-    ' . $total_style_pages_1 . '
-  }
-      .' . $row_projet_style["name_style_pages"] . '_2{
-    ' . $total_style_pages_2 . '
-  }
-      .' . $row_projet_style["name_style_pages"] . '_3{
-    ' . $total_style_pages_3 . '
-  }
-</style>';
       }
     }
+$div_ .="</style>"; 
+
   }
 
 
@@ -129,39 +136,29 @@ $style_pages_projet = array();
 
 <?php
 
-
-
- 
-
-
 for ($i = 0; $i < count($row_projet); $i++) {
 
-
   $title_projet_ =  AsciiConverter::asciiToString($row_projet[$i]["title_projet"]); // Affiche "Hello"
-
-
-
- 
-
+  $description_projet_ =  AsciiConverter::asciiToString($row_projet[$i]["description_projet"]); // Affiche "Hello"
   $key = array_search($row_projet[$i]["style_pages_projet"], $row_projet_style_array_number); // $key = 2;
  
+  $class_name_1 = $row_projet_style_array_name[$key].'_1' ; 
+  $class_name_2 = $row_projet_style_array_name[$key].'_2' ; 
+  $class_name_3 = $row_projet_style_array_name[$key].'_3' ; 
 
- 
-
- 
-
-
-$class_name_1 = $row_projet_style_array_name[$key].'_1' ; 
-$class_name_2 = $row_projet_style_array_name[$key].'_2' ; 
-$class_name_3 = $row_projet_style_array_name[$key].'_3' ; 
-
-?>
-
-  <div class="<?= $class_name_2 ?>" ><?= $title_projet_ ?></div>
-<?php
+  $div_ .="\n"; 
+  $div_ .='<div class="'.$class_name_3.'">';
+  $div_ .="\n"; 
+  $div_ .= '    <div class="'.$class_name_1.'">'.$title_projet_.'</div>' ;
+  $div_ .="\n"; 
+  $div_ .= '    <div class="'.$class_name_2.'">'.$description_projet_.'</div>' ;
+  $div_ .="\n"; 
+  $div_ .="</div>"; 
 
 }
 
+
+echo $div_ ;
 ?>
 
 
