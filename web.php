@@ -296,7 +296,7 @@ $doubleArray = [];
 
 
 
-
+  $id_array = array();
 
   for ($i = 0; $i < count($element_01); $i++) {
 
@@ -314,15 +314,39 @@ $doubleArray = [];
     $description_projet_ =  AsciiConverter::asciiToString($element_01[$i]["description_projet"]); // Affiche "Hello"
 
 
-    $div_ .= "<div class='" . $class_name_3 . "'>";
-    $div_ .= "    <div>";
-    $div_ .= $title_projet_;
-    $div_ .= "    </div>";
 
-    $div_ .= "    <div>";
-    $div_ .= $description_projet_;
-    $div_ .= "    </div>";
-    $div_ .= "</div>";
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    if (!in_array($element_01[$i]["id_sha1_projet"], $id_array)) {
+ 
+    
+      array_push($id_array,$element_01[$i]["id_sha1_projet"]);
+
+
+
+      $div_ .= "<div class='" . $class_name_3 . "'>";
+      $div_ .= "    <div>";
+      $div_ .= $title_projet_;
+      $div_ .= "    </div>";
+  
+      $div_ .= "    <div>";
+      $div_ .= $description_projet_;
+      $div_ .= "    </div>";
+      $div_ .= "</div>";
+    
+        }
+
   }
 
 
