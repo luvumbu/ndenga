@@ -1,24 +1,49 @@
 <?php
 session_start();
 header("Access-Control-Allow-Origin: *");
-
-
-
+require_once "require_once_all_web.php";
+//require_once 'function/add_ip.php';
+// Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
+$url = new Give_url();
+// Afficher le nom du fichier actuel
+// Utilisation de la méthode split_basename pour séparer par "_"
+$separation_url = '__';
+$url->split_basename($separation_url);
+$id_sha1_projet = $url->get_basename();
+$all_pages = "all_pages/" . $id_sha1_projet . ".php";
+require_once   $all_pages;
+$favicon =  $row_projet[0]["img_projet_src1"];
+$google_title_projet = $row_projet[0]["google_title_projet"];
+$style_pages_projet = array();
+//var_dump($row_projet) ; 
+$id_sha1_projet_array = array();
+$doubleArray = [];
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="<?= $favicon ?>">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <title><?= $google_title_projet ?> </title>
+  <?php
+
+  $title_projet_ = $row_projet[0]["title_projet"];
+  $description_projet_ = $row_projet[0]["description_projet"];
+  $html_mode_projet_ = $row_projet[0]["html_mode_projet"];
+  $id_sha1_projet_ = $row_projet[0]["id_sha1_projet"];
+  $id_sha1_projet_ = $row_projet[0]["id_sha1_projet"];
+  $img_projet_src1_ = $row_projet[0]["img_projet_src1"];
+
+  $id_sha1_parent_projet_ = $row_projet[0]["id_sha1_parent_projet"];
 
 
-<body>
-    <?php
-  $grande_image__ = "https://i.pinimg.com/236x/46/51/27/465127dc4dad2655628bd36e0e3c088a.jpg";
-  require_once "Class/Give_url.php";
-  require_once "Class/DatabaseHandler.php";
-  require_once "Class/dbCheck.php";
-  require_once 'Class/AsciiConverter.php';
- 
+  $total_style = array();
 
 
 
-  
 
 
 
@@ -26,730 +51,432 @@ header("Access-Control-Allow-Origin: *");
 
   ?>
 
+  <?php
+
+  $title_projet_ = AsciiConverter::asciiToString($title_projet_); // Affiche "Hello"
+  $description_projet_ = AsciiConverter::asciiToString($description_projet_); // Affiche "Hello"
+  $row_projet_style_array =    array();
+  $style_pages_projet = array();
+  $row_projet_style_array_number = array();
+  $row_projet_style_array_name = array();
+  $folder = __DIR__ . '/all_style'; // Chemin du dossier
+  $div_ = "";
+  if (is_dir($folder)) {
+    $files = array_diff(scandir($folder), array('.', '..'));
+    $div_ .= "<style>";
+    foreach ($files as $file) {
+      $path = $folder . '/' . $file;
+      if (is_file($path)) {
+        require_once "all_style/" . $file;
+        array_push($row_projet_style_array_number, str_replace(".php", "", $file));
+        array_push($row_projet_style_array_name, $row_projet_style["name_style_pages"]);
+        $total_style_pages_1 =  AsciiConverter::asciiToString($row_projet_style["total_style_pages"]); // Affiche "Hello"
+        $total_style_pages_3 =  AsciiConverter::asciiToString($row_projet_style["total_style_parent_pages"]); // Affiche "Hello"
+        $total_style_pages_2 =  AsciiConverter::asciiToString($row_projet_style["total_style_text_pages"]); // Affiche "Hello"
 
 
-    <?php
+        array_push($total_style, $row_projet_style);
 
-  //require_once 'function/add_ip.php';
-  // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
-  $url = new Give_url();
-  // Afficher le nom du fichier actuel
-  // Utilisation de la méthode split_basename pour séparer par "_"
+        $div_ .= "\n";
+        $div_ .= "." . $row_projet_style["name_style_pages"] . "_1 \n{";
+        $div_ .= "\n";
+        $div_ .= $total_style_pages_1;
+        $div_ .= "\n";
+        $div_ .= "}";
+        $div_ .= "\n";
+        $div_ .= "." . $row_projet_style["name_style_pages"] . "_2\n{";
+        $div_ .= "\n";
+        $div_ .= $total_style_pages_2;
+        $div_ .= "\n";
+        $div_ .= "}";
+        $div_ .= "\n";
+        $div_ .= "." . $row_projet_style["name_style_pages"] . "_3\n{";
+        $div_ .= "\n";
+        $div_ .= $total_style_pages_3;
+        $div_ .= "\n";
+        $div_ .= "}";
+        $div_ .= "\n";
+      }
+    }
+    $div_ .= "</style>";
+  }
 
-  $separation_url = '__';
-  $url->split_basename($separation_url);
-  $id_sha1_projet = $url->get_basename();
+
+  ?>
+</head>
+
+<body>
+  <?php
+  // controle de mannete  ok  
+  $liste_parent = array();
+  $liste_parent_2 = array();
+  $liste_class_parent = array();
+  $title_projet_ =  AsciiConverter::asciiToString($row_projet[0]["title_projet"]); // Affiche "Hello"
+  $description_projet_ =  AsciiConverter::asciiToString($row_projet[0]["description_projet"]); // Affiche "Hello"
+  $key = array_search($row_projet[0]["style_pages_projet"], $row_projet_style_array_number); // $key = 2;
+
+  $class_name_1 = $row_projet_style_array_name[$key] . '_1';
+  $class_name_2 = $row_projet_style_array_name[$key] . '_2';
+  $class_name_3 = $row_projet_style_array_name[$key] . '_3';
 
 
 
 
 
-  $json = false;
+  $div_ .=   "<div class='" . $class_name_1 . "'>" . $title_projet_ . "</div>";
 
-  if (strpos($id_sha1_projet, $separation_url) !== false) {
 
-    $id_sha1_projet = str_replace($separation_url, "", $id_sha1_projet);
-  } else {
-    $json = true;
+
+  $div_ .=   "<div class='header_class_img'>";
+
+  $div_ .=   '<img src="' . $img_projet_src1_ . '" alt="">';
+  $div_ .=   "</div>";
+  $div_ .=   "<div class='" . $class_name_2 . "'>" .  $description_projet_  . "</div>";
+
+
+
+
+
+
+
+
+  $row_projet_array = array();
+
+
+
+
+  $folder = __DIR__ . '/all_pages'; // Chemin du dossier
+
+  if (is_dir($folder)) {
+    $files = array_diff(scandir($folder), array('.', '..'));
+
+
+    foreach ($files as $file) {
+      $path = $folder . '/' . $file;
+      if (is_file($path)) {
+        require_once "all_pages/" . $file;
+        array_push($row_projet_array, $row_projet);
+      }
+    }
   }
 
 
 
 
 
+  $id_sha1_projet_array = array();
+  $element_val = array();
+  $row_projet_array_filtre = array();
 
-  require 'view/ref.php';
 
-  //$favicon = $projet_1["img_projet_src1"][0] ; 
-  $favicon = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVypNA9sxdyjykQOhtG5JYU0QkspkIyDO0MOmMecN707vZvwjGFm96Py2SMFAK2TyJgRnxgRh4K_xa3JD8dMzWV4Du55qNj5h3qxFn';
+
+  for ($x = 0; $x < count($row_projet_array); $x++) {
+    for ($y = 0; $y < count($row_projet_array[$x]); $y++) {
+      for ($z = 0; $z < count($row_projet_array[$y]); $z++) {
+
+
+        array_push($row_projet_array_filtre, $row_projet_array[$x][$y]);
+      }
+    }
+  }
+
+  //var_dump(  $row_projet_array_filtre );
+
+
+
+
+
+
+
+
+  function recherche_array_element($row_projet_array_filtre, $recherche, $recherche_nom)
+  {
+    $a = array();
+    $nom = array();
+    for ($i = 0; $i < count($row_projet_array_filtre); $i++) {
+      if ($row_projet_array_filtre[$i][$recherche_nom] == $recherche) {
+        array_push($a, $row_projet_array_filtre[$i]);
+      }
+    }
+    return $a;
+  }
+
+  $recherche_nom = "id_sha1_parent_projet";
+  $recherche     = "174010521380";
+  $recherche = $id_sha1_projet;
+
+
+  $element_01 = recherche_array_element($row_projet_array_filtre, $recherche, $recherche_nom);
+
+
+
+
+
+
+
+  $parent_class =  $class_name_3;
+
+
+
+
+
+
+
+
+
+
+
+  $div_ .= "<div class='$parent_class'>";
+
+  $id_array = array();
+
+
+
+  for ($i = 0; $i < count($element_01); $i++) {
+
+    $div_ .= "\n";
+
+    $title_projet_ =  AsciiConverter::asciiToString($element_01[$i]["title_projet"]); // Affiche "Hello"
+
+    // var_dump(   $title_projet_);
+
+    $key = array_search($element_01[$i]["style_pages_projet"], $row_projet_style_array_number); // $key = 2;
+
+    $class_name_1 = $row_projet_style_array_name[$key] . '_1';
+    $class_name_2 = $row_projet_style_array_name[$key] . '_2';
+    $class_name_3 = $row_projet_style_array_name[$key] . '_3';
+
+
+    $hreff = $element_01[$i]["id_sha1_projet"];
+
+
+
+    $div_ .= "\n";
+
+
+    if (!in_array($element_01[$i]["id_sha1_projet"], $id_array)) {
+
+
+      array_push($id_array, $element_01[$i]["id_sha1_projet"]);
+      $div_ .= "<a href=#$hreff>";
+      $div_ .= "    <div>";
+      $div_ .= "\n";
+      $div_ .= "        " . '<img src="' . $element_01[$i]["img_projet_src1"] . '" alt="" srcset="">';
+      $div_ .= "\n";
+      $div_ .= "    </div>";
+      $div_ .= "</a>";
+
+      $div_ .= "\n";
+    }
+
+
+    //var_dump( $class_name_1 ) ; 
+
+  }
+
+
+
+
+  $id_array = array();
+  $div_ .= "    </div>";
+
+
+
+  $div_ .= "<div class='$parent_class'>";
+  $div_ .= "\n";
+
+
+  for ($i = 0; $i < count($element_01); $i++) {
+
+    $div_ .= "\n";
+
+    $title_projet_ =  AsciiConverter::asciiToString($element_01[$i]["title_projet"]); // Affiche "Hello"
+
+    // var_dump(   $title_projet_);
+
+    $key = array_search($element_01[$i]["style_pages_projet"], $row_projet_style_array_number); // $key = 2;
+
+    $class_name_1 = $row_projet_style_array_name[$key] . '_1';
+    $class_name_2 = $row_projet_style_array_name[$key] . '_2';
+    $class_name_3 = $row_projet_style_array_name[$key] . '_3';
+
+
+
+
+
+
+
+    if (!in_array($element_01[$i]["id_sha1_projet"], $id_array)) {
+
+      $hreff = $element_01[$i]["id_sha1_projet"];
+      array_push($id_array, $element_01[$i]["id_sha1_projet"]);
+      $div_ .= "    <div>";
+      $div_ .= "\n";
+      $div_ .= "<a href=#$hreff>";
+      $div_ .= "        " . $title_projet_;
+      $div_ .= "\n";
+      $div_ .= "</a>";
+
+      $div_ .= "    </div>";
+      $div_ .= "\n";
+    }
+  }
+
+  $div_ .= "    </div>";
+
+
+
+
+
+
+
+
+
+  $id_array = array();
+
+  for ($i = 0; $i < count($element_01); $i++) {
+
+
+    $key = array_search($element_01[$i]["style_pages_projet"], $row_projet_style_array_number); // $key = 2;
+
+    $class_name_1 = $row_projet_style_array_name[$key] . '_1';
+    $class_name_2 = $row_projet_style_array_name[$key] . '_2';
+    $class_name_3 = $row_projet_style_array_name[$key] . '_3';
+
+    //var_dump( $class_name_1) ; 
+
+
+    $title_projet_ =  AsciiConverter::asciiToString($element_01[$i]["title_projet"]); // Affiche "Hello"
+    $description_projet_ =  AsciiConverter::asciiToString($element_01[$i]["description_projet"]); // Affiche "Hello"
+    $id_sha1_projet_ = $element_01[$i]["id_sha1_projet"]; // Affiche "Hello"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (!in_array($element_01[$i]["id_sha1_projet"], $id_array)) {
+
+
+      array_push($id_array, $element_01[$i]["id_sha1_projet"]);
+
+
+
+      $div_ .= "<div id='" . $id_sha1_projet_ . "' class='" . $class_name_3 . "'>";
+      $div_ .= "<div>";
+
+      $div_ .= "    <div class='" . $class_name_1 . "'>";
+      $div_ .= $title_projet_;
+      $div_ .= "    </div>";
+
+      $div_ .= "    <div class='" . $class_name_2 . "'>";
+      $div_ .= $description_projet_;
+      $div_ .= "<a href='" . $element_01[$i]["id_sha1_projet"] . "'>";
+
+      $div_ .= "<div style='padding:10px;font-size:2em;width:300px;margin-top:50px;background-color:black;color:white'>";
+      $div_ .= "Voir l'article complet";
+
+      $div_ .= "</div>";
+      $div_ .= "</a>";
+
+
+
+      $div_ .= "    </div>";
+      $div_ .= "</div>";
+      $div_ .= "    </div>";
+    }
+  }
+  echo $div_;
+
+  if ($id_sha1_parent_projet_ != "") {
+  ?>
+
+  
+    <a href="<?= $id_sha1_parent_projet_ ?>" style="margin-left:50px;margin-right:50px">
+      <img width="50" height="50" src="https://img.icons8.com/hatch/50/home.png" alt="home" />
+    </a>
+  <?php
+  } else {
+  }
+
+
+
+  //var_dump( $element_01 ) ; 
 
 
   ?>
-    <!DOCTYPE html>
-    <html lang="fr">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?= $projet_1["google_title_projet"][0] ?></title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <meta name="<?= $projet_1["change_meta_name_projet"][0] ?>"
-            content="<?= $projet_1["change_meta_content_projet"][0] ?>">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&family=Oswald:wght@200..700&display=swap"
-            rel="stylesheet">
-
-
-    </head>
 
 
 
+  <a href="../index.php" style="margin-left:50px;margin-right:50px">
+    <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+  </a>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-    <?php 
+    div img {
+      width: 150px;
+      box-shadow: 1px 1px 5px black;
+      border-radius: 17px;
+    }
+
+    div img:hover {
+      cursor: pointer;
+      opacity: 0.5;
+
+      background-color: rgba(72, 39, 216, 0.5);
+    }
 
 
- 
-   $color_projet = $projet_1["color_projet"][0]; 
+    .header_class_img {
+      width: 500px;
+      margin: auto;
+      margin-top: 45px;
+    }
+
+    .header_class_img img {
+      width: 100%;
+      border-radius: 0;
+    }
 
 
 
-   if($color_projet==""){
-    $color_projet = "black";
-   }
- 
-echo '  <style>
 
-
-
-:root {
-  --color_projet: '.$color_projet.';
- 
-}
-  </style> 
-'
-?>
-    <style>
     /* width */
     ::-webkit-scrollbar {
-        width: 20px;
+      width: 10px;
     }
 
     /* Track */
     ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background: var(--color_projet);
-        border-radius: 10px;
+      background: orangered;
+      border-radius: 10px;
     }
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--color_projet);
-    }
-    </style>
-    <style>
-    .style_1 {
-        text-align: center;
+    a {
+      text-decoration: none;
     }
 
-    video {
-        height: 300px;
-        width: 100%;
+    html {
+      scroll-behavior: smooth;
     }
-    </style>
-
-
-
-
-
-    <?php
-
-  $div_ = "";
-
- 
-
-
-  if (strlen($projet_1["description_projet"][0] )> 20) {
-    
-    
-
-    if($projet_1["html_mode_projet"][0]==""){
-      $html_mode_projet = $projet_1["description_projet"][0] ; 
-
- 
- 
-
- $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
- $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
-
- 
-     
-    }
-    else {
-      $html_mode_projet = removeHtmlTags($html_mode_projet = $projet_1["description_projet"][0]);
-   
-   
-      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
-      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
-     
-    }
-    
-    $div_ .=   '<div class="style_1">
-
-
-<h1>' . $projet_1["title_projet"][0] . '</h1>
-</div>
-<div class="style_1">
-
-
-<h5>' .$html_mode_projet. '</h5>
-</div>';
-  } else {
-
-
-    $html_mode_projet = $projet_1["description_projet"][0] ; 
-
-     $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
-     $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
-
- 
-    $div_ .=   '<div class="style_1">
-  <h5>' . $html_mode_projet . '</h5>
-  </div>
-  <div class="style_1">
-  <h1>' . $projet_1["title_projet"][0] . '</h1>
-  </div>';
-  }
-
-
-
-
-  $div_ .= '<div class="img_projet_src1">
-  <img src="'.$projet_1["img_projet_src1"][0].'" alt="" srcset=""></div>' ; 
-
-
-
-  /*
-
-if($json){
-   echo json_encode($finalArray, JSON_PRETTY_PRINT);
-}
-else {
-
-   ?>
-
-    <h1>Mon element test </h1>
-    <?php 
-   var_dump($finalArray) ; 
-
-
-//require_once 'root_.php' ; 
-
-
-
-}
-
- */
-  //require_once 'projet_1.php' ; 
-
-
-
-
-
-  $div_ .= "<div class='menu_01'>";
-  for ($i_b_a = 0; $i_b_a < count($projet_2["id_projet"]); $i_b_a++) {
-
-
-    $div_ .= "<div title='".$projet_2["google_title_projet"][$i_b_a] ."' ><a href='#" . $projet_2["id_sha1_projet"][$i_b_a] . "'>";
-    $div_ .= "<b>".$projet_2["title_projet"][$i_b_a]."</b>";
-
-    $div_ .= "</a></div>";
-  }
-
-
-  $div_ .= "</div>";
-
-/*
-
-  $div_ .= "<div class='menu_02'>";
-  for ($i_b_a = 0; $i_b_a < count($projet_2["id_projet"]); $i_b_a++) {
-
-    $src_ = $projet_2["img_projet_src1"][$i_b_a];
-
-    $id_= $projet_2["id_sha1_projet"][$i_b_a]  ;
-    $div_ .= "<div id='".$id_."' style=\"background-image: url('$src_');\">";
-    $div_ .= "<b>".$projet_2["title_projet"][$i_b_a]."</b>"; // Sécurisation
-
-    $div_ .= "</div>";
-  }
-
-  $div_ .= "</div>";
-*/
-
-
-
-  $div_ .= "<div class='menu_03'>";
-  for ($i_b_a = 0; $i_b_a < count($projet_2["id_projet"]); $i_b_a++) {
-
-
- 
-    if($projet_2["html_mode_projet"][$i_b_a]==""){
-      $html_mode_projet = $projet_2["description_projet"][$i_b_a] ; 
-
-
-      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
-      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
- 
-
-
-      
-      
-    }
-    else {
-
-      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
-      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
- 
-      $html_mode_projet = removeHtmlTags($html_mode_projet = $projet_2["description_projet"][0]);
-    }
-    
-
- 
-
-
-    $id_= $projet_2["id_sha1_projet"][$i_b_a]  ;
-
-    $div_ .= "<div>";
-   /* $div_ .= "<h1>";
-    $div_ .= $projet_2["title_projet"][$i_b_a]; // Sécurisation
-    $div_ .= "</h1>";
-*/
-    $div_ .= "<p>";
-  
-    $div_ .= "</p>";
-
-    $div_ .= "<div class='link_a'>";
-
-    
-
-    
-   
-    $div_ .= '<div class="img_projet_src1_" id="'.$id_.'">
-    <a href="'.$id_.'"><img src="'.$projet_2["img_projet_src1"][$i_b_a].'" alt="" srcset=""></a></div>' ; 
-    $div_ .= "<a class='text_href' href='".$id_."'>".$projet_2["title_projet"][$i_b_a]."</a></div>";
-    
-    $div_ .= "</div>";
-  
-
- 
-  
-  }
-
-  $div_ .= "</div>";
-
-
-
-
-
-
-
-
-
-
-
-
-  $div_ .= "<div class='menu_04'>";
-  for ($i_b_a = 0; $i_b_a < count($projet_2["id_projet"]); $i_b_a++) {
-
-
- 
-    if($projet_2["html_mode_projet"][$i_b_a]==""){
-      $html_mode_projet = $projet_2["description_projet"][$i_b_a] ; 
-
-
-      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
-      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
- 
-
-
-      
-      
-    }
-    else {
-
-      $html_mode_projet  = str_replace("&lt;","<",$html_mode_projet) ;
-      $html_mode_projet =  str_replace("&gt;",">",$html_mode_projet) ;
- 
-      $html_mode_projet = removeHtmlTags($html_mode_projet = $projet_2["description_projet"][0]);
-    }
-    
-
- 
-
- 
-    $div_ .= '<div class="title_projet_">'.$projet_2["title_projet"][$i_b_a].'</div>' ; 
-    $div_ .= $html_mode_projet ;
- 
- 
-  
-  }
-
-  $div_ .= "</div>";
-
-
-
-
-
-
-
-  
-
-?>
-
-
-    <?php 
-
-  
-
-
-
-
-
-
-
-
-  echo   $div_;
-
-
-  ?>
-
-
-
-</body>
-<style>
-
-
-.title_projet_ {
-  border: 1px solid var(--color_projet);
-  text-align: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  padding: 15px;
-  
-
-
-}
-.title_projet_:hover{
-  cursor: pointer;
-  background-color: var(--color_projet);
-  opacity: 0.9;
-  text-shadow: 1px 1px 2px white;
-}
-  .menu_04 {
-   width: 80%;
-   margin: auto;
-  }
-.img_projet_src1_ img {
-    width: 100px;
-    height: 100px;
-
-}
-
-.img_projet_src1 {
-    width: 500px;
-    margin: auto;
-    margin-top: 75px;
-    margin-bottom: 75px;
-
-}
-
-.img_projet_src1 img {
-    width: 100%;
-
-}
-.menu_03{
-  display: flex ; 
-justify-content: space-around;
-}
-.link_a {
-
- 
-  
-
-
-}
-
-.text_href {
-    background-color: var(--color_projet);
-  
-}
-
-.link_a a {
-
-
-    margin: auto;
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-    text-shadow: 1px 1px 2px var(--color_projet);
-    transition: 0.4s all;
-
-
-
-}
-
-.link_a img {
-    border: 1px solid var(--color_projet);
-    border-radius: 17px;
-    padding: 17px;
-}
-
-.link_a img:hover {
-    opacity: 0.8;
-    background-color: var(--color_projet);
-    opacity: 0.5;
-}
-
-.link_a a:hover {
-
-    transition: 1s all;
-
-
-
-}
-
-.menu_01,
-.menu_02 {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 75px;
-
-
-}
-
-.menu_01 {
-    background-color: var(--color_projet);
-    flex-wrap: wrap;
- 
-
-}
-
-.menu_01 div {
-    padding: 5px;
-    background-color: var(--color_projet);
-    color: white;
-
-    text-align: center;
-}
-
-
-.menu_01 b {
-    background-color: var(--color_projet);
-    width: 100%;
-
-}
-
-.menu_02 b {
-    background-color: var(--color_projet);
-    width: 100%;
-}
-
-.menu_01 div:hover {
-    cursor: pointer;
-    opacity: 0.7;
-    text-shadow: 1px 1px 4px var(--color_projet);
-
-
-}
-
-.menu_03 h1 {
-    text-align: center;
-}
-
-.menu_03 p {
-    text-align: justify;
-    
-    margin-top: 40px;
-    margin-bottom: 40px;
-
-}
-
-
-
-
-.menu_03 div {
-    margin-top: 60px;
-    margin-bottom: 60px;
-
-}
-
-.menu_02 div {
-
-    color: white;
-    width: 400px;
-    padding: 10px;
-
-
-
-
-    text-align: center;
-    border-radius: 7px;
-
-
-    background-size: 100%;
-    background-repeat: no-repeat;
-    transition: 0.4s all;
-
-
-}
-
-.menu_02 div:hover {
-
-
-    background-color: var(--color_projet);
-    transition: 1s all;
-}
-
-.menu_02 div:hover {
-
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-
-.menu_02 {
-
-    flex-wrap: wrap;
-
-}
-
-.menu_02 div {
-
-    margin-bottom: 75px;
-}
-
-.style_1 h1 {
-    font-size: 6em;
-}
-
-.style_1 h1 {
-    font-size: 6em;
-    text-shadow: 1px 1px 5px var(--color_projet);
-}
-
-.style_1 h5 {
-    font-size: 1.5em;
- 
-    
-    margin-top: 45px;
-    text-align: justify;
-
-
-}
-
-.menu_01 a {
-    text-decoration: none;
-    color: white;
-}
-</style>
-
- 
-<style>
-:root {
-    --background-color: #f9f9f9;
-    /* Fond gris clair */
-    --text-color: #333;
-    /* Texte gris foncé */
-    --highlight-color: #007acc;
-    /* Bleu doux pour les éléments principaux */
-    --label-color: #555;
-    /* Couleur des étiquettes */
-    --container-background: #ffffff;
-    /* Fond des conteneurs */
-    --border-color: #ddd;
-    /* Bordure légère */
-}
-
-
-
-.countdown-container {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.2em;
-    background-color: var(--container-background);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-
-    width: 100%;
-    max-width: 600px;
-    /* Largeur augmentée */
-    color: var(--text-color);
-}
-
-.event-name {
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--highlight-color);
-    margin-bottom: 10px;
-}
-
-.time {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px;
-    background-color: var(--container-background);
-    border-radius: 4px;
-    width: 60px;
-    border: 1px solid var(--border-color);
-}
-
-.label {
-    display: block;
-    font-size: 0.8em;
-    color: var(--label-color);
-    margin-top: 4px;
-}
-
-.status {
-    color: var(--highlight-color);
-    font-size: 1em;
-    margin-top: 10px;
-    font-weight: 500;
-}
-</style>
-</head>
-
-
- 
-
-
-
- 
-</a>
-
-<?php 
-
-if($projet_1["id_sha1_parent_projet"][0]=="") {
- $id_sha1_parent_projet = "../index.php" ;  
-}
-else {
- $id_sha1_parent_projet = $projet_1["id_sha1_parent_projet"][0];  
-
-}
-
-?>
-<div class="return">
-  <a href="<?= $id_sha1_parent_projet ?>">
-  <img width="50" height="50" src="https://img.icons8.com/ios/50/return.png" alt="return"/>
-
-</a>
-</div>
-
-
-</body>
-
-</html>
-
-<style>
-  .return{
-text-align: center;
-background-color: var(--color_projet);
-  }
-  .return img{
-    background-color: white;
-    padding: 15px;
-  }
-</style>
+  </style>

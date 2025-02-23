@@ -15,6 +15,11 @@ session_start();
 
 
 <?php 
+
+
+
+
+var_dump($_SESSION["index"]) ; 
 require_once '../Class/DatabaseHandler.php';
 require_once '../Class/dbCheck.php';
 require_once '../Class/redimensionnerImageLargeurMax.php';
@@ -56,16 +61,21 @@ if ($_SESSION["home"] == "profil") {
    
 }
 
-
+ 
 
 
 // Exemple d'utilisation avec largeur max de 280px
 try {
-    redimensionnerImageLargeurMax($img_projet_src1, $img_projet_src1, 280);
+    redimensionnerImageLargeurMax($img_projet_src1, $index_3."/".$img_projet_src1, 280);
     echo "L'image a été redimensionnée avec succès !";
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
 }
+
+
+
+
+
 
 ?>
 
@@ -74,7 +84,10 @@ try {
 
 <style>
     body{
+        /*
         background-color: black;
+
+        */
     }
 </style>
 </body>

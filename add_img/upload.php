@@ -23,7 +23,7 @@ function decode_chunk($data) {
 
 
 
-
+$index_3 =  $_SESSION["index"][3] ; 
 
 
 $test =$_POST['file'] ; 

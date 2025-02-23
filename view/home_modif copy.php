@@ -203,43 +203,47 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
       ?>
       <div class="display_images">
-
-
-
         <?php
-
-        $directory = dirname(__DIR__) . '/src/img/' . $_SESSION["index"][3] . '/';
+        $directory = dirname(__DIR__) . '/src/img/1740105192/';
 
         if (is_dir($directory)) {
           $files = scandir($directory);
 
 
-          echo "<div>";
+   echo "<div>" ;        
           foreach ($files as $file) {
 
-
+         
             if ($file !== "." && $file !== "..") {
 
-              echo "<img src='src/img/" . $_SESSION["index"][3] . "/" . $file . "'   style='max-width:200px; margin:5px;'>";
+              echo "<img src='src/img/1740105192/" . $file . "'   style='max-width:200px; margin:5px;'>";
 
-        ?>
+              ?>
 
+<div>
+                <img width="50" height="50" src="https://img.icons8.com/color/50/delete-forever.png" alt="delete-forever" />
 
-
-              <div style="display: flex;justify-content:space-around; margin-top: 15px;margin-bottom: 15px;">
-                <div onclick="remove_img(this)" class="<?= $file . ' __' . $id_sha1_projet_dynamic_1_ ?>">
-                  <img width="50" height="50" src="https://img.icons8.com/color/50/delete-forever.png" alt="delete-forever" />
-
-                </div>
-                <div onclick="select_img(this)" class="<?= $file . ' __' . $id_sha1_projet_dynamic_1_ ?>">
-                  <img width="50" height="50" src="https://img.icons8.com/color-pixels/50/checked-checkbox.png" alt="checked-checkbox" />
-                </div>
               </div>
+              <div>
+                <img width="50" height="50" src="https://img.icons8.com/color-pixels/50/checked-checkbox.png" alt="checked-checkbox" />
+              </div>
+
+
+            
+
+              
+      
+   
+        
+     
+         
         <?php
 
             }
+         
+
           }
-          echo "</div>";
+          echo "</div>" ; 
         }
 
 
@@ -250,8 +254,13 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
       </div>
 
+
+
+
+
+
       <div class="grande_image">
-        <img style="border: 5pc solid black;padding:10px" src="<?php echo $grande_image ?>" onclick="a(this)" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" src="https://i.pinimg.com/236x/7c/cd/81/7ccd8106106ec20a9af1186b8065caee.jpg" alt="">
+        <img src="<?php echo $grande_image ?>" onclick="a(this)" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" src="https://i.pinimg.com/236x/7c/cd/81/7ccd8106106ec20a9af1186b8065caee.jpg" alt="">
       </div>
       <div class="display_flex1">
         <div onclick="remove_all(this)" class="<?php echo $index_remove . $id_sha1_projet_dynamic_1_ ?>">
@@ -770,67 +779,17 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       justify-content: space-around;
       overflow-y: scroll;
       max-height: 300px;
-
-      margin-bottom: 75px;
     }
 
-    .hover_img:hover {
+    .display_images img:hover {
+      display: flex;
+      justify-content: space-around;
+      border: 5px solid black;
       cursor: pointer;
-      opacity: 0.7;
-      background-color: black;
+    }
+
+    .display_images img {
+
+      border: 5px solid rgba(0, 0, 0, 0);
     }
   </style>
-
-
-  <script>
-    function select_img(_this) {
-
-      _this.style.display="none" ; 
-      var element = afficherValeursFormattees2(_this.className, __);
-
-
-
-      element[0] = element[0].replace(" ", "");
-
-
-
-
-      var ok = new Information("config/select_img.php"); // création de la classe 
-
-      ok.add("id_sha1_projet", element[1]); // ajout de l'information pour lenvoi 
-      ok.add("img_projet_src1", element[0]); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-      const myTimeout = setTimeout(xx, 250);
-
-      function xx() {
-        location.reload();
-      }
-
-    }
-
-    function remove_img(_this) {
-      _this.style.display="none" ; 
-
-      var element = afficherValeursFormattees2(_this.className, "__");
-
-
-      element[0] = element[0].replace(" ", "");
-
-
-      var ok = new Information("config/remove_img.php"); // création de la classe 
-
-      ok.add("id_sha1_projet", element[1]); // ajout de l'information pour lenvoi 
-      ok.add("img_projet_src1", element[0]); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-      const myTimeout = setTimeout(xx, 250);
-
-      function xx() {
-        location.reload();
-      }
-
-    }
-  </script>
