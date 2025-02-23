@@ -2,6 +2,8 @@
 session_start();
 header("Access-Control-Allow-Origin: *");
 require_once "require_once_all_web.php";
+require_once "require_once_all_web.php";
+
 //require_once 'function/add_ip.php';
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
@@ -18,6 +20,8 @@ $style_pages_projet = array();
 //var_dump($row_projet) ; 
 $id_sha1_projet_array = array();
 $doubleArray = [];
+
+$date_debut_projet =$row_projet[0]["date_debut_projet"] ; 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,6 +30,7 @@ $doubleArray = [];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="<?= $favicon ?>">
+  <link rel="stylesheet" href="../style_calendrier.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <title><?= $google_title_projet ?> </title>
   <?php
@@ -133,9 +138,40 @@ $doubleArray = [];
   $div_ .=   "</div>";
   $div_ .=   "<div class='" . $class_name_2 . "'>" .  $description_projet_  . "</div>";
 
+  $div_ .=   "<div id='calendrier'></div>";
 
 
 
+
+
+
+  ?>
+
+<?php
+
+
+
+// Définir les événements avec leurs dates dans un tableau associatif
+$events = [
+     "$date_debut_projet"=> "Commencement" 
+];
+$countdowns = [];
+
+// Calculer le temps restant pour chaque événement
+foreach ($events as $date_future => $event_name) {
+    $get_anne = new Get_anne_2($date_future);
+    $temps_restant = $get_anne->get_temps_restant();
+    $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
+    $countdowns[] = $temps_restant;
+}
+?>
+
+ 
+ 
+ 
+
+
+<?php 
 
 
 
@@ -480,3 +516,146 @@ $doubleArray = [];
       scroll-behavior: smooth;
     }
   </style>
+
+
+<?php 
+
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+?>
+
+
+
+
+
+<?php foreach ($countdowns as $index => $temps_restant): ?>
+    <div id="countdown-<?php echo $index; ?>" class="countdown-container">
+        <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
+        <div class="time">
+            <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
+            <span class="label">Années</span>
+        </div>
+        <div class="time">
+            <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
+            <span class="label">Jours</span>
+        </div>
+        <div class="time">
+            <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
+            <span class="label">Heures</span>
+        </div>
+        <div class="time">
+            <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
+            <span class="label">Minutes</span>
+        </div>
+        <div class="time">
+            <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
+            <span class="label">Secondes</span>
+        </div>
+  
+    </div>
+<?php endforeach; ?>
+
+<script>
+    class CountdownTimer {
+        constructor(dateString, index) {
+            this.targetDate = new Date(dateString).getTime();
+            this.index = index;
+            this.containerElement = document.getElementById(`countdown-${index}`);
+            this.updateCountdown();
+            setInterval(() => this.updateCountdown(), 1000);
+        }
+
+        updateCountdown() {
+            const now = new Date().getTime();
+            let distance = this.targetDate - now;
+
+            if (distance < 0) {
+                // Temps écoulé : appliquez la couleur de fond rgba(200, 0, 0, 0.3)
+                this.containerElement.style.backgroundColor = 'rgba(200, 0, 0, 0.2)';
+                distance = Math.abs(distance); // Pour afficher les valeurs positives
+            }
+
+            const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById(`years-${this.index}`).innerText = years;
+            document.getElementById(`days-${this.index}`).innerText = days;
+            document.getElementById(`hours-${this.index}`).innerText = hours;
+            document.getElementById(`minutes-${this.index}`).innerText = minutes;
+            document.getElementById(`seconds-${this.index}`).innerText = seconds;
+        }
+    }
+
+    const events = <?php echo json_encode(array_keys($events)); ?>;
+
+    function startCountdowns() {
+        events.forEach((dateStr, index) => {
+            new CountdownTimer(dateStr, index);
+        });
+    }
+
+    startCountdowns();
+
+
+
+    
+
+
+
+
+var annne = document.getElementById("years-0").innerHTML ; 
+
+
+if(annne=="NaN") {
+  document.getElementById("calendrier").style.display="none"
+  document.getElementById("countdown-0").style.display="none" ; 
+ 
+}
+else {
+  document.getElementById("calendrier").innerHTML=document.getElementById("countdown-0").innerHTML ; 
+  document.getElementById("calendrier").className="test" ;
+}
+     
+   
+
+</script>
+
+
+ <style>
+  .test{
+    width: 80%;
+    margin: auto;
+   
+    text-align: center;
+
+  }
+ </style>
