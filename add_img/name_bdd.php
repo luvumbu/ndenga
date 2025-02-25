@@ -36,7 +36,10 @@ if (isset($_SESSION["img_2"])) {
     $databaseHandler->action_sql('UPDATE  `' . $dbname . '` SET   `img_user`="' . $img_projet_src1 . '" WHERE `id_sha1_user` = "' . $x . '"');
 } else {
     $databaseHandler->action_sql('UPDATE  `projet` SET   `img_projet_src1`="' . $img_projet_src1 . '" WHERE `id_sha1_projet` = "' . $id_sha1_projet . '"');
+
     $databaseHandler->action_sql('UPDATE  `projet` SET   `name_extention_projet`="' . $img_projet_src2 . '" WHERE `id_sha1_projet` = "' . $id_sha1_projet . '"');
+
+
 }
 
 

@@ -433,6 +433,7 @@ foreach ($events as $date_future => $event_name) {
     }
   }
   echo $div_;
+ 
 
   if ($id_sha1_parent_projet_ != "") {
   ?>
@@ -642,7 +643,11 @@ if(annne=="NaN") {
 }
 else {
   document.getElementById("calendrier").innerHTML=document.getElementById("countdown-0").innerHTML ; 
-  document.getElementById("calendrier").className="test" ;
+ 
+ 
+  
+ 
+  document.getElementById("calendrier").className="countdown-container test" ;
 }
      
    
