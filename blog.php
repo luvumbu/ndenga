@@ -31,6 +31,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="<?= $favicon ?>">
   <link rel="stylesheet" href="../style_calendrier.css">
+  <link rel="stylesheet" href="../comment.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <title><?= $google_title_projet ?> </title>
   <?php
@@ -632,9 +633,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
   </div>
 
 
-  <a href="../index.php" style="margin-left:50px;margin-right:50px">
-    <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
-  </a>
+
   <script>
     class CountdownTimer {
       constructor(dateString, index) {
@@ -703,6 +702,73 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
   </script>
 
 
+
+<?php 
+ 
+// Configuration de la base de données
+ 
+// Création d'une instance de la classe `DatabaseHandler`
+$databaseHandler = new DatabaseHandler($username, $dbname);
+
+// Requête SQL pour récupérer toutes les données de la table
+$req_sql = "SELECT * FROM `commentaires` WHERE `id_sha1_projet_commentaires` = '$id_sha1_projet' ";
+
+// Récupération des informations des tables enfant liées
+$databaseHandler->getListOfTables_Child("commentaires");
+// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
+
+// Récupération des données de la table via une méthode spécialisée
+$databaseHandler->getDataFromTable2X($req_sql);
+// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
+
+// Génération de variables dynamiques à partir des données récupérées
+$databaseHandler->get_dynamicVariables();
+// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
+
+ 
+
+
+
+for ($i=0; $i < count($dynamicVariables['name_commentaires']) ; $i++) { 
+?>
+
+<div class="comment-section">
+ 
+        <div class="comment-list" id="commentList">
+            <!-- Commentaire existant -->
+            <div class="comment">       
+                <div class="comment-content">
+                    <strong>Alex</strong><br>
+                   <?= $dynamicVariables['name_commentaires'][$i]?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php 
+}
+  
+ 
+?>
+
+<div class="comment-section">
+        <h3>Ajouter un commentaire</h3>
+ 
+        <textarea class="comment-input" id="commentText" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
+        <button class="comment-button" onclick="addComment()">Publier</button>
+
+ 
+    </div>
+
+
+
+
+
+
+
+    <a href="../index.php" style="margin-left:50px;margin-right:50px">
+    <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+  </a>
   <style>
     .styles_ {
       width: 80%;

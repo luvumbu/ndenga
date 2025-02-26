@@ -378,6 +378,66 @@ $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDAT
 $databaseHandler->add_table('social_media');
 $mainTableName = "social_media" ; 
 $mainTableName2 = $mainTableName  ;
+
+
+/*
+
+
+
+
+
+
+
+
+
+
+*/
+
+//require 'auto_exe.php' ;
+$databaseHandler = new DatabaseHandler($dbname,$username); 
+$databaseHandler->set_column_names("id_commentaires");
+$databaseHandler->set_column_names("id_general");
+$databaseHandler->set_column_names("id_user_commentaires");
+$databaseHandler->set_column_names("id_sha1_commentaires");
+$databaseHandler->set_column_names("id_sha1_projet_commentaires");
+$databaseHandler->set_column_names("name_commentaires"); 
+$databaseHandler->set_column_names("statue_commentaires"); 
+$databaseHandler->set_column_names("title_commentaires"); 
+$databaseHandler->set_column_names("description_commentaires"); 
+$databaseHandler->set_column_names("password_commentaires");
+$databaseHandler->set_column_names("visibility_1_commentaires");
+$databaseHandler->set_column_names("visibility_2_commentaires");
+$databaseHandler->set_column_names("img_projet_src_commentaires");
+$databaseHandler->set_column_names("img_projet_visibility_commentaires");
+$databaseHandler->set_column_names("date_inscription_commentaires");
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+$databaseHandler->add_table('commentaires');
+$mainTableName = "commentaires" ; 
+$mainTableName2 = $mainTableName  ;
+
+
+
+
+
+
+
+
+
 //require 'auto_exe.php' ;
 $databaseHandler = new DatabaseHandler($dbname,$username); 
 $databaseHandler->set_column_names("id_group");
