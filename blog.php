@@ -647,7 +647,20 @@ else {
  
   
  
-  document.getElementById("calendrier").className="countdown-container test" ;
+  document.getElementById("calendrier").className="countdown-container styles_" ;
+
+
+  setInterval(displayHello, 1000);
+
+function displayHello() {
+
+
+  document.getElementById("countdown-0").innerHTML =   document.getElementById("calendrier").innerHTML ; 
+
+
+
+  
+}
 }
      
    
@@ -656,11 +669,12 @@ else {
 
 
  <style>
-  .test{
+  .styles_{
     width: 80%;
     margin: auto;
    
     text-align: center;
+    margin-bottom: 75px;
 
   }
  </style>

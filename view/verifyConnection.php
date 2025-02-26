@@ -192,7 +192,10 @@ $databaseHandler->get_dynamicVariables();
  */
 ?>
 
+<?php 
 
+
+/*
 
 <div class="display_flex">
 
@@ -251,3 +254,8 @@ echo "</a>" ;
         
     }
 </style>
+
+*/ 
+
+
+?>
