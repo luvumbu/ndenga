@@ -32,6 +32,9 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
   <link rel="icon" type="image/x-icon" href="<?= $favicon ?>">
   <link rel="stylesheet" href="../style_calendrier.css">
   <link rel="stylesheet" href="../comment.css">
+
+
+  <script src="../class/Js.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <title><?= $google_title_projet ?> </title>
   <?php
@@ -711,10 +714,10 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 $databaseHandler = new DatabaseHandler($username, $dbname);
 
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `commentaires` WHERE `id_sha1_projet_commentaires` = '$id_sha1_projet' ";
+$req_sql = "SELECT * FROM `comment_projet` WHERE `id_user_sha1_comment_projet` = '$id_sha1_projet' ";
 
 // Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child("commentaires");
+$databaseHandler->getListOfTables_Child("comment_projet");
 // La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
 
 // Récupération des données de la table via une méthode spécialisée
@@ -729,7 +732,7 @@ $databaseHandler->get_dynamicVariables();
 
 
 
-for ($i=0; $i < count($dynamicVariables['name_commentaires']) ; $i++) { 
+for ($i=0; $i < count($dynamicVariables['id_user_sha1_comment_projet']) ; $i++) { 
 ?>
 
 <div class="comment-section">
@@ -738,8 +741,8 @@ for ($i=0; $i < count($dynamicVariables['name_commentaires']) ; $i++) {
             <!-- Commentaire existant -->
             <div class="comment">       
                 <div class="comment-content">
-                    <strong>Alex</strong><br>
-                   <?= $dynamicVariables['name_commentaires'][$i]?>
+                    <strong>  <?= $dynamicVariables['name_comment_projet'][$i]?></strong><br>
+                   <?= $dynamicVariables['text_comment_projet'][$i]?>
                 </div>
             </div>
         </div>
@@ -752,13 +755,12 @@ for ($i=0; $i < count($dynamicVariables['name_commentaires']) ; $i++) {
 ?>
 
 <div class="comment-section">
+ 
         <h3>Ajouter un commentaire</h3>
- 
-        <textarea class="comment-input" id="commentText" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
-        <button class="comment-button" onclick="addComment()">Publier</button>
-
- 
-    </div>
+ <input id="commentText_1" type="text" class="input_commentText" placeholder="Nom de l'itulisateur">
+        <textarea class="comment-input" id="commentText_2" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
+        <button class="comment-button" title="<?= $id_sha1_projet ?>" onclick="addComment(this)">Publier</button>
+</div>
 
 
 
@@ -778,4 +780,40 @@ for ($i=0; $i < count($dynamicVariables['name_commentaires']) ; $i++) {
       margin-bottom: 75px;
 
     }
+    .input_commentText{
+      width: 90%;
+      margin: auto;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      margin-bottom: 25px;
+      padding: 15px;
+    }
   </style>
+
+  <script>
+    function addComment(_this){
+
+
+var commentText_1 =document.getElementById("commentText_1").value ; 
+var commentText_2 =document.getElementById("commentText_2").value ; 
+
+ 
+ 
+
+
+var ok = new Information("../config/addComment.php"); // création de la classe 
+
+ok.add("commentText_1", commentText_1); // ajout de l'information pour lenvoi 
+ok.add("commentText_2", commentText_2); // ajout de l'information pour lenvoi 
+ok.add("id_user_sha1_comment_projet", _this.title); // ajout de l'information pour lenvoi 
+ 
+ 
+
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp 
+    
+}
+    
+    
+    
+     
+  </script>
