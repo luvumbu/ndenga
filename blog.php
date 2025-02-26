@@ -138,7 +138,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
   $div_ .=   "</div>";
   $div_ .=   "<div class='" . $class_name_2 . "'>" .  $description_projet_  . "</div>";
 
-  $div_ .=   "<div id='calendrier'></div>";
+
 
 
 
@@ -406,7 +406,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
 
 
-
+  $div_ .=   "<div id='calendrier'></div>";
 
 
   $id_array = array();

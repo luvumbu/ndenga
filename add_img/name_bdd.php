@@ -78,7 +78,7 @@ try {
 
 
 
-
+require_once '../config/all_pages_script.php' ; 
 
 ?>
 
