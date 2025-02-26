@@ -21,7 +21,7 @@ $style_pages_projet = array();
 $id_sha1_projet_array = array();
 $doubleArray = [];
 
-$date_debut_projet =$row_projet[0]["date_debut_projet"] ; 
+$date_debut_projet = $row_projet[0]["date_debut_projet"];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -147,31 +147,72 @@ $date_debut_projet =$row_projet[0]["date_debut_projet"] ;
 
   ?>
 
-<?php
+  <?php
 
 
 
-// Définir les événements avec leurs dates dans un tableau associatif
-$events = [
-     "$date_debut_projet"=> "Commencement" 
-];
-$countdowns = [];
+  $date_debut_projet_nom___ = array();
+  $date_debut_projet___ = array();
 
-// Calculer le temps restant pour chaque événement
-foreach ($events as $date_future => $event_name) {
+  for ($i = 0; $i < count($row_projet); $i++) {
+
+
+    array_push($date_debut_projet_nom___, $row_projet[$i]["date_debut_projet"]);
+
+
+    $title_projet_ =   AsciiConverter::asciiToString($row_projet[$i]["title_projet"]); // Affiche "Hello"
+
+
+
+    array_push($date_debut_projet___, $title_projet_);
+  }
+
+
+
+
+
+
+
+
+
+
+  $events = [];
+
+  // Vérifier que les deux tableaux ont la même longueur
+  if (count($date_debut_projet_nom___) === count($date_debut_projet___)) {
+    foreach ($date_debut_projet_nom___ as $index => $date) {
+      $events[$date] = $date_debut_projet___[$index]; // Associe la bonne valeur
+    }
+  } else {
+    echo "Erreur : les tableaux n'ont pas la même taille.";
+  }
+
+
+
+
+
+
+
+
+
+
+  $countdowns = [];
+
+  // Calculer le temps restant pour chaque événement
+  foreach ($events as $date_future => $event_name) {
     $get_anne = new Get_anne_2($date_future);
     $temps_restant = $get_anne->get_temps_restant();
     $temps_restant["event_name"] = $event_name; // Ajouter le nom de l'événement au résultat
     $countdowns[] = $temps_restant;
-}
-?>
-
- 
- 
- 
+  }
+  ?>
 
 
-<?php 
+
+
+
+
+  <?php
 
 
 
@@ -433,12 +474,12 @@ foreach ($events as $date_future => $event_name) {
     }
   }
   echo $div_;
- 
+
 
   if ($id_sha1_parent_projet_ != "") {
   ?>
 
-  
+
     <a href="<?= $id_sha1_parent_projet_ ?>" style="margin-left:50px;margin-right:50px">
       <img width="50" height="50" src="https://img.icons8.com/hatch/50/home.png" alt="home" />
     </a>
@@ -455,9 +496,7 @@ foreach ($events as $date_future => $event_name) {
 
 
 
-  <a href="../index.php" style="margin-left:50px;margin-right:50px">
-    <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
-  </a>
+
   <style>
     body {
       margin: 0;
@@ -519,10 +558,10 @@ foreach ($events as $date_future => $event_name) {
   </style>
 
 
-<?php 
+  <?php
 
 
-/*
+  /*
 
 
 
@@ -549,132 +588,128 @@ foreach ($events as $date_future => $event_name) {
 */
 
 
-?>
+  ?>
 
 
 
 
+  <div id="countdown-z">
 
-<?php foreach ($countdowns as $index => $temps_restant): ?>
-    <div id="countdown-<?php echo $index; ?>" class="countdown-container">
-        <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
-        <div class="time">
+
+    <?php foreach ($countdowns as $index => $temps_restant): ?>
+    
+        <div id="countdown-<?php echo $index; ?>" class="countdown-container" style="margin-top:45px;margin-bottom:45px">
+          <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
+          <div class="time">
             <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
             <span class="label">Années</span>
-        </div>
-        <div class="time">
+          </div>
+          <div class="time">
             <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
             <span class="label">Jours</span>
-        </div>
-        <div class="time">
+          </div>
+          <div class="time">
             <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
             <span class="label">Heures</span>
-        </div>
-        <div class="time">
+          </div>
+          <div class="time">
             <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
             <span class="label">Minutes</span>
-        </div>
-        <div class="time">
+          </div>
+          <div class="time">
             <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
             <span class="label">Secondes</span>
+          </div>
+
         </div>
-  
-    </div>
-<?php endforeach; ?>
+   
+    <?php endforeach; ?>
 
-<script>
+  </div>;
+
+
+
+  </div>
+
+
+  <a href="../index.php" style="margin-left:50px;margin-right:50px">
+    <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+  </a>
+  <script>
     class CountdownTimer {
-        constructor(dateString, index) {
-            this.targetDate = new Date(dateString).getTime();
-            this.index = index;
-            this.containerElement = document.getElementById(`countdown-${index}`);
-            this.updateCountdown();
-            setInterval(() => this.updateCountdown(), 1000);
+      constructor(dateString, index) {
+        this.targetDate = new Date(dateString).getTime();
+        this.index = index;
+        this.containerElement = document.getElementById(`countdown-${index}`);
+        this.updateCountdown();
+        setInterval(() => this.updateCountdown(), 1000);
+      }
+
+      updateCountdown() {
+        const now = new Date().getTime();
+        let distance = this.targetDate - now;
+
+        if (distance < 0) {
+          // Temps écoulé : appliquez la couleur de fond rgba(200, 0, 0, 0.3)
+          this.containerElement.style.backgroundColor = 'rgba(200, 0, 0, 0.2)';
+          distance = Math.abs(distance); // Pour afficher les valeurs positives
         }
 
-        updateCountdown() {
-            const now = new Date().getTime();
-            let distance = this.targetDate - now;
+        const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            if (distance < 0) {
-                // Temps écoulé : appliquez la couleur de fond rgba(200, 0, 0, 0.3)
-                this.containerElement.style.backgroundColor = 'rgba(200, 0, 0, 0.2)';
-                distance = Math.abs(distance); // Pour afficher les valeurs positives
-            }
-
-            const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
-            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById(`years-${this.index}`).innerText = years;
-            document.getElementById(`days-${this.index}`).innerText = days;
-            document.getElementById(`hours-${this.index}`).innerText = hours;
-            document.getElementById(`minutes-${this.index}`).innerText = minutes;
-            document.getElementById(`seconds-${this.index}`).innerText = seconds;
-        }
+        document.getElementById(`years-${this.index}`).innerText = years;
+        document.getElementById(`days-${this.index}`).innerText = days;
+        document.getElementById(`hours-${this.index}`).innerText = hours;
+        document.getElementById(`minutes-${this.index}`).innerText = minutes;
+        document.getElementById(`seconds-${this.index}`).innerText = seconds;
+      }
     }
 
     const events = <?php echo json_encode(array_keys($events)); ?>;
 
     function startCountdowns() {
-        events.forEach((dateStr, index) => {
-            new CountdownTimer(dateStr, index);
-        });
+      events.forEach((dateStr, index) => {
+        new CountdownTimer(dateStr, index);
+      });
     }
 
     startCountdowns();
 
 
 
-    
 
 
 
 
-var annne = document.getElementById("years-0").innerHTML ; 
-
-
-if(annne=="NaN") {
-  document.getElementById("calendrier").style.display="none"
-  document.getElementById("countdown-0").style.display="none" ; 
- 
-}
-else {
-  document.getElementById("calendrier").innerHTML=document.getElementById("countdown-0").innerHTML ; 
- 
- 
-  
- 
-  document.getElementById("calendrier").className="countdown-container styles_" ;
-
-
-  setInterval(displayHello, 1000);
-
-function displayHello() {
-
-
-  document.getElementById("countdown-0").innerHTML =   document.getElementById("calendrier").innerHTML ; 
+    document.getElementById("calendrier").innerHTML = document.getElementById('countdown-z').innerHTML;
 
 
 
-  
-}
-}
-     
-   
+    setInterval(displayHello, 1000);
 
-</script>
+    function displayHello() {
 
 
- <style>
-  .styles_{
-    width: 80%;
-    margin: auto;
-   
-    text-align: center;
-    margin-bottom: 75px;
+      document.getElementById("countdown-z").innerHTML = document.getElementById("calendrier").innerHTML;
 
-  }
- </style>
+
+
+
+    }
+  </script>
+
+
+  <style>
+    .styles_ {
+      width: 80%;
+      margin: auto;
+
+      text-align: center;
+      margin-bottom: 75px;
+
+    }
+  </style>
