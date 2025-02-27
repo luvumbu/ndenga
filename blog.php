@@ -601,32 +601,32 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
 
     <?php foreach ($countdowns as $index => $temps_restant): ?>
-    
-        <div id="countdown-<?php echo $index; ?>" class="countdown-container" style="margin-top:45px;margin-bottom:45px">
-          <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
-          <div class="time">
-            <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
-            <span class="label">Années</span>
-          </div>
-          <div class="time">
-            <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
-            <span class="label">Jours</span>
-          </div>
-          <div class="time">
-            <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
-            <span class="label">Heures</span>
-          </div>
-          <div class="time">
-            <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
-            <span class="label">Minutes</span>
-          </div>
-          <div class="time">
-            <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
-            <span class="label">Secondes</span>
-          </div>
 
+      <div id="countdown-<?php echo $index; ?>" class="countdown-container" style="margin-top:45px;margin-bottom:45px">
+        <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
+        <div class="time">
+          <span id="years-<?php echo $index; ?>"><?php echo $temps_restant["annees"]; ?></span>
+          <span class="label">Années</span>
         </div>
-   
+        <div class="time">
+          <span id="days-<?php echo $index; ?>"><?php echo $temps_restant["jours"]; ?></span>
+          <span class="label">Jours</span>
+        </div>
+        <div class="time">
+          <span id="hours-<?php echo $index; ?>"><?php echo $temps_restant["heures"]; ?></span>
+          <span class="label">Heures</span>
+        </div>
+        <div class="time">
+          <span id="minutes-<?php echo $index; ?>"><?php echo $temps_restant["minutes"]; ?></span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="time">
+          <span id="seconds-<?php echo $index; ?>"><?php echo $temps_restant["secondes"]; ?></span>
+          <span class="label">Secondes</span>
+        </div>
+
+      </div>
+
     <?php endforeach; ?>
 
   </div>;
@@ -706,69 +706,70 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
 
 
-<?php 
- 
-// Configuration de la base de données
- 
-// Création d'une instance de la classe `DatabaseHandler`
-$databaseHandler = new DatabaseHandler($username, $dbname);
+  <?php
+  $_SESSION["id_sha1_projet"] =$id_sha1_projet ; 
+  // Configuration de la base de données
 
-// Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `comment_projet` WHERE `id_user_sha1_comment_projet` = '$id_sha1_projet' ";
+  // Création d'une instance de la classe `DatabaseHandler`
+  $databaseHandler = new DatabaseHandler($username, $dbname);
 
-// Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child("comment_projet");
-// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
+  // Requête SQL pour récupérer toutes les données de la table
+  $req_sql = "SELECT * FROM `comment_projet` WHERE `id_user_sha1_comment_projet` = '$id_sha1_projet' ";
 
-// Récupération des données de la table via une méthode spécialisée
-$databaseHandler->getDataFromTable2X($req_sql);
-// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
+  // Récupération des informations des tables enfant liées
+  $databaseHandler->getListOfTables_Child("comment_projet");
+  // La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
 
-// Génération de variables dynamiques à partir des données récupérées
-$databaseHandler->get_dynamicVariables();
-// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
+  // Récupération des données de la table via une méthode spécialisée
+  $databaseHandler->getDataFromTable2X($req_sql);
+  // La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
 
- 
+  // Génération de variables dynamiques à partir des données récupérées
+  $databaseHandler->get_dynamicVariables();
+  // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 
 
 
-for ($i=0; $i < count($dynamicVariables['id_user_sha1_comment_projet']) ; $i++) { 
-?>
 
-<div class="comment-section">
- 
-        <div class="comment-list" id="commentList">
-            <!-- Commentaire existant -->
-            <div class="comment">       
-                <div class="comment-content">
-                    <strong>  <?= $dynamicVariables['name_comment_projet'][$i]?></strong><br>
-                   <?= $dynamicVariables['text_comment_projet'][$i]?>
-                </div>
-            </div>
+  echo '<div id="addComment">';
+  for ($i = 0; $i < count($dynamicVariables['id_user_sha1_comment_projet']); $i++) {
+  ?>
+
+    <div class="comment-section">
+
+      <div class="comment-list" id="commentList">
+        <!-- Commentaire existant -->
+        <div class="comment">
+          <div class="comment-content">
+            <strong> <?= $dynamicVariables['name_comment_projet'][$i] ?></strong><br>
+            <?= $dynamicVariables['text_comment_projet'][$i] ?>
+          </div>
         </div>
+      </div>
     </div>
 
-<?php 
-}
-  
- 
-?>
-
-<div class="comment-section">
- 
-        <h3>Ajouter un commentaire</h3>
- <input id="commentText_1" type="text" class="input_commentText" placeholder="Nom de l'itulisateur">
-        <textarea class="comment-input" id="commentText_2" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
-        <button class="comment-button" title="<?= $id_sha1_projet ?>" onclick="addComment(this)">Publier</button>
-</div>
+  <?php
+  }
+  echo '</div>';
 
 
+  ?>
 
+  <div class="comment-section">
+
+    <h3>Ajouter un commentaire</h3>
+    <input id="commentText_1" type="text" class="input_commentText" placeholder="Nom de l'itulisateur">
+    <textarea class="comment-input" id="commentText_2" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
+    <button class="comment-button" title="<?= $id_sha1_projet ?>" onclick="addComment(this)">Publier</button>
+  </div>
 
 
 
 
-    <a href="../index.php" style="margin-left:50px;margin-right:50px">
+
+
+
+  <a href="../index.php" style="margin-left:50px;margin-right:50px">
     <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
   </a>
   <style>
@@ -780,7 +781,8 @@ for ($i=0; $i < count($dynamicVariables['id_user_sha1_comment_projet']) ; $i++) 
       margin-bottom: 75px;
 
     }
-    .input_commentText{
+
+    .input_commentText {
       width: 90%;
       margin: auto;
       border: 1px solid rgba(0, 0, 0, 0.3);
@@ -790,30 +792,67 @@ for ($i=0; $i < count($dynamicVariables['id_user_sha1_comment_projet']) ; $i++) 
   </style>
 
   <script>
-    function addComment(_this){
+    function addComment(_this) {
+_this.style.display= "none" ; 
+
+      var commentText_1 = document.getElementById("commentText_1").value;
+      var commentText_2 = document.getElementById("commentText_2").value;
 
 
-var commentText_1 =document.getElementById("commentText_1").value ; 
-var commentText_2 =document.getElementById("commentText_2").value ; 
 
+
+
+      var ok = new Information("../config/addComment.php"); // création de la classe 
+
+      ok.add("commentText_1", commentText_1); // ajout de l'information pour lenvoi 
+      ok.add("commentText_2", commentText_2); // ajout de l'information pour lenvoi 
+      ok.add("id_user_sha1_comment_projet", _this.title); // ajout de l'information pour lenvoi 
+
+
+
+      console.log(ok.info()); // demande l'information dans le tableau
+      ok.push(); // envoie l'information au code pkp 
+
+
+
+
+
+
+
+
+      const myTimeout = setTimeout(myGreeting, 100);
+
+      const myTimeout2 = setTimeout(myGreeting2, 5000);
+
+      function myGreeting() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          document.getElementById("addComment").innerHTML =
+            this.responseText;
+        }
+        xhttp.open("GET", "../view/addComment_data.php");
+        xhttp.send();
  
+
+      }
+
+
+      function myGreeting2() {
  
+_this.style.display= "block" ; 
+
+      }
 
 
-var ok = new Information("../config/addComment.php"); // création de la classe 
 
-ok.add("commentText_1", commentText_1); // ajout de l'information pour lenvoi 
-ok.add("commentText_2", commentText_2); // ajout de l'information pour lenvoi 
-ok.add("id_user_sha1_comment_projet", _this.title); // ajout de l'information pour lenvoi 
- 
- 
 
-console.log(ok.info()); // demande l'information dans le tableau
-ok.push(); // envoie l'information au code pkp 
-    
-}
-    
-    
-    
-     
+    }
   </script>
+
+
+<style>
+  #addComment {
+    overflow-y: scroll;
+    max-height: 400px;
+  }
+</style>

@@ -1,6 +1,8 @@
 <?php 
 require_once "require_once.php" ;
  
+
+ 
  
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $name_comment_projet = $_POST["commentText_1"] ; 

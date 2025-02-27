@@ -91,6 +91,8 @@ require_once '../config/all_pages_script.php' ;
         background-color: black;
 
         */
+
+ 
     }
 </style>
 </body>
