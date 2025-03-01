@@ -167,6 +167,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
     $title_projet_ =   AsciiConverter::asciiToString($row_projet[$i]["title_projet"]); // Affiche "Hello"
 
 
+ 
 
     array_push($date_debut_projet___, $title_projet_);
   }
@@ -276,6 +277,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
     $nom = array();
     for ($i = 0; $i < count($row_projet_array_filtre); $i++) {
       if ($row_projet_array_filtre[$i][$recherche_nom] == $recherche) {
+      
         array_push($a, $row_projet_array_filtre[$i]);
       }
     }
@@ -601,7 +603,14 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
 
     <?php foreach ($countdowns as $index => $temps_restant): ?>
+<?php 
 
+var_dump($temps_restant["annees"]);
+echo $temps_restant["jours"] ; 
+var_dump($temps_restant["jours"]);
+var_dump($temps_restant) ; 
+
+?>
       <div id="countdown-<?php echo $index; ?>" class="countdown-container" style="margin-top:45px;margin-bottom:45px">
         <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
         <div class="time">
@@ -634,6 +643,14 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
 
   </div>
+
+  <div class="comment-section">
+
+<h3>Ajouter un commentaire</h3>
+<input id="commentText_1" type="text" class="input_commentText" placeholder="Nom de l'itulisateur">
+<textarea class="comment-input" id="commentText_2" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
+<button class="comment-button" onclick="addComment(this)" title="<?= $id_sha1_projet ?>" >Publier</button>
+</div>
 
 
 
@@ -755,14 +772,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
   ?>
 
-  <div class="comment-section">
-
-    <h3>Ajouter un commentaire</h3>
-    <input id="commentText_1" type="text" class="input_commentText" placeholder="Nom de l'itulisateur">
-    <textarea class="comment-input" id="commentText_2" rows="3" placeholder="Écrivez votre commentaire..."></textarea>
-    <button class="comment-button" title="<?= $id_sha1_projet ?>" onclick="addComment(this)">Publier</button>
-  </div>
-
+ 
 
 
 
@@ -772,6 +782,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
   <a href="../index.php" style="margin-left:50px;margin-right:50px">
     <img width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
   </a>
+ 
   <style>
     .styles_ {
       width: 80%;
@@ -793,12 +804,18 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
   <script>
     function addComment(_this) {
+
+
+ 
 _this.style.display= "none" ; 
 
       var commentText_1 = document.getElementById("commentText_1").value;
       var commentText_2 = document.getElementById("commentText_2").value;
 
 
+ 
+
+ 
 
 
 
@@ -822,7 +839,7 @@ _this.style.display= "none" ;
 
       const myTimeout = setTimeout(myGreeting, 100);
 
-      const myTimeout2 = setTimeout(myGreeting2, 5000);
+   
 
       function myGreeting() {
         const xhttp = new XMLHttpRequest();
@@ -837,13 +854,15 @@ _this.style.display= "none" ;
       }
 
 
-      function myGreeting2() {
+
+
  
-_this.style.display= "block" ; 
-
-      }
-
-
+const myTimeout2 = setTimeout(myGreeting2, 300);
+function myGreeting2() {
+ 
+ _this.style.display= "block" ; 
+ 
+       }
 
 
     }
