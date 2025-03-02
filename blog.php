@@ -873,7 +873,7 @@ function myGreeting2() {
 <script>
    
 
-
+// condition pour affiche lorloge 
   var countdown_container = document.getElementsByClassName("countdown-container") ; 
  
 
@@ -892,4 +892,5 @@ for (let index = 0; index < countdown_container.length; index++) {
   }
   
 }
+// condition pour affiche lorloge 
 </script>

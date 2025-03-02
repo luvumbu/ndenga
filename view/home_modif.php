@@ -77,6 +77,7 @@
       $title_projet = AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i]);
       $description_projet = AsciiConverter::asciiToString($dynamicVariables['description_projet'][$i]);
 
+      $date_debut_projet_dynamic_1_ = $date_debut_projet_dynamic_1[$i] ; 
       ?>
 
       <div class="change_google_title">
@@ -321,7 +322,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
           </form>
-          <input title="2" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="my_date(this)" style="padding: 15px;" type="date" name="date" min="<?php echo date('Y-m-d'); ?>">
+          <input  value="<?= $date_debut_projet_dynamic_1_ ?>" title="2" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="my_date(this)" style="padding: 15px;" type="date" name="date" min="<?php echo date('Y-m-d'); ?>">
 
         </div>
 

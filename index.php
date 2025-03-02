@@ -51,7 +51,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
   require_once "Class/nettoyerTexteHtml.php";
 
 
-  
+
 
   // Définition de l'image principale
   $grande_image__ = "https://i.pinimg.com/236x/46/51/27/465127dc4dad2655628bd36e0e3c088a.jpg";
@@ -109,8 +109,10 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
         // Chargement de la page d'accueil ou du blog selon l'URL
         if ($url->get_elements()[0] == "index.php") {
 
-  
+          // Ensemble de donne lors que l'utilisateur est en ligne 
           require_once 'view/home.php';
+          // Ensemble de donne lors que l'utilisateur est en ligne 
+
         ?>
 
         <?php
@@ -191,7 +193,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
 
   <?php
 
- 
+
 
   ?>
   <style>
@@ -218,8 +220,6 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
       box-shadow: 1px 1px 8px black;
       float: left;
     }
-
-   
   </style>
 </body>
 
