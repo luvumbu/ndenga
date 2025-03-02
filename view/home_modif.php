@@ -322,8 +322,8 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
           </form>
-          <input  value="<?= $date_debut_projet_dynamic_1_ ?>" title="2" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="my_date(this)" style="padding: 15px;" type="date" name="date" min="<?php echo date('Y-m-d'); ?>">
-
+          <input  value="<?= $date_debut_projet_dynamic_1_ ?>" title="2" id="my_date_<?= $id_sha1_projet_dynamic_1_ ?>" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="my_date(this)" style="padding: 15px;" type="date" name="date" min="<?php echo date('Y-m-d'); ?>">
+          <img  class="<?= $id_sha1_projet_dynamic_1_ ?>" width="25" height="25" src="https://img.icons8.com/material-outlined/25/clear-symbol--v1.png" onclick="my_date_remove(this)" alt="clear-symbol--v1"/>
         </div>
 
       </div>
@@ -331,6 +331,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
     </div>
 
     </div>
+    
     <?php
 
     require "home_modif_child.php";
@@ -512,6 +513,41 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
 
 
     }
+
+
+    function my_date_remove(_this) {
+
+ 
+ 
+
+
+
+ document.getElementById("my_date_"+_this.className).value ="" ;
+
+
+ 
+ 
+
+
+
+
+var ok = new Information("config/my_date_remove.php"); // création de la classe 
+      var element = afficherValeursFormattees2(_this.className, __);
+
+      ok.add("heure_debut_projet", ""); // ajout de l'information pour lenvoi 
+
+      ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
+ 
+
+
+      console.log(ok.info()); // demande l'information dans le tableau
+      ok.push(); // envoie l'information au code pkp 
+
+
+
+
+
+}
 
     function visivility(_this) {
 
