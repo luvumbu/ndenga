@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="view/home.css">
 <script>
     function afficherValeursFormattees2(chaine, separation) {
         // La méthode split() sépare la chaîne en un tableau de sous-chaînes, en utilisant "__" comme séparateur
@@ -7,7 +9,8 @@
     }
 
 
-    var __ = "__";
+ 
+    // Variable de separation 
 </script>
 
 
@@ -83,62 +86,28 @@ $header_style_pages__ = $dynamicVariables['header_style_pages'] ;
 $total_style_pages__ = $dynamicVariables['total_style_pages'] ; 
 $total_style_parent_pages__ = $dynamicVariables['total_style_parent_pages'] ; 
 $id_sha1_style_page__ = $dynamicVariables['id_sha1_style_page'] ;
- 
-
-
- 
-
 $id_style_page__ = $dynamicVariables['id_style_page'] ; 
 $id_user_style_page__ = $dynamicVariables['id_user_style_page'] ; 
 $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'] ; 
- 
-
-
- 
-
-
-
 $html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
 $html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
-
 $total_style_parent_pages__x = $dynamicVariables['total_style_parent_pages'][$i] ; 
-
-
-
- 
-
-
-
 ?>
-
 <script>
-
 const header_text_1= '<?=$header_text_1 ?>';
 const header_text_2= '<?=$header_text_2 ?>';
 const header_text_3= '<?=$header_text_3 ?>';
 const header_text_4= '<?=$header_text_4 ?>';
-
-
 </script>
 
-<div class="header_element" onkeyup="">
-  
- 
-   
+<div class="header_element" onkeyup="">   
     <div class="<?php echo  $index_insert ?>" onclick="a(this)"><?= $header_text_1 ?></div>
     <div class="<?php echo  $index_all ?>" onclick="a(this)"><?= $header_text_2 ?></div>
     <div class="<?php echo  $index_profil ?>" onclick="a(this)"><?= $header_text_3 ?></div>
     <div class="<?php echo  $index_style ?>" onclick="a(this)"><?= $header_text_4 ?></div>
-
- 
-   
-
     <a href="Class/Log_off.php" class="deconexion"> <div>DECONNEXION</div></a>
-   
 </div>
 <?php 
-    
- 
  
     if($_SESSION["home"]=="profil") {
          require_once 'view/mon_profil.php' ; 
@@ -371,76 +340,4 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
     ?>
 
 </div>
-<style>
-    .header_element {
-        background-color: #5b8fbc;
-        color: white;
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 75px;
-    }
-
-    .header_element div {
-        padding: 17px;
-    }
-
-    .header_element div:hover {
-        background-color: white;
-        color: #5b8fbc;
-        cursor: pointer;
-    }
-
-    .all_doc {
-
-        margin-bottom: 135px;
-    }
-
-    .all_doc {
-
-        width: 80%;
-        margin: auto;
-
-    }
-
-    .all_doc textarea,
-    .all_doc input {
-        width: 100%;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .all_doc textarea {
-        height: 230px;
-    }
-
-    .cursor_pointer:hover {
-        cursor: pointer;
-    }
-
-    .div_img_projet_src img {
-        width: 100%;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        box-shadow: 1px 1px 7px black;
-        text-align: center;
-    }
-
-    .div_img_projet_src img:hover {
-        cursor: pointer;
-
-
-    }
-
-    .div_img_projet_src {
-
-        margin: auto;
-        width: 300px;
-
-    }
-    .deconexion{
-        background-color: red;
-        color: white;
-        text-decoration: none;
-    }
-
-   
-</style>
+ 

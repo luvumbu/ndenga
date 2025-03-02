@@ -27,23 +27,11 @@
     $change_meta_name_projet_dynamic_1_ =  $change_meta_name_projet_dynamic_1[$i];
     $change_meta_content_projet_dynamic_1_ = $change_meta_content_projet_dynamic_1[$i];
     $id_sha1_projet_dynamic_1_ = $id_sha1_projet_dynamic_1[$i];
-
     $description_projet_dynamic_1_ = $description_projet_dynamic_1[$i];
-
     $title_projet_dynamic_1_ =     $title_projet_dynamic_1[$i];
-
-
-
-
     $html_mode_projet_1_dynamic_1_ = $html_mode_projet_1_dynamic_1[$i];
     $html_mode_projet_2_dynamic_1_ = $html_mode_projet_2_dynamic_1[$i];
-
-
-
-
-
-
-    /*
+        /*
  $databaseHandler = new DatabaseHandler($dbname, $username);
  $req_sql = "SELECT * FROM projet WHERE  id_sha1_parent_projet ='$id_sha1_projet_dynamic_1_ ' ";
  $databaseHandler->getListOfTables_Child("projet");
@@ -65,26 +53,17 @@
     ?>
 
     <div id="parent_<?= $id_sha1_projet_dynamic_1_ ?>" class="editor-container largeur_juste" style="border:5px solid <?= $color_projet_dynamic_1[0] ?>">
-
-
-      <h2>Éditeur de texte <?= $id_sha1_projet_dynamic_1_  ?></h2>
-
-
-      <?php
-
+     <h2>Éditeur de texte <?= $id_sha1_projet_dynamic_1_  ?></h2>
+     <?php
       require "div_form.php";
-
       $title_projet = AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i]);
       $description_projet = AsciiConverter::asciiToString($dynamicVariables['description_projet'][$i]);
-
       $date_debut_projet_dynamic_1_ = $date_debut_projet_dynamic_1[$i] ; 
       ?>
-
       <div class="change_google_title">
         <b>Title SEO</b>
         <input value="<?= $google_title_projet_dynamic_1[$i] ?>" placeholder="valeur réferecement" type="text" class="<?= $id_sha1_projet_dynamic_1_ ?>" onkeyup="change_google_title(this)">
       </div>
-
       <div>
         <b>Meta name</b>
         <input value="<?= $change_meta_name_projet_dynamic_1_ ?>" type="text" onkeyup="change_meta_name(this)" class="<?= $id_sha1_projet_dynamic_1_ . ' meta_input' ?>">
@@ -94,7 +73,6 @@
         <input value="<?= $change_meta_content_projet_dynamic_1_ ?>" type="text" onkeyup="change_meta_content(this)" class="<?= $id_sha1_projet_dynamic_1_ . ' meta_input' ?>">
       </div>
       <div>
-
         <label for="numbers">Niveau d'urgence : ou de difficulte</label>
         <select name="numbers" class="<?= $id_sha1_projet_dynamic_1_ ?>" onchange="level_urgence_projet(this)">
           <!-- Les options de 1 à 10 -->
@@ -108,54 +86,21 @@
           <option value="8">8</option>
           <option value="9">9</option>
           <option value="10">10</option>
-
           <?php
           echo ' <option selected  value="' . $level_urgence_projet_dynamic_1[0] . '">' . $level_urgence_projet_dynamic_1[0] . '</option>';
-
           ?>
         </select>
-
-
-        <?php
-
-
-
-
-
-
-
-
-
-
-
-        ?>
-
-
-        <label for="numbers">Style de la page</label>
+       <label for="numbers">Style de la page</label>
         <select name="numbers" class="<?= $id_sha1_projet_dynamic_1_  ?>" onchange="change_styles(this)">
-          <!-- Les options de 1 à 10 -->
-
-          <?php
-
-          for ($i_style = 0; $i_style < count($name_style_pages__); $i_style++) {
-
-
-
-          ?>
-
-            <option value="<?= $id_sha1_style_page__[$i_style] ?>"><?= $name_style_pages__[$i_style] ?></option>
-
-
-
-
-
+         <!-- Les options de 1 à 10 -->
+         <?php
+         for ($i_style = 0; $i_style < count($name_style_pages__); $i_style++) {
+         ?>
+           <option value="<?= $id_sha1_style_page__[$i_style] ?>"><?= $name_style_pages__[$i_style] ?></option>
           <?php
           }
 
-          ?>
-
-
-          <?php
+ 
           ?>
 
 
@@ -400,474 +345,4 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
     <?php endfor; ?>
   </script>
 
-
-
-
-  <script>
-    function b(_this) {
-      const myTimeout = setTimeout(x, 250);
-
-      function x() {
-        var textInput2 = document.getElementById("textInput2" + _this.title).value;
-        var textInput0 = document.getElementById("textInput" + _this.title).innerHTML;
-        var element = afficherValeursFormattees2(_this.className, __);
-        console.log(element);
-
-
-        /*
-
-        var ok = new Information("config/general_function_update.php"); // création de la classe 
-
-        ok.add("nom_user", element[0]); // ajout de l'information pour lenvoi 
-        ok.add("password_user", element[1]); // ajout de l'information pour lenvoi 
-        ok.add("id_user_projet", element[2]); // ajout de l'information pour lenvoi 
-        ok.add("id_sha1_user_projet", element[3]); // ajout de l'information pour lenvoi
-        ok.add("general_function", element[4]); // ajout de l'information pour lenvoi 
-        ok.add("tagName", _this.tagName); // ajout de l'information pour lenvoi 
-        ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
-
-        ok.add("textInput2", textInput2); // ajout de l'information pour lenvoi 
-        ok.add("textInput0", textInput0); // ajout de l'information pour lenvoi 
-        console.log(ok.info()); // demande l'information dans le tableau
-        ok.push(); // envoie l'information au code pkp 
-*/
-      }
-
-    }
-
-    function remove_all(_this) {
-
-
-      var ok = new Information("config/remove_all.php"); // création de la classe 
-      var element = afficherValeursFormattees2(_this.className, __);
-      console.log(element);
-      ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-      location.reload();
-    }
-
-
-    function add_child(_this) {
-
-
-      var ok = new Information("config/add_child.php"); // création de la classe 
-      var element = afficherValeursFormattees2(_this.className, __);
-      console.log(element);
-      ok.add("nom_user", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("password_user", element[1]); // ajout de l'information pour lenvoi 
-      ok.add("id_user_projet", element[2]); // ajout de l'information pour lenvoi 
-      ok.add("id_sha1_user_projet", element[3]); // ajout de l'information pour lenvoi
-      ok.add("general_function", element[4]); // ajout de l'information pour lenvoi 
-      ok.add("tagName", _this.tagName); // ajout de l'information pour lenvoi 
-      ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
-
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-      const myTimeout = setTimeout(xxx, 250);
-
-      function xxx() {
-        location.reload();
-
-      }
-    }
-
-
-
-    function add_calendar(_this) {
-      var ok = new Information("config/add_calendar.php"); // création de la classe 
-      var element = afficherValeursFormattees2(_this.className, __);
-      console.log(element);
-      ok.add("nom_user", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("password_user", element[1]); // ajout de l'information pour lenvoi 
-      ok.add("id_user_projet", element[2]); // ajout de l'information pour lenvoi 
-      ok.add("id_sha1_user_projet", element[3]); // ajout de l'information pour lenvoi
-      ok.add("general_function", element[4]); // ajout de l'information pour lenvoi 
-      ok.add("tagName", _this.tagName); // ajout de l'information pour lenvoi 
-      ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
-
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-    }
-
-
-    function my_date(_this) {
-
-      console.log(_this.value);
-
-      var ok = new Information("config/my_date.php"); // création de la classe 
-      var element = afficherValeursFormattees2(_this.className, __);
-
-      ok.add("heure_debut_projet", _this.value); // ajout de l'information pour lenvoi 
-
-      ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
-      ok.add("title", _this.title); // ajout de l'information pour lenvoi 
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-
-    }
-
-
-    function my_date_remove(_this) {
-
- 
- 
-
-
-
- document.getElementById("my_date_"+_this.className).value ="" ;
-
-
- 
- 
-
-
-
-
-var ok = new Information("config/my_date_remove.php"); // création de la classe 
-      var element = afficherValeursFormattees2(_this.className, __);
-
-      ok.add("heure_debut_projet", ""); // ajout de l'information pour lenvoi 
-
-      ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
- 
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-
-
-
-
-}
-
-    function visivility(_this) {
-
-
-
-
-      var ok = new Information("config/add_child.php"); // création de la classe 
-      var element = afficherValeursFormattees2(_this.className, __);
-
-
-
-
-
-      var visivility = "";
-
-
-
-
-
-      if (_this.src == visible_1) {
-        _this.src = visible_2;
-        visivility = "(0-0)";
-      } else {
-        _this.src = visible_1;
-        visivility = "";
-
-
-      }
-
-
-      var ok = new Information("config/visivility.php"); // création de la classe 
-
-
-      ok.add("id_sha1_projet", element[5]); // ajout de l'information pour lenvoi 
-      ok.add("visivility", visivility); // ajout de l'information pour lenvoi 
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-
-
-
-      //const myTimeout = setTimeout(xxx, 250);
-
-      function xxx() {
-        location.reload();
-
-      }
-
-
-    }
-  </script>
-
-
-
-  <script>
-    function add_img2(_this) {
-      document.getElementById("add_img").className = "";
-    }
-
-    function change_color(_this) {
-
-
-
-
-      var element = afficherValeursFormattees2(_this.className, " ");
-
-      var ok = new Information("config/change_color.php"); // création de la classe 
-
-
-      ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("color_projet", _this.value); // ajout de l'information pour lenvoi 
-
-
-
-      document.getElementById("parent_" + element[0]).style = "border: 5px solid " + _this.value;
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-    }
-
-    function change_google_title(_this) {
-
-
-
-
-
-      var element = afficherValeursFormattees2(_this.className, " ");
-
-
-      var ok = new Information("config/change_google_title.php"); // création de la classe 
-
-
-      ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("google_title_projet", _this.value); // ajout de l'information pour lenvoi 
-
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-
-
-
-
-    }
-
-
-    function level_urgence_projet(_this) {
-
-
-      var element = afficherValeursFormattees2(_this.className, " ");
-
-
-      var ok = new Information("config/level_urgence_projet.php"); // création de la classe 
-
-
-      ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("level_urgence_projet", _this.value); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-
-
-
-    }
-
-    function change_meta_name(_this) {
-      var element = afficherValeursFormattees2(_this.className, " ");
-
-
-      var ok = new Information("config/change_meta_name.php"); // création de la classe 
-
-
-      ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("change_meta_content", _this.value); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-    }
-
-    function change_meta_content(_this) {
-      var element = afficherValeursFormattees2(_this.className, " ");
-
-
-      var ok = new Information("config/change_meta_content.php"); // création de la classe 
-
-
-      ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("change_meta_content", _this.value); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp  
-    }
-  </script>
-
-
-
-  <style>
-    .change_google_title input,
-    .meta_input {
-      opacity: 0.3;
-    }
-  </style>
-
-
-  <script>
-    function html_mode_projet_dynamic_1(_this) {
-      var element = afficherValeursFormattees2(_this.className, " ");
-
-
-
-
-
-
-
-      var opacite = document.getElementById("html_1_" + element[0]).style.opacity;
-
-      console.log(opacite);
-
-
-
-
-      if (opacite == 0.2) {
-
-        html_mode_projet = "on";
-        document.getElementById("html_1_" + element[0]).style.opacity = 1;
-        document.getElementById("html_2_" + element[0]).style.opacity = 0.2;
-
-      } else {
-        document.getElementById("html_1_" + element[0]).style.opacity = 0.2;
-        document.getElementById("html_2_" + element[0]).style.opacity = 1;
-        html_mode_projet = "";
-
-      }
-
-
-
-
-      var ok = new Information("config/html_mode_projet.php"); // création de la classe 
-
-
-
-      ok.add("id_sha1_projet", element[0]); // ajout de l'information pour lenvoi 
-      ok.add("html_mode_projet_1", html_mode_projet); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp  
-
-      const myTimeout = setTimeout(time_out, 250);
-
-      function time_out() {
-        location.reload();
-      }
-
-
-
-    }
-
-
-
-
-
-
-    function change_styles(_this) {
-
-
-
-
-
-
-      var element = afficherValeursFormattees2(_this.className, __);
-      console.log(element);
-
-
-
-
-      var ok = new Information("config/change_styles.php"); // création de la classe 
-
-      ok.add("id_sha1_projet", _this.className); // ajout de l'information pour lenvoi 
-      ok.add("style_pages_projet", _this.value); // ajout de l'information pour lenvoi 
-
-
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-
-
-
-
-
-
-    }
-  </script>
-
-  <style>
-    .display_images {
-      display: flex;
-      justify-content: space-around;
-      overflow-y: scroll;
-      max-height: 300px;
-
-      margin-bottom: 75px;
-    }
-
-    .hover_img:hover {
-      cursor: pointer;
-      opacity: 0.7;
-      background-color: black;
-    }
-  </style>
-
-
-  <script>
-    function select_img(_this) {
-
-      _this.style.display="none" ; 
-      var element = afficherValeursFormattees2(_this.className, __);
-
-
-
-      element[0] = element[0].replace(" ", "");
-
-
-
-
-      var ok = new Information("config/select_img.php"); // création de la classe 
-
-      ok.add("id_sha1_projet", element[1]); // ajout de l'information pour lenvoi 
-      ok.add("img_projet_src1", element[0]); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-      const myTimeout = setTimeout(xx, 250);
-
-      function xx() {
-        location.reload();
-      }
-
-    }
-
-    function remove_img(_this) {
-      _this.style.display="none" ; 
-
-      var element = afficherValeursFormattees2(_this.className, "__");
-
-
-      element[0] = element[0].replace(" ", "");
-
-
-      var ok = new Information("config/remove_img.php"); // création de la classe 
-
-      ok.add("id_sha1_projet", element[1]); // ajout de l'information pour lenvoi 
-      ok.add("img_projet_src1", element[0]); // ajout de l'information pour lenvoi 
-      console.log(ok.info()); // demande l'information dans le tableau
-      ok.push(); // envoie l'information au code pkp 
-
-      const myTimeout = setTimeout(xx, 250);
-
-      function xx() {
-        location.reload();
-      }
-
-    }
-  </script>
+ <script src="view/home_scrypt.js"></script>

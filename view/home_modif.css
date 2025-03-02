@@ -92,3 +92,25 @@ button:hover {
 .display_flex1 div:hover {
   cursor: pointer;
 }
+
+ 
+  .display_images {
+    display: flex;
+    justify-content: space-around;
+    overflow-y: scroll;
+    max-height: 300px;
+
+    margin-bottom: 75px;
+  }
+
+  .hover_img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background-color: black;
+  }
+ 
+  .change_google_title input,
+  .meta_input {
+    opacity: 0.3;
+  }
+ 
