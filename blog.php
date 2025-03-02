@@ -603,14 +603,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
 
 
     <?php foreach ($countdowns as $index => $temps_restant): ?>
-<?php 
-
-var_dump($temps_restant["annees"]);
-echo $temps_restant["jours"] ; 
-var_dump($temps_restant["jours"]);
-var_dump($temps_restant) ; 
-
-?>
+ 
       <div id="countdown-<?php echo $index; ?>" class="countdown-container" style="margin-top:45px;margin-bottom:45px">
         <div class="event-name"><?php echo $temps_restant["event_name"]; ?></div> <!-- Afficher le nom de l'événement -->
         <div class="time">
@@ -875,3 +868,28 @@ function myGreeting2() {
     max-height: 400px;
   }
 </style>
+
+
+<script>
+   
+
+
+  var countdown_container = document.getElementsByClassName("countdown-container") ; 
+ 
+
+
+
+
+
+
+
+
+for (let index = 0; index < countdown_container.length; index++) {
+
+  console.log(countdown_container[index].innerText[0]) ; 
+  if(countdown_container[index].innerText[0]=="N"){
+    countdown_container[index].style.display="none" ; 
+  }
+  
+}
+</script>
