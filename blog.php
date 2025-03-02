@@ -510,9 +510,11 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
     }
 
     div img {
-      width: 150px;
+      width: 400px;
       box-shadow: 1px 1px 5px black;
       border-radius: 17px;
+      text-align: center;
+      margin-bottom: 35px;
     }
 
     div img:hover {
@@ -520,6 +522,7 @@ $date_debut_projet = $row_projet[0]["date_debut_projet"];
       opacity: 0.5;
 
       background-color: rgba(72, 39, 216, 0.5);
+      
     }
 
 
@@ -886,10 +889,12 @@ function myGreeting2() {
 
 for (let index = 0; index < countdown_container.length; index++) {
 
-  console.log(countdown_container[index].innerText[0]) ; 
-  if(countdown_container[index].innerText[0]=="N"){
+
+ 
+  if(countdown_container[index].children[1].children[0].innerHTML=="NaN"){
     countdown_container[index].style.display="none" ; 
   }
+ 
   
 }
 // condition pour affiche lorloge 
