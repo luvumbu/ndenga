@@ -197,7 +197,7 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       </div>
 
       <div class="grande_image">
-        <img style="border: 5pc solid black;padding:10px" src="<?php echo $grande_image ?>" onclick="a(this)" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" src="https://i.pinimg.com/236x/7c/cd/81/7ccd8106106ec20a9af1186b8065caee.jpg" alt="">
+        <img style="border: 5pc solid black;padding:10px" src="<?php echo $grande_image ?>" onclick="add_img2(this)" class="<?php echo $index_update . $id_sha1_projet_dynamic_1_ . '__' ?>" src="https://i.pinimg.com/236x/7c/cd/81/7ccd8106106ec20a9af1186b8065caee.jpg" alt="">
       </div>
       <div class="display_flex1">
         <div onclick="remove_all(this)" class="<?php echo $index_remove . $id_sha1_projet_dynamic_1_ ?>">

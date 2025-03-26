@@ -11,9 +11,10 @@ session_start();
   <title>Document</title> <!-- Titre de la page -->
   <link rel="icon" type="image/x-icon" href="https://ih1.redbubble.net/image.1762483057.7729/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.webp"> <!-- Icône de la page -->
 </head>
-
+ 
 <script src="Class/Js.js"></script> <!-- Inclusion d'un fichier JavaScript -->
 <script>
+
   // Script exécuté une fois que la page est entièrement chargée
   window.onload = function() {
     document.getElementById("body").className = ""; // Suppression de la classe initiale du body

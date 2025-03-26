@@ -2,7 +2,7 @@
 session_start();
 header("Access-Control-Allow-Origin: *");
 require_once "require_once_all_web.php";
-require_once "require_once_all_web.php";
+ 
 
 //require_once 'function/add_ip.php';
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut

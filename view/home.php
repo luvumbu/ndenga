@@ -101,10 +101,10 @@ const header_text_4= '<?=$header_text_4 ?>';
 </script>
 
 <div class="header_element" onkeyup="">   
-    <div class="<?php echo  $index_insert ?>" onclick="a(this)"><?= $header_text_1 ?></div>
-    <div class="<?php echo  $index_all ?>" onclick="a(this)"><?= $header_text_2 ?></div>
-    <div class="<?php echo  $index_profil ?>" onclick="a(this)"><?= $header_text_3 ?></div>
-    <div class="<?php echo  $index_style ?>" onclick="a(this)"><?= $header_text_4 ?></div>
+    <div class="<?php echo  $index_insert ?>" onclick="add_img2(this)"><?= $header_text_1 ?></div>
+    <div class="<?php echo  $index_all ?>" onclick="add_img2(this)"><?= $header_text_2 ?></div>
+    <div class="<?php echo  $index_profil ?>" onclick="add_img2(this)"><?= $header_text_3 ?></div>
+    <div class="<?php echo  $index_style ?>" onclick="add_img2(this)"><?= $header_text_4 ?></div>
     <a href="Class/Log_off.php" class="deconexion"> <div>DECONNEXION</div></a>
 </div>
 <?php 
