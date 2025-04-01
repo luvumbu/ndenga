@@ -104,16 +104,21 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
         <label for="">total_style_parent_pages</label>
         <textarea title="<?= $id_sha1_style_page_ ?>" class="textarea_info_4 textarea_info" id="total_style_parent_pages_<?= $id_sha1_style_page_ ?>" placeholder="total_style_parent_pages"><?= $total_style_parent_pages_  ?></textarea>
 
-        <div class="btn_input" onclick="btn_update(this)" title="<?= $id_sha1_style_page_ ?>">UPDATE</div>
+        <div class="flex_blox">
+            <div class="btn_input" onclick="btn_update(this)" title="<?= $id_sha1_style_page_ ?>">UPDATE</div>
+<a href="<?= 'style_page_flex_box.php/'.$id_sha1_style_page_  ?>">
+<div class="btn_input">FLEX-BOX</div>
 
+</a>
+        </div>
     </div>
 <?php
 }
 ?>
 <script>
     function btn_input(_this) {
-        _this.style.display ="none";
-       
+        _this.style.display = "none";
+
 
         var name_style_pages = document.getElementById("name_style_pages").value;
         var header_style_pages = document.getElementById("header_style_pages").value;
@@ -139,16 +144,16 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
 
         function reload_() {
             location.reload();
-       
+
 
 
         }
 
     }
 
-
+ 
     function btn_update(_this) {
-        _this.style.display ="none";
+        _this.style.display = "none";
         var name_style_pages = document.getElementById("name_style_pages_" + _this.title).value;
         var header_style_pages = document.getElementById("header_style_pages_" + _this.title).value;
         var total_style_pages = document.getElementById("total_style_pages_" + _this.title).value;
@@ -175,13 +180,13 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
 
         const myTimeout = setTimeout(reload_, 250);
 
-function reload_() {
-   
-    _this.style.display ="block";
+        function reload_() {
+
+            _this.style.display = "block";
 
 
 
-}
+        }
 
     }
 </script>
@@ -244,5 +249,9 @@ function reload_() {
         text-shadow: 1px 1px 3px black;
 
         cursor: pointer;
+    }
+    .flex_blox{
+        display: flex;
+        justify-content: space-around;
     }
 </style>

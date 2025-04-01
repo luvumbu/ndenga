@@ -87,8 +87,7 @@
 </head>
 
 <body>
-
-    <div class="form-container">
+ <div class="form-container">
         <h2>Vérification de Connexion</h2>
         <form action="your_php_file.php" method="POST">
             <label for="dbname">Nom de la Base de Données :</label>

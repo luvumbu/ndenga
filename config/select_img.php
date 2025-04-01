@@ -19,6 +19,12 @@ $databaseHandler->action_sql("UPDATE `projet` SET `img_projet_src1` = '$img_proj
 //../src/img/1740105192/1740340695.webp
 //require_once 'all_pages_script.php' ; 
  
+
+
+
+$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
+ 
+require_once 'all_pages_script.php' ; 
 ?>
 
 

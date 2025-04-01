@@ -141,9 +141,7 @@ body {
     <div class="date-user">Date de création : 2025-01-01</div>
     <div class="id-sha1-user">SHA1 : a94a8fe5ccb19ba61c4c0873d391e987982fbbd3</div>
     <div class="id-parent-user">ID Parent : 67890</div>
-    <div class="description-user">
-      Description : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
-    </div>
+ 
     <div class="title-user">Titre : Développeur Full Stack</div>
     <div class="img-user">
       <img src="user-profile.jpg" alt="Photo de l'utilisateur">

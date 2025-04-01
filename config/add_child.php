@@ -12,14 +12,7 @@ $_SESSION["home"] ="" ;
 $time = time().'_'.rand(100,999) ; 
  $id_sha1_parent_projet = $_POST["id_sha1_projet"]; 
 $databaseHandler = new DatabaseHandler($dbname, $username);
-
-
-
-
-
-
 // Afficher la date et l'heure au format spécifié
- 
 
 $date_inscription_projet = date("Y-m-d H:i:s");
 $databaseHandler->action_sql("INSERT INTO `projet` (id_user_projet,id_sha1_user_projet,id_sha1_projet,id_sha1_parent_projet,date_inscription_projet) VALUES ('$id_user_projet','$id_sha1_user_projet','$time','$id_sha1_parent_projet','$date_inscription_projet')");

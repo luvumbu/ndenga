@@ -2,8 +2,6 @@
 
 
 
- 
-
 
 // Création d'une instance de la classe `DatabaseHandler`
 $databaseHandler = new DatabaseHandler($dbname, $username);
@@ -53,6 +51,18 @@ $liste_array_dyn = array(
  
     "id_style_page_auto", 
     "id_general", 
+    "flex_box_1_style_pages",
+    "flex_box_2_style_pages",
+    "flex_box_3_style_pages",
+
+    "flex_box_4_style_pages",
+
+    "flex_box_5_style_pages",
+    "flex_box_6_style_pages",
+    "flex_box_7_style_pages" ,
+
+
+
     "name_style_pages", 
     "header_style_pages", 
     "total_style_pages",

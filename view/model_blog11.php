@@ -1,10 +1,25 @@
 <?php 
+
+
+
+
+ 
+
+ 
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $req_sql = "SELECT * FROM projet WHERE id_sha1_parent_projet ='$id_sha1_projet'   ";
+
 $databaseHandler->getListOfTables_Child("projet");
 $databaseHandler->getDataFromTable2X($req_sql);
 $databaseHandler->get_dynamicVariables();
+ 
+
+
+ 
 $namex =  [
+
+
+
   "id_projet" => $databaseHandler->tableList_info2[0],
   "activation_projet" => $databaseHandler->tableList_info2[1],
   "id_general" => $databaseHandler->tableList_info2[2],

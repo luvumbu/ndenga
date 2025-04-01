@@ -1,4 +1,6 @@
 <?php 
+
+
 function redimensionnerImageLargeurMax($source, $destination, $largeurMax) {
     // Vérifier si le fichier source existe
     if (!file_exists($source)) {
@@ -33,9 +35,10 @@ function redimensionnerImageLargeurMax($source, $destination, $largeurMax) {
         case IMAGETYPE_GIF:
             $imageSource = imagecreatefromgif($source);
             break;
-        case IMAGETYPE_WEBP:
-            $imageSource = imagecreatefromwebp($source);
-            break;
+        // Suppression du support WebP si ce n'est pas nécessaire
+        // case IMAGETYPE_WEBP:
+        //     $imageSource = imagecreatefromwebp($source);
+        //     break;
         default:
             throw new Exception("Type d'image non pris en charge");
     }
@@ -43,8 +46,8 @@ function redimensionnerImageLargeurMax($source, $destination, $largeurMax) {
     // Créer l'image redimensionnée
     $imageRedimensionnee = imagecreatetruecolor($nouvelleLargeur, $nouvelleHauteur);
 
-    // Conserver la transparence pour les PNG, GIF, et WebP
-    if (in_array($typeImage, [IMAGETYPE_PNG, IMAGETYPE_GIF, IMAGETYPE_WEBP])) {
+    // Conserver la transparence pour les PNG, GIF
+    if (in_array($typeImage, [IMAGETYPE_PNG, IMAGETYPE_GIF])) {
         imagecolortransparent($imageRedimensionnee, imagecolorallocatealpha($imageRedimensionnee, 0, 0, 0, 127));
         imagealphablending($imageRedimensionnee, false);
         imagesavealpha($imageRedimensionnee, true);
@@ -70,9 +73,10 @@ function redimensionnerImageLargeurMax($source, $destination, $largeurMax) {
         case IMAGETYPE_GIF:
             imagegif($imageRedimensionnee, $destination);
             break;
-        case IMAGETYPE_WEBP:
-            imagewebp($imageRedimensionnee, $destination);
-            break;
+        // Retirer ou commenter le cas WebP si non nécessaire
+        // case IMAGETYPE_WEBP:
+        //     imagewebp($imageRedimensionnee, $destination);
+        //     break;
     }
 
     // Libérer la mémoire

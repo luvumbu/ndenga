@@ -1,6 +1,11 @@
 <?php 
-$id_sha1_projet =$projet_3[0]['id_sha1_projet'][$b];
+
+
+
+
  
+$id_sha1_projet =$projet_3[0]['id_sha1_projet'][$b];
+               
 
 //var_dump($id_sha1_projet);
  

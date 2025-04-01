@@ -9,13 +9,15 @@ $id_sha1_projet_time = time() . rand(10, 99);
 $id_user_projet = $_POST["id_user_projet"]; //3
 $id_sha1_user_projet = $_POST["id_sha1_user_projet"]; // 4
 $id_sha1_projet = $_POST["id_sha1_projet"];
-
 $cheminDossier = '../src/img/' . $id_sha1_user_projet;
-
 $_SESSION["img"] = time();
 
 
 
+
+
+
+$_SESSION["id_sha1_projet_time"] = $id_sha1_projet_time ; 
 
 // Vérification si le dossier existe
 if (!is_dir($cheminDossier)) {

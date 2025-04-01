@@ -194,6 +194,19 @@ $mainTableName = "projet_img" ;
 $databaseHandler = new DatabaseHandler($dbname,$username); 
 $databaseHandler->set_column_names("id_style_page_auto");
 $databaseHandler->set_column_names("id_general");
+
+$databaseHandler->set_column_names("flex_box_1_style_pages");
+$databaseHandler->set_column_names("flex_box_2_style_pages");
+$databaseHandler->set_column_names("flex_box_3_style_pages");
+$databaseHandler->set_column_names("flex_box_4_style_pages");
+
+
+$databaseHandler->set_column_names("flex_box_5_style_pages");
+$databaseHandler->set_column_names("flex_box_6_style_pages");
+
+$databaseHandler->set_column_names("flex_box_7_style_pages");
+
+
 $databaseHandler->set_column_names("name_style_pages");
 $databaseHandler->set_column_names("header_style_pages");
 $databaseHandler->set_column_names("total_style_pages");
@@ -210,6 +223,21 @@ $databaseHandler->set_column_names("id_user_style_page");
 $databaseHandler->set_column_names("date_inscription_style_page");
 $databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+
+
+
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 
 $databaseHandler->set_column_types("LONGTEXT NOT NULL");
@@ -298,6 +326,68 @@ $databaseHandler->set_column_types("LONGTEXT NOT NULL");
 $databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
 $databaseHandler->add_table("option_projet");
 $mainTableName = "option_projet" ; 
+
+
+ 
+
+$databaseHandler = new DatabaseHandler($dbname,$username); 
+$databaseHandler->set_column_names("id_qr_scan");
+$databaseHandler->set_column_names("info_1_qr_scan");
+
+$databaseHandler->set_column_names("info_2_qr_scan");
+$databaseHandler->set_column_names("info_3_qr_scan");
+$databaseHandler->set_column_names("info_4_qr_scan");
+$databaseHandler->set_column_names("info_5_qr_scan");
+$databaseHandler->set_column_names("info_6_qr_scan");
+$databaseHandler->set_column_names("info_7_qr_scan");
+$databaseHandler->set_column_names("current_time_qr_scan");
+
+
+
+
+ 
+$databaseHandler->set_column_types("INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("LONGTEXT NOT NULL");
+$databaseHandler->set_column_types("TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+ 
+$databaseHandler->add_table("qr_scan");
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 $mainTableName2 = $mainTableName  ;
 //require 'auto_exe.php' ;
 $databaseHandler = new DatabaseHandler($dbname,$username); 

@@ -46,7 +46,11 @@ $change_meta_content_projet_dyn = $dynamicVariables['change_meta_content_projet'
 $id_sha1_parent_projet_dyn = $dynamicVariables['id_sha1_parent_projet'];
 $id_sha1_parent_projet2_dyn = $dynamicVariables['id_sha1_parent_projet2'];
 $cryptage_projet_dyn = $dynamicVariables['cryptage_projet'];
-$html_mode_projet_dyn = $dynamicVariables['html_mode_projet'];
+
+
+
+$html_mode_projet_1_dyn = $dynamicVariables['html_mode_projet_1'];
+$html_mode_projet_2_dyn = $dynamicVariables['html_mode_projet_2'];
 $style_pages_projet_dyn = $dynamicVariables['style_pages_projet'];
 $name_pages_projet_dyn = $dynamicVariables['name_pages_projet'];
 $input_cryptage_projet_dyn = $dynamicVariables['input_cryptage_projet'];
@@ -87,7 +91,8 @@ $liste_array_dyn = array(
     "id_sha1_parent_projet", 
     "id_sha1_parent_projet2", 
     "cryptage_projet", 
-    "html_mode_projet", 
+    "html_mode_projet_1",
+    "html_mode_projet_2", 
     "style_pages_projet", 
     "name_pages_projet", 
     "input_cryptage_projet", 
@@ -161,7 +166,8 @@ $change_meta_content_projet_dyn = $dynamicVariables['change_meta_content_projet'
 $id_sha1_parent_projet_dyn = $dynamicVariables['id_sha1_parent_projet'];
 $id_sha1_parent_projet2_dyn = $dynamicVariables['id_sha1_parent_projet2'];
 $cryptage_projet_dyn = $dynamicVariables['cryptage_projet'];
-$html_mode_projet_dyn = $dynamicVariables['html_mode_projet'];
+$html_mode_projet_1_dyn = $dynamicVariables['html_mode_projet_1'];
+$html_mode_projet_2_dyn = $dynamicVariables['html_mode_projet_2'];
 $style_pages_projet_dyn = $dynamicVariables['style_pages_projet'];
 $name_pages_projet_dyn = $dynamicVariables['name_pages_projet'];
 $input_cryptage_projet_dyn = $dynamicVariables['input_cryptage_projet'];
@@ -309,7 +315,8 @@ $change_meta_content_projet_dyn = $dynamicVariables['change_meta_content_projet'
 $id_sha1_parent_projet_dyn = $dynamicVariables['id_sha1_parent_projet'];
 $id_sha1_parent_projet2_dyn = $dynamicVariables['id_sha1_parent_projet2'];
 $cryptage_projet_dyn = $dynamicVariables['cryptage_projet'];
-$html_mode_projet_dyn = $dynamicVariables['html_mode_projet'];
+$html_mode_projet_1_dyn = $dynamicVariables['html_mode_projet_1'];
+$html_mode_projet_2_dyn = $dynamicVariables['html_mode_projet_2'];
 $style_pages_projet_dyn = $dynamicVariables['style_pages_projet'];
 $name_pages_projet_dyn = $dynamicVariables['name_pages_projet'];
 $input_cryptage_projet_dyn = $dynamicVariables['input_cryptage_projet'];
@@ -350,7 +357,11 @@ $liste_array_dyn = array(
     "id_sha1_parent_projet", 
     "id_sha1_parent_projet2", 
     "cryptage_projet", 
-    "html_mode_projet", 
+    "html_mode_projet_1", 
+    "html_mode_projet_2", 
+
+
+     
     "style_pages_projet", 
     "name_pages_projet", 
     "input_cryptage_projet", 
@@ -495,7 +506,8 @@ $change_meta_content_projet_dyn = $dynamicVariables['change_meta_content_projet'
 $id_sha1_parent_projet_dyn = $dynamicVariables['id_sha1_parent_projet'];
 $id_sha1_parent_projet2_dyn = $dynamicVariables['id_sha1_parent_projet2'];
 $cryptage_projet_dyn = $dynamicVariables['cryptage_projet'];
-$html_mode_projet_dyn = $dynamicVariables['html_mode_projet'];
+$html_mode_projet_1_dyn = $dynamicVariables['html_mode_projet_1'];
+$html_mode_projet_2_dyn = $dynamicVariables['html_mode_projet_2'];
 $style_pages_projet_dyn = $dynamicVariables['style_pages_projet'];
 $name_pages_projet_dyn = $dynamicVariables['name_pages_projet'];
 $input_cryptage_projet_dyn = $dynamicVariables['input_cryptage_projet'];
@@ -536,7 +548,9 @@ $liste_array_dyn = array(
     "id_sha1_parent_projet", 
     "id_sha1_parent_projet2", 
     "cryptage_projet", 
-    "html_mode_projet", 
+    "html_mode_projet_1",
+    "html_mode_projet_2", 
+
     "style_pages_projet", 
     "name_pages_projet", 
     "input_cryptage_projet", 
@@ -660,7 +674,14 @@ $change_meta_content_projet_dyn = $dynamicVariables['change_meta_content_projet'
 $id_sha1_parent_projet_dyn = $dynamicVariables['id_sha1_parent_projet'];
 $id_sha1_parent_projet2_dyn = $dynamicVariables['id_sha1_parent_projet2'];
 $cryptage_projet_dyn = $dynamicVariables['cryptage_projet'];
-$html_mode_projet_dyn = $dynamicVariables['html_mode_projet'];
+$html_mode_projet_1_dyn = $dynamicVariables['html_mode_projet_1'];
+$html_mode_projet_2_dyn = $dynamicVariables['html_mode_projet_2'];
+
+
+
+
+
+ 
 $style_pages_projet_dyn = $dynamicVariables['style_pages_projet'];
 $name_pages_projet_dyn = $dynamicVariables['name_pages_projet'];
 $input_cryptage_projet_dyn = $dynamicVariables['input_cryptage_projet'];
@@ -701,7 +722,8 @@ $liste_array_dyn = array(
     "id_sha1_parent_projet", 
     "id_sha1_parent_projet2", 
     "cryptage_projet", 
-    "html_mode_projet", 
+    "html_mode_projet_1",   
+    "html_mode_projet_2", 
     "style_pages_projet", 
     "name_pages_projet", 
     "input_cryptage_projet", 
