@@ -25,6 +25,8 @@ $url = new Give_url();
 $separation_url = '__';
 $url->split_basename($separation_url);
 $id_sha1_projet = $url->get_basename();
+
+$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
 $all_pages = "all_pages/" . $id_sha1_projet . ".php";
 require_once   $all_pages;
 
@@ -314,7 +316,10 @@ include_once "blog_css.php" ;
         ?>
       </article>
 
+      <?php 
 
+include_once "comment.php" ; 
+?>
       <?php
       if ($id_sha1_parent_projet != "") {
       ?>
@@ -334,6 +339,8 @@ include_once "blog_css.php" ;
 
 
       ?>
+
+
     </main>
 
 

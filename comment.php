@@ -1,147 +1,228 @@
-<?php 
-
-
-
-$req_sql = "SELECT * FROM `$dbname` WHERE 1 ";
-$databaseHandler_user = new DatabaseHandler($username, $dbname);
-// Récupération des informations des tables enfant liées
-$databaseHandler_user->getListOfTables_Child($dbname);
-// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
-
-// Récupération des données de la table via une méthode spécialisée
-$databaseHandler_user->getDataFromTable2X($req_sql);
-// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
-
-// Génération de variables dynamiques à partir des données récupérées
-$databaseHandler_user->get_dynamicVariables();
-// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
-
-// Exemple : affichage d'une variable dynamique spécifique
-
- 
-
-
- 
-
-
-$array_id_sha1_user =$dynamicVariables['id_sha1_user'] ;
-$array_title_user =$dynamicVariables['title_user'] ;
-$array_img_user =$dynamicVariables['img_user'] ;
-$array_nom_user =$dynamicVariables['nom_user'] ;
-$array_date_inscription_user =$dynamicVariables['date_inscription_user'] ;
-
-
-
-
+<?php
 
 
 /*
+ * Exemple d'utilisation des variables dynamiques
+ * Ce script montre comment utiliser la classe `DatabaseHandler` pour manipuler des données
+ * d'une table spécifique dans une base de données en générant des variables dynamiques.
+ */
 
 
 
 
+// Création d'une instance de la classe `DatabaseHandler`
+$databaseHandler = new DatabaseHandler($username, $dbname);
 
-
-
-
-$databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
-$nom_table ="comment_projet" ; 
-$id_sha1_comment_projet = $id_sha1_projet[$ii] ; 
-$req_sql = 'SELECT * FROM `comment_projet` WHERE `id_sha1_comment_projet`="'.$id_sha1_comment_projet.'" LIMIT 100';
+$req_sql = "SELECT * FROM `$username` WHERE 1";
+
 // Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child($nom_table);
+$databaseHandler->getListOfTables_Child($username);
 // La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
+
 // Récupération des données de la table via une méthode spécialisée
 $databaseHandler->getDataFromTable2X($req_sql);
 // La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
+
 // Génération de variables dynamiques à partir des données récupérées
 $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
-$comment_projet = [
-    "id_comment_projet" => $dynamicVariables['id_comment_projet']  ,
-    "id_general" =>   $dynamicVariables['id_general'],
-    "id_parent_general" =>   $dynamicVariables['id_parent_general'],
-    "id_sha1_comment_projet" =>   $dynamicVariables['id_sha1_comment_projet'],
-    "id_user_sha1_comment_projet" =>   $dynamicVariables['id_user_sha1_comment_projet'],
-    "start_comment_projet" =>   $dynamicVariables['start_comment_projet'],
-    "text_comment_projet" =>   $dynamicVariables['text_comment_projet'],
-    "name_comment_projet" =>   $dynamicVariables['name_comment_projet'],
-    "sha1_comment_projet" =>   $dynamicVariables['sha1_comment_projet'],
-    "ip1_comment_projet" =>   $dynamicVariables['ip1_comment_projet'],
-    "ip2_comment_projet" =>   $dynamicVariables['ip2_comment_projet'],
-    "ip3_comment_projet" =>   $dynamicVariables['ip3_comment_projet'],
-    "ip4_comment_projet" =>   $dynamicVariables['ip4_comment_projet'],
-    "ip5_comment_projet" =>   $dynamicVariables['ip5_comment_projet'],
-    "ip6_comment_projet" =>   $dynamicVariables['ip6_comment_projet'],
-    "ip7_comment_projet" =>   $dynamicVariables['ip7_comment_projet'],
-    "ip8_comment_projet" =>   $dynamicVariables['ip8_comment_projet'],
-    "ip9_comment_projet" =>   $dynamicVariables['ip9_comment_projet'],
-    "timestamp_comment_projet" =>   $dynamicVariables['timestamp_comment_projet']
-];
-
-
-
-
-    $div .='<div id="comment_'.$id_sha1_comment_projet.'">'  ; 
- 
-
- 
-
-
-for ($i = 0; $i < count( $dynamicVariables['id_comment_projet']); $i++) {
-
-
- 
-// Recherche de la position de '$id_sha1_comment_projet'
-$position = array_search($dynamicVariables['id_user_sha1_comment_projet'][$i], $array_id_sha1_user);
-
-
-
-
-
-
-
-
-
-
-
- 
-if ($position !== false) {
-
-
- 
-
-
-
-
-    $div .= "<div class='comment_class_1'>" . $array_title_user[$position] . "</div>";
-
-}  
-$div .= "<div class=''>" . $dynamicVariables['text_comment_projet'][$i]++ . "</div>";
-
-
-
-
-}
-
-
-$div .= "</div>";
-
-$style .= '
-<style>
-    .comment_class_1 {
-        background-color: var(--blue);
-        color: white;
-        padding: 15px;
-    }
-</style>';
-
-
+/*
+// Exemple : affichage d'une variable dynamique spécifique
+var_dump($dynamicVariables['id_sha1_user']);
+var_dump($dynamicVariables['title_user']);
+var_dump($dynamicVariables['description_user']);
 */
+
+
+
+
+
+// `id_sha1_projet` est une clé générée dynamiquement qui correspond à une colonne ou une donnée récupérée dans la table.
+
+/*
+ * Remarque :
+ * - Les variables dynamiques sont utiles pour générer du contenu ou manipuler des données
+ *   sans connaître à l'avance les noms des colonnes ou des champs.
+ * - Assurez-vous que les noms de colonnes dans `$dynamicVariables` existent dans la table cible.
+ * - Cette approche peut être utilisée pour des tâches nécessitant une flexibilité dans le traitement des données.
+ */
 ?>
 
- 
 
 
- 
+
+
+<style>
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea {
+        width: 100%;
+        height: 80px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .message {
+        background: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .author {
+        font-weight: bold;
+    }
+</style>
+
+
+
+
+<?php
+
+
+
+
+
+
+if (isset($_SESSION["index"])) {
+?>
+
+    <div id="demo" title="<?= $id_sha1_projet  ?>" onclick="voir(this)">
+
+        <div class="demo">
+            Voir cconversation
+        </div>
+
+    </div>
+
+
+    <h2>Poster votre message</h2>
+    <textarea id="messageInput" placeholder="Écrivez votre message..."></textarea>
+    <button onclick="addComment(this)" title="<?= $id_sha1_projet  ?>">Envoyer</button>
+<?php
+}
+?>
+
+
+
+<script>
+    function addComment(_this) {
+
+
+
+
+
+        messageInput = document.getElementById("messageInput").value;
+
+
+
+
+
+
+        var ok = new Information("../config/addComment_.php"); // création de la classe 
+        ok.add("id_sha1_comment_projet", _this.title); // ajout de l'information pour lenvoi 
+        ok.add("text_comment_projet", messageInput); // ajout d'une deuxieme information denvoi  
+        console.log(ok.info()); // demande l'information dans le tableau
+        ok.push(); // envoie l'information au code pkp 
+
+
+
+        _this.style.display = "none";
+
+
+
+
+        const myTimeout = setTimeout(demo, 1500);
+
+        function demo() {
+
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+            xhttp.open("GET", "../comment_data.php");
+            xhttp.send();
+
+
+
+            const myTimeout2 = setTimeout(demo2, 1000);
+
+        }
+
+
+        function demo2() {
+            _this.style.display = "block";
+        }
+
+
+
+    }
+
+    function voir(_this) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("demo").innerHTML =
+                this.responseText;
+        }
+        xhttp.open("GET", "../comment_data.php");
+        xhttp.send();
+    }
+</script>
+
+
+
+<script>
+    class Information {
+        constructor(link) {
+            this.link = link;
+            this.identite = new FormData();
+            this.req = new XMLHttpRequest();
+            this.identite_tab = [];
+        }
+        info() {
+            return this.identite_tab;
+        }
+        add(info, text) {
+            this.identite_tab.push([info, text]);
+        }
+        push() {
+            for (var i = 0; i < this.identite_tab.length; i++) {
+                console.log(this.identite_tab[i][1]);
+                this.identite.append(this.identite_tab[i][0], this.identite_tab[i][1]);
+            }
+            this.req.open("POST", this.link);
+            this.req.send(this.identite);
+            console.log(this.req);
+        }
+    }
+</script>
+<style>
+    .demo {
+        padding: 15px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+</html>

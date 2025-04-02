@@ -1,5 +1,8 @@
 <?php 
 require_once "require_once.php" ;
+
+
+echo "OK" ; 
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $time = time().'_'.rand(10,99);
 $id_general = $time  ; 
