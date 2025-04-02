@@ -45,10 +45,11 @@ $total = $total.$test[$i] ;
 $total = strrev($total) ; 
 
 
-
-
-
-
+/*
+ if($total==".webp"){
+    $total = ".png";
+ }
+*/
 
 $img = $_SESSION["img"] ; 
 

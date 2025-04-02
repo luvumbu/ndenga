@@ -68,15 +68,15 @@ if ($_SESSION["home"] == "profil") {
 }
 
  
- /*
+ 
 try {
-    redimensionnerImageLargeurMax($img_projet_src1, $img_projet_src1, 230);
+    redimensionnerImageLargeurMax($img_projet_src1, $img_projet_src1, 200);
     echo "L'image a été redimensionnée avec succès !";
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
 }
 
-*/
+ 
 require_once '../config/all_pages_script.php' ; 
 
 
@@ -87,7 +87,7 @@ require_once '../config/all_pages_script.php' ;
 
 
 
-<meta http-equiv="refresh" content="0; URL=../index.php" />
+<meta http-equiv="refresh" content="0; URL=../redimensionnerImageLargeurMax.php" />
 
 <style>
     body{

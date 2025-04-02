@@ -8,6 +8,9 @@ require_once "Class/extraireAlphabetique.php";
 require_once "Class/nettoyerTexteHtml.php";
 require_once "Class/Get_anne_2.php";
 require_once "Class/Div_page.php";
+ 
+ 
+
 
 
 
