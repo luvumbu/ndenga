@@ -125,12 +125,25 @@ $total_style_parent_pages__x = $dynamicVariables['total_style_parent_pages'][$i]
 
 
 
+
+
+
+    <?php
+
+    if ($dbname == $_SESSION["index"][0]) {
+          ?>
     <div class="<?php echo  $index_insert ?>" onclick="function_global(this)"><?= $header_text_1 ?></div>
     <div class="<?php echo  $index_all ?>" onclick="a(this)"><?= $header_text_2 ?></div>
-    <div class="<?php echo  $index_profil ?>" onclick="a(this)"><?= $header_text_3 ?></div>
     <div class="<?php echo  $index_style ?>" onclick="a(this)"><?= $header_text_4 ?></div>
 
 
+    <?php   
+    }  
+
+    
+
+    ?>
+    <div class="<?php echo  $index_profil ?>" onclick="a(this)"><?= $header_text_3 ?></div>
 
 
     <a href="Class/Log_off.php" class="deconexion">
@@ -308,7 +321,7 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
         var element = afficherValeursFormattees2(_this.className, __);
         var ok = new Information("config/function_global.php"); // création de la classe 
 
-        
+
 
 
         ok.add("id_sha1_user_projet", element[0]); // ajout de l'information pour lenvoi 
@@ -319,14 +332,13 @@ var_dump($dynamicVariables['date_inscription_projet']) ;
         const myTimeout = setTimeout(xt, 300);
 
         function xt() {
-           
+
 
 
             if (element[1] == "insert") {
                 window.location.href = "qr_code_1/index.php";
-            }
-            else {
-                 location.reload();
+            } else {
+                location.reload();
             }
         }
     }

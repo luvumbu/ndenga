@@ -103,8 +103,16 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
         // Chargement de la page d'accueil ou du blog selon l'URL
         if ($url->get_elements()[0] == "index.php") {
 
-          // Ensemble de donne lors que l'utilisateur est en ligne 
+          // Ensemble de donne lors que l'utilisateur est en ligne
+          
+          
+         
+
+
+
           require_once 'view/home.php';
+          require_once 'view/all_element.php';
+
           // Ensemble de donne lors que l'utilisateur est en ligne 
         } else {
           // require_once 'blog0.php';
