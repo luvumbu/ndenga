@@ -1,55 +1,4 @@
-<?php
-
-
-/*
- * Exemple d'utilisation des variables dynamiques
- * Ce script montre comment utiliser la classe `DatabaseHandler` pour manipuler des données
- * d'une table spécifique dans une base de données en générant des variables dynamiques.
- */
-
-
-
-
-// Création d'une instance de la classe `DatabaseHandler`
-$databaseHandler = new DatabaseHandler($username, $dbname);
-
-// Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `$username` WHERE 1";
-
-// Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child($username);
-// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
-
-// Récupération des données de la table via une méthode spécialisée
-$databaseHandler->getDataFromTable2X($req_sql);
-// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
-
-// Génération de variables dynamiques à partir des données récupérées
-$databaseHandler->get_dynamicVariables();
-// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
-/*
-// Exemple : affichage d'une variable dynamique spécifique
-var_dump($dynamicVariables['id_sha1_user']);
-var_dump($dynamicVariables['title_user']);
-var_dump($dynamicVariables['description_user']);
-*/
-
-
-
-
-
-// `id_sha1_projet` est une clé générée dynamiquement qui correspond à une colonne ou une donnée récupérée dans la table.
-
-/*
- * Remarque :
- * - Les variables dynamiques sont utiles pour générer du contenu ou manipuler des données
- *   sans connaître à l'avance les noms des colonnes ou des champs.
- * - Assurez-vous que les noms de colonnes dans `$dynamicVariables` existent dans la table cible.
- * - Cette approche peut être utilisée pour des tâches nécessitant une flexibilité dans le traitement des données.
- */
-?>
-
-
+ 
 
 
 
@@ -99,24 +48,68 @@ var_dump($dynamicVariables['description_user']);
 
 
 
+$filename  = 'all_coms/'.$id_sha1_projet.".php";
 
 
 
-if (isset($_SESSION["index"])) {
-?>
+if (file_exists($filename)) {
+    include_once  $filename  ; 
 
-    <div id="demo" title="<?= $id_sha1_projet  ?>" onclick="voir(this)">
+ 
 
-        <div class="demo">
-            Voir cconversation
+for ($y=0; $y < count($row_comment_projet ) ; $y++) { 
+
+
+  $text_comment_projet_  =  $row_comment_projet[$y]["text_comment_projet"] ; 
+
+  $id_comment_projet_ =  $row_comment_projet[$y]["id_comment_projet"] ; 
+
+  /*
+  $id_user_sha1_comment_projet_  =  $row_comment_projet[$y] ; 
+
+  $key = array_search( $id_user_sha1_comment_projet_, $id_sha1_user); // $key = 2;
+*/
+
+ 
+ ?>
+
+<div class="container">
+    <div id="messages">
+       
+        <div class="message">
+        <p class="author"><?= $id_comment_projet_ ?></p> 
+            <p><?= 
+            
+            
+            AsciiConverter::asciiToString($text_comment_projet_ );
+            
+            ?></p>
         </div>
 
     </div>
+ 
+</div>
+<?php 
+}
+ 
+} else {
+    echo "Le fichier $filename n'existe pas.";
+}
 
 
-    <h2>Poster votre message</h2>
+?>
+
+
+<?php 
+if (isset($_SESSION["index"])) {
+?>
+
+ 
+
+
+    <h2 style="margin-top: 150px;">Poster votre message</h2>
     <textarea id="messageInput" placeholder="Écrivez votre message..."></textarea>
-    <button onclick="addComment(this)" title="<?= $id_sha1_projet  ?>">Envoyer</button>
+    <button onclick="addComment(this)" title="<?= $id_sha1_projet  ?>" style="margin-bottom: 75px;">Envoyer</button>
 <?php
 }
 ?>
@@ -152,41 +145,15 @@ if (isset($_SESSION["index"])) {
 
         const myTimeout = setTimeout(demo, 1500);
 
-        function demo() {
-
-
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function() {
-                document.getElementById("demo").innerHTML =
-                    this.responseText;
-            }
-            xhttp.open("GET", "../comment_data.php");
-            xhttp.send();
-
-
-
-            const myTimeout2 = setTimeout(demo2, 1000);
-
-        }
-
-
-        function demo2() {
-            _this.style.display = "block";
-        }
+      function demo(){
+        location.reload() ; 
+      }
 
 
 
     }
 
-    function voir(_this) {
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-            document.getElementById("demo").innerHTML =
-                this.responseText;
-        }
-        xhttp.open("GET", "../comment_data.php");
-        xhttp.send();
-    }
+    
 </script>
 
 

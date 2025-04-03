@@ -19,7 +19,7 @@ session_start();
 
 
 
-var_dump($_SESSION["index"]) ; 
+ 
 require_once '../Class/DatabaseHandler.php';
 require_once '../Class/dbCheck.php';
 require_once '../Class/redimensionnerImageLargeurMax.php';
@@ -57,14 +57,7 @@ if (isset($_SESSION["img_2"])) {
 
 
 if ($_SESSION["home"] == "profil") {
-
- 
-   
- 
- 
     $databaseHandler->action_sql('UPDATE  `' . $dbname . '` SET   `img_user`="' . $img_projet_src1 . '" WHERE `id_sha1_user` = "' . $id_sha1_projet . '"');
-
-   
 }
 
  
@@ -87,7 +80,7 @@ require_once '../config/all_pages_script.php' ;
 
 
 
-<meta http-equiv="refresh" content="0; URL=../redimensionnerImageLargeurMax.php" />
+<meta http-equiv="refresh" content="0; URL=../index.php" />
 
 <style>
     body{

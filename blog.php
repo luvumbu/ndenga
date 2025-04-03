@@ -11,7 +11,6 @@ function renderMathML($mathml)
   // Créer un string contenant le MathML
   return $doc->saveXML($doc->documentElement);
 }
-
 function removeHtmlTags($input)
 {
   return strip_tags($input);

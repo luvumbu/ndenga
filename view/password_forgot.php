@@ -1,137 +1,81 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password forgot</title>
-  <?php 
-require_once  '../Class/js.php' ; 
-
-?>
-
+    <title>Mot de Passe Oublié</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #2c3e50;
-            /* Fond sombre */
-            color: #ecf0f1;
-            /* Texte clair */
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 20px;
         }
-
-        .form-container {
-            background-color: #34495e;
-            /* Fond de formulaire sombre */
-            padding: 30px;
+        .container {
+            background: #fff;
+            padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 300px;
-            margin: 0 auto;
-        }
-
-        .form-container h2 {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
             text-align: center;
-            color: #ecf0f1;
-            /* Couleur du texte du titre */
         }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 8px;
-            color: #bdc3c7;
-            /* Texte des labels plus clair */
-        }
-
-        .form-container input {
-            width: 100%;
-            padding: 10px;
+        h2 {
             margin-bottom: 20px;
-            border: 1px solid #7f8c8d;
-            border-radius: 4px;
-            box-sizing: border-box;
-            background-color: #2c3e50;
-            color: #ecf0f1;
         }
-
-        .form-container input:focus {
-            border-color: #3498db;
-            /* Couleur de bordure au focus */
-            outline: none;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .submit-btn {
-            display: inline-block;
-            width: 100%;
-            padding: 10px;
-            background-color: #2980b9;
-            /* Bleu foncé */
-            color: white;
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
             text-align: center;
-            border-radius: 4px;
+        }
+        button {
+            width: 90%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
+            transition: 0.3s;
         }
-
-        .submit-btn:hover {
-            background-color: #1f618d;
-            /* Bleu plus foncé au survol */
+        button:hover {
+            background-color: #0056b3;
         }
-
-        .submit-btn:active {
-            background-color: #1a5276;
-            /* Plus foncé au clic */
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
         }
-
-        .submit-btn:focus {
-            outline: none;
+        .back-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="form-container">
-        <h2>Vérification de Connexion</h2>
-        <form action="your_php_file.php" method="POST">
+<div class="container">
+    <h2>Mot de Passe Oublié</h2>
+    <p>Entrez votre e-mail pour recevoir un lien de réinitialisation.</p>
+    <form action="reinitialisation.php" method="POST">
+        <input type="email" name="email" placeholder="Votre adresse e-mail" required>
+        <button type="submit">Envoyer</button>
+    </form>
+    <a href="login.html" class="back-link">Retour à la connexion</a>
+</div>
 
-
-            <label for="username">Adresse mail</label>
-            <input type="text" id="username" name="username" required>
-
-            <!-- Div acting as a button -->
-            <div class="submit-btn" onclick="password_forgot(this)">Vérifier la Connexion</div>
-        </form>
-    </div>
-
-
-    <script>
-        function password_forgot() {
-         
-            const username = document.getElementById("username").value;
-
-
-            var ok = new Information("../req/password_forgot_mail.php"); // création de la classe 
-            ok.add("username", username); // ajout de l'information pour lenvoi 
-            console.log(ok.info()); // demande l'information dans le tableau
-            ok.push(); // envoie l'information au code pkp 
-
-
-
-
-            /*
-
-                        const myTimeout = setTimeout(login_bdd_, 250);
-
-                        function login_bdd_() {
-                         location.reload() ;
-                        }
-
-                        */
-        }
-    </script>
 </body>
-
 </html>

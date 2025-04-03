@@ -14,6 +14,10 @@ $username_ =$_POST["username"] ;
 // Create connection
  
 
+if($dbname_!=$dbname){
+    $username_ = sha1($_POST["username"] ) ; 
+}
+ 
 
  
 

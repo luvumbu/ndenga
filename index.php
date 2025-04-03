@@ -1,7 +1,6 @@
 <?php
 // Démarrage de la session pour stocker et manipuler les données utilisateur
 session_start();
-
  
 ?>
 <!DOCTYPE html>
@@ -39,7 +38,6 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
   <?php
   // Récupération de l'URL de la requête
   $requestUri = $_SERVER['REQUEST_URI'];
-
   // Extraction de la partie de l'URL après "index.php/"
   $urlPath = parse_url($requestUri, PHP_URL_PATH);
   $urlParams = str_replace('index.php/', '', $urlPath);
@@ -93,6 +91,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
         <meta http-equiv="refresh" content="0"> <!-- Rafraîchissement immédiat de la page -->
         <?php
       }
+ 
 
       // Vérification de l'existence de la session
       if (isset($_SESSION["index"])) {
@@ -141,6 +140,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
   // Génération de variables dynamiques à partir des données récupérées
   $databaseHandler->get_dynamicVariables();
   // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
+  
   ?>
   <br />
   <br />
