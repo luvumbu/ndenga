@@ -9,7 +9,7 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `$nom_table` WHERE `visibility_1_projet` ='1'  AND `id_sha1_parent_projet` ='' ";
-$req_sql = "SELECT * FROM `$nom_table` WHERE 1 ";
+
 
 
 // Récupération des informations des tables enfant liées
@@ -52,10 +52,6 @@ $img_projet_src1 = $dynamicVariables['img_projet_src1'];
         $title_projet_ =  AsciiConverter::asciiToString($dynamicVariables['title_projet'][$izz]); // Affiche "Hello"
         $img_projet_src1_ =  $dynamicVariables['img_projet_src1'][$izz]; // Affiche "Hello"
         $id_sha1_projet_ =  $dynamicVariables['id_sha1_projet'][$izz]; // Affiche "Hello"
-
-
- 
-
         $img_projet_src1_ = str_replace("../", "", $img_projet_src1_);
     ?>
         <a href="<?= 'blog.php/'.$id_sha1_projet_?>">

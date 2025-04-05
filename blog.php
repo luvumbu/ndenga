@@ -3,6 +3,21 @@ session_start();
 header("Access-Control-Allow-Origin: *");
 require_once "require_once_all_web.php";
 
+
+
+if (!isset($_SESSION["index"])) {
+
+
+  /* This will give an error. Note the output
+ * above, which is before the header() call */
+  header('Location: ../index.php');
+  exit;
+}
+
+
+
+
+
 function renderMathML($mathml)
 {
   // Utiliser DOMDocument pour parser le contenu et le convertir
@@ -25,7 +40,7 @@ $separation_url = '__';
 $url->split_basename($separation_url);
 $id_sha1_projet = $url->get_basename();
 
-$_SESSION["id_sha1_projet"] = $id_sha1_projet ;
+$_SESSION["id_sha1_projet"] = $id_sha1_projet;
 $all_pages = "all_pages/" . $id_sha1_projet . ".php";
 require_once   $all_pages;
 
@@ -41,6 +56,8 @@ for ($i = 0; $i < count($row_projet); $i++) {
   $div_page_child_1_value[$i] = $row_projet[$i];
   $div_page_child_1_name[$i] = $row_projet[$i]["id_sha1_projet"];
 }
+
+ 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -55,12 +72,19 @@ for ($i = 0; $i < count($row_projet); $i++) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <?php
-include_once "blog_css.php" ; 
+  include_once "blog_css.php";
+
+
+
+
 
   ?>
   <title><?= $google_title_projet ?></title>
   <?php
   $img_projet_src1 =  $row_projet[0]["img_projet_src1"];
+
+
+ 
   ?>
   <link rel="icon" type="image/x-icon" href="<?= $img_projet_src1 ?>">
 </head>
@@ -98,42 +122,60 @@ include_once "blog_css.php" ;
 
   <body>
     <header>
-      <h1 class="title_projet"><?= $title_projet ?></h1>
+
 
 
 
       <div class="display_flex elements">
         <?php
 
-        for ($i = 1; $i < count($row_projet_0); $i++) {
+        if (count($row_projet_0) > 4) {
+          $i_ = 1;
+        } else {
+          $i_ = 0;
+        }
+
+
+        for ($i = $i_; $i < count($row_projet_0); $i++) {
+
+
+
+          if($i==8){
+            break ;
+          }
+
+          if ($row_projet_0[$i]["activation_projet"] == "") {
 
 
 
 
-          $title_projet = AsciiConverter::asciiToString($row_projet_0[$i]["title_projet"]);
-          $title_projet = str_replace("&lt;", "<", removeHtmlTags(AsciiConverter::asciiToString($row_projet_0[$i]["title_projet"])));
-          $title_projet = str_replace("&gt;", ">",  $title_projet);
-          $title_projet = str_replace("&nbsp;", "",  $title_projet);
-          $description_projet = str_replace("&lt;", "<", removeHtmlTags(AsciiConverter::asciiToString($row_projet_0[$i]["description_projet"])));
-          $description_projet = str_replace("&gt;", ">",  $description_projet);
-          $description_projet = str_replace("&nbsp;", "",  $description_projet);
+
+            $title_projet = AsciiConverter::asciiToString($row_projet_0[$i]["title_projet"]);
+            $title_projet = str_replace("&lt;", "<", removeHtmlTags(AsciiConverter::asciiToString($row_projet_0[$i]["title_projet"])));
+            $title_projet = str_replace("&gt;", ">",  $title_projet);
+            $title_projet = str_replace("&nbsp;", "",  $title_projet);
+            $description_projet = str_replace("&lt;", "<", removeHtmlTags(AsciiConverter::asciiToString($row_projet_0[$i]["description_projet"])));
+            $description_projet = str_replace("&gt;", ">",  $description_projet);
+            $description_projet = str_replace("&nbsp;", "",  $description_projet);
 
 
 
-          $id_projet = $row_projet_0[$i]["id_projet"];
+            $id_projet = $row_projet_0[$i]["id_projet"];
 
         ?>
 
-          <a href="<?= '#' . $id_projet ?>"><?= $title_projet  ?></a>
+            <a href="<?= '#' . $id_projet ?>"><?= $title_projet  ?></a>
 
 
-          <div>
+            <div>
 
-          </div>
+            </div>
 
 
         <?php
+          }
         }
+
         ?>
 
       </div>
@@ -169,20 +211,7 @@ include_once "blog_css.php" ;
 
         }
       </style>
-      <div class="title_projet_1">
-        <?= $title_projet ?>
-      </div>
 
-
-      <a href="<?= $img_projet_src1 ?>">
-        <div class="class_img">
-          <img src="<?= $img_projet_src1 ?>" alt="" srcset="">
-
-        </div>
-      </a>
-      <div class="description_projet_1">
-        <?= $description_projet ?>
-      </div>
 
 
 
@@ -193,7 +222,7 @@ include_once "blog_css.php" ;
 
         <?php
 
-        for ($i = 1; $i < count($row_projet_0); $i++) {
+        for ($i = 0; $i < count($row_projet_0); $i++) {
 
 
 
@@ -221,21 +250,30 @@ include_once "blog_css.php" ;
         ?>
 
 
+
+
+          <?php 
+
+          if($img_projet_src1 !=""){
+?>
           <a href="<?= $img_projet_src1 ?>">
             <div class="class_img">
               <img src="<?= $img_projet_src1 ?>" alt="" srcset="">
 
             </div>
           </a>
+<?php 
+          }
 
 
-          <?php
+     
 
           echo "<div class='description_projet_' id='" . $id_projet . "' >";
           echo $description_projet;
           echo "</div>";
 
 
+     
 
 
 
@@ -254,7 +292,7 @@ include_once "blog_css.php" ;
 
 
             echo "<div class='parent_card_img'>";
-            for ($ii = 0; $ii < count($row_projet); $ii++) {
+            for ($ii = 1; $ii < count($row_projet); $ii++) {
 
 
 
@@ -273,6 +311,9 @@ include_once "blog_css.php" ;
               $description_projet = str_replace("&gt;", ">",  $description_projet);
               $description_projet = str_replace("&nbsp;", "",  $description_projet);
 
+              $date_debut_projet =  $row_projet[$ii]["date_debut_projet"];
+
+
 
 
 
@@ -282,9 +323,21 @@ include_once "blog_css.php" ;
               <div class="card_img">
 
 
-                <div>
-                  <img src="<?= $row_projet[$ii]["img_projet_src1"] ?>" alt="" srcset="">
-                </div>
+
+
+                <?php
+
+                if ($row_projet[$ii]["img_projet_src1"] != "") {
+                ?>
+
+                  <div>
+                    <img src="<?= $row_projet[$ii]["img_projet_src1"] ?>" alt="" srcset="">
+                  </div>
+                <?php
+                }
+
+
+                ?>
                 <div>
                   <h1><?= $title_projet  ?></h1>
                 </div>
@@ -292,10 +345,11 @@ include_once "blog_css.php" ;
                   <div class="voir_projet">Voir projet</div>
                 </a>
 
+
                 <div>
-                  <p>
-                    <?= $description_projet ?>
-                  </p>
+
+                  <?= $description_projet ?>
+
                 </div>
               </div>
 
@@ -313,12 +367,35 @@ include_once "blog_css.php" ;
           }
         }
         ?>
+
+
+
+        <?php
+
+
+
+
+        $id_sha1_user_projet =   $row_projet_0[0]["id_sha1_user_projet"];
+        $id_sha1_projet =        $row_projet_0[0]["id_sha1_projet"];
+        $id_sha1_parent_projet = $row_projet_0[0]["id_sha1_parent_projet"];
+
+
+
+        $row_projet_class = $id_sha1_projet . "__" . $id_sha1_parent_projet . "__ element_add";
+
+
+   
+        ?>
+
+
       </article>
 
-      <?php 
+      <?php
+      include_once "add_element_al_user.php";
+      include_once "calendrier.php";
+      include_once "comment.php";
 
-include_once "comment.php" ; 
-?>
+      ?>
       <?php
       if ($id_sha1_parent_projet != "") {
       ?>
@@ -343,7 +420,23 @@ include_once "comment.php" ;
     </main>
 
 
+    <style>
+      .element_add {
+        width: 300px;
+        padding: 50px;
+        margin: auto;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        text-align: center;
+        margin-bottom: 75px;
+      }
+    </style>
 
+    <script>
+      function row_projet_class(_this) {
+        var element = afficherValeursFormattees2(_this.className, "__");
+        alert(element[0]);
+      }
+    </script>
 
   </body>
 
