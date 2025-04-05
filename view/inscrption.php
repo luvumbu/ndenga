@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-<?php 
+    <?php
 
-include_once "../Class/Js.php" ; 
+    include_once "../Class/Js.php";
 
-?>
+    ?>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,11 +93,12 @@ include_once "../Class/Js.php" ;
             <input type="email" id="nom_user" name="email" placeholder="Votre adresse e-mail" required>
             <input type="password" id="password" name="password" placeholder="Mot de passe" required>
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
-            <div class="inscription" onclick="inscription()">S'inscrire</div>
+            <div class="inscription" onclick="inscription(this)">S'inscrire</div>
         </form>
         <a href="login.html" class="back-link">Déjà un compte ? Connectez-vous</a>
 
         <div id="info"></div>
+        <div id="infoconnetion" class="display_none">Vous allez récevoir un mail de validation</div>
 
     </div>
 
@@ -105,8 +106,10 @@ include_once "../Class/Js.php" ;
 
 
     <script>
-        function inscription() {
+        function inscription(_this) {
 
+
+            _this.style.display= "none" ; 
 
             title_user = document.getElementById("title_user").value;
             description_user = document.getElementById("description_user").value;
@@ -175,11 +178,18 @@ include_once "../Class/Js.php" ;
                 ok.add("nom_user", nom_user); // ajout de l'information pour lenvoi 
                 ok.add("password", password); // ajout de l'information pour lenvoi 
                 ok.add("confirm_password", confirm_password); // ajout de l'information pour lenvoi 
+document.getElementById("infoconnetion").className ="infoconnetion";
 
 
- 
                 console.log(ok.info()); // demande l'information dans le tableau
                 ok.push(); // envoie l'information au code pkp 
+
+
+                const myTimeout = setTimeout(myGreeting, 1000);
+
+                function myGreeting() {
+                    window.location.href = "../index.php";
+                }
 
 
             } else {
@@ -197,6 +207,17 @@ include_once "../Class/Js.php" ;
             color: #991c24;
             margin: 20px;
             padding: 15px;
+        }
+        .display_none{
+            display: none;
+        }
+        .infoconnetion{
+            background-color: #218838;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
         }
     </style>
 </body>
