@@ -57,7 +57,7 @@ for ($i = 0; $i < count($row_projet); $i++) {
   $div_page_child_1_name[$i] = $row_projet[$i]["id_sha1_projet"];
 }
 
- 
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -84,7 +84,7 @@ for ($i = 0; $i < count($row_projet); $i++) {
   $img_projet_src1 =  $row_projet[0]["img_projet_src1"];
 
 
- 
+
   ?>
   <link rel="icon" type="image/x-icon" href="<?= $img_projet_src1 ?>">
 </head>
@@ -140,8 +140,8 @@ for ($i = 0; $i < count($row_projet); $i++) {
 
 
 
-          if($i==8){
-            break ;
+          if ($i == 8) {
+            break;
           }
 
           if ($row_projet_0[$i]["activation_projet"] == "") {
@@ -252,28 +252,28 @@ for ($i = 0; $i < count($row_projet); $i++) {
 
 
 
-          <?php 
+          <?php
 
-          if($img_projet_src1 !=""){
-?>
-          <a href="<?= $img_projet_src1 ?>">
-            <div class="class_img">
-              <img src="<?= $img_projet_src1 ?>" alt="" srcset="">
+          if ($img_projet_src1 != "") {
+          ?>
+            <a href="<?= $img_projet_src1 ?>">
+              <div class="class_img">
+                <img src="<?= $img_projet_src1 ?>" alt="" srcset="">
 
-            </div>
-          </a>
-<?php 
+              </div>
+            </a>
+            <?php
           }
 
 
-     
+
 
           echo "<div class='description_projet_' id='" . $id_projet . "' >";
           echo $description_projet;
           echo "</div>";
 
 
-     
+
 
 
 
@@ -318,7 +318,7 @@ for ($i = 0; $i < count($row_projet); $i++) {
 
 
 
-          ?>
+            ?>
 
               <div class="card_img">
 
@@ -384,7 +384,7 @@ for ($i = 0; $i < count($row_projet); $i++) {
         $row_projet_class = $id_sha1_projet . "__" . $id_sha1_parent_projet . "__ element_add";
 
 
-   
+
         ?>
 
 
@@ -393,6 +393,15 @@ for ($i = 0; $i < count($row_projet); $i++) {
       <?php
       include_once "add_element_al_user.php";
       include_once "calendrier.php";
+
+      $src = "../qr_code_1/temp/" . $id_sha1_projet . ".png";
+      ?>
+
+
+      <div class="qr_code_1">
+        <img src="<?= $src ?>" alt="" srcset="">
+      </div>
+      <?php
       include_once "comment.php";
 
       ?>
@@ -428,6 +437,12 @@ for ($i = 0; $i < count($row_projet); $i++) {
         border: 1px solid rgba(0, 0, 0, 0.3);
         text-align: center;
         margin-bottom: 75px;
+      }
+      .qr_code_1{
+        width: 300px;
+        margin: auto;
+    
+        text-align: center;
       }
     </style>
 

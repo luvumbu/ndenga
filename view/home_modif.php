@@ -457,7 +457,11 @@ $date_inscription_style_page__ = $dynamicVariables['date_inscription_style_page'
       const myTimeout = setTimeout(xxx, 250);
 
       function xxx() {
-        location.reload();
+        window.location.href = "qr_code_1/index2.php";
+
+
+
+ 
 
       }
     }
