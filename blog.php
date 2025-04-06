@@ -9,9 +9,9 @@ if (!isset($_SESSION["index"])) {
 
 
   /* This will give an error. Note the output
- * above, which is before the header() call */
+ * above, which is before the header() call 
   header('Location: ../index.php');
-  exit;
+  exit;*/
 }
 
 

@@ -28,6 +28,8 @@ session_start();
 </script>
 
 <?php
+
+
 // Définition des URLs d'icônes côté serveur
 $visible_1 = "https://img.icons8.com/ios/100/hide.png";
 $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
@@ -107,9 +109,7 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
 
           // Ensemble de donne lors que l'utilisateur est en ligne
           
-          
-         
-
+ 
 
 
           require_once 'view/home.php';
@@ -129,13 +129,19 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
         } else {
         }
       } else {
+ 
         require_once 'forms/verifyConnection.php'; 
+
+
         // Vérification de la connexion si pas de session
       }
     }
   } else {
     require_once 'view/login_bdd.php'; // Redirection vers la page de connexion si le fichier n'existe pas
   }
+
+
+
   $nom_table = "projet"; // Nom de la table cible
   // Création d'une instance de la classe `DatabaseHandler`
   $databaseHandler = new DatabaseHandler($username, $dbname);
@@ -152,6 +158,8 @@ $visible_2 = "https://img.icons8.com/ios/50/visible--v1.png";
   // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
   
   ?>
+
+ 
   <br />
   <br />
   <br />

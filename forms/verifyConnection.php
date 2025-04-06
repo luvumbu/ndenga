@@ -53,7 +53,7 @@ include_once "verifyConnection_js.php" ;
 
 
 <?php 
- 
+  
  
 // Création d'une instance de la classe `DatabaseHandler`
 $databaseHandler = new DatabaseHandler($username, $dbname);
@@ -86,6 +86,53 @@ $databaseHandler->get_dynamicVariables();
  */
 
 
+
+ // Requête SQL pour sélectionner toutes les lignes de la table `projet`
+$req_sql = "SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ='' AND visibility_1_projet!='' ";
+
+// Création d'une instance de la classe `DatabaseHandler`
+// Cette classe gère la connexion et l'exécution des requêtes SQL
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Exécution de la méthode pour obtenir les données d'une table
+// Le deuxième paramètre ("id_projet") est utilisé pour spécifier la colonne à extraire
+$databaseHandler->getDataFromTable($req_sql, "title_projet");
+
+// Récupération des résultats dans une propriété de la classe
+$title_projet = $databaseHandler->tableList_info;
+
+ 
+
+ 
+
+
+// Le deuxième paramètre ("id_projet") est utilisé pour spécifier la colonne à extraire
+$databaseHandler->getDataFromTable($req_sql, "id_sha1_projet");
+
+// Récupération des résultats dans une propriété de la classe
+$id_sha1_projet = $databaseHandler->tableList_info;
+
+
+
+
+ 
+
+
+
+// Le deuxième paramètre ("id_projet") est utilisé pour spécifier la colonne à extraire
+$databaseHandler->getDataFromTable($req_sql, "img_projet_src1");
+
+// Récupération des résultats dans une propriété de la classe
+$img_projet_src1 = $databaseHandler->tableList_info;
+
+
+
+
+ 
+
+
+
+
 ?>
 
  
@@ -97,15 +144,15 @@ $databaseHandler->get_dynamicVariables();
 
 <?php
 
-for ($i=0; $i <count($dynamicVariables['description_projet']) ; $i++) { 
+for ($i=0; $i <count($id_sha1_projet ) ; $i++) { 
   
 
- echo "<a href='blog.php/".$dynamicVariables['id_sha1_projet'][$i]."'>" ;   
+ echo "<a href='blog.php/".$id_sha1_projet [$i]."'>" ;   
  echo "<div class='general_div'>" ; 
  
- $img_projet_src1 =   str_replace( "../","",$dynamicVariables['img_projet_src1'][$i] ) ;
+ $img_projet_src1 =   str_replace( "../","",$img_projet_src1[$i] ) ;
  
-$title_projet_ = AsciiConverter::asciiToString($dynamicVariables['title_projet'][$i]);
+$title_projet_ = AsciiConverter::asciiToString($title_projet[$i]);
  ?>
 <div class="class_img">
     <img src="<?= $img_projet_src1?>" alt="" srcset="">
